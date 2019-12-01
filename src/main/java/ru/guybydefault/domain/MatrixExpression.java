@@ -4,8 +4,9 @@ public class MatrixExpression {
 
     private final Expression expression;
 
-    public MatrixExpression(Expression expr) {
-        expression = expr;
+    public MatrixExpression(String me) {
+        String expr;
+        expression = Expression(expr);
     }
 
     public Expression getExpression() {
