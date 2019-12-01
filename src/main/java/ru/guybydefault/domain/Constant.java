@@ -1,4 +1,4 @@
 package ru.guybydefault.domain;
 
-public class Constant extends Symbol {
+public class Constant extends Expression {
 }

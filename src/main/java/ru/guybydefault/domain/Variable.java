@@ -1,5 +1,5 @@
 package ru.guybydefault.domain;
 
-public class Variable extends Symbol {
+public class Variable extends Expression {
 
 }

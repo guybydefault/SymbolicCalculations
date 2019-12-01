@@ -1,4 +1,5 @@
 package ru.guybydefault.domain;
 
-public class Expression {
+public abstract class Expression {
+
 }
