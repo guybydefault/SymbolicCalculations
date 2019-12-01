@@ -6,13 +6,14 @@ public class MatrixExpression {
 
     Expression expression;
 
-    public MatrixExpression(String expr) {
-        expression = ;
+    public MatrixExpression(Expression expr) {
+        expression = expr;
     }
 
     @Override
     public String toString() {
         String result = "";
 
+        return result;
     }
 }

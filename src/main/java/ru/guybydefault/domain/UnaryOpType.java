@@ -1,14 +1,12 @@
 package ru.guybydefault.domain;
 
-public enum BinaryOpType {
+public enum UnaryOpType {
     PLUS ("plus"),
-    MINUS ("minus"),
-    MULTIPLY ("mult"),
-    DIVIDE ("div");
+    MINUS ("minus");
 
     private String title;
 
-    BinaryOpType(String title) {
+    UnaryOpType(String title) {
         this.title = title;
     }
 
