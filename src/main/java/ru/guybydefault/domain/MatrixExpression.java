@@ -1,13 +1,15 @@
 package ru.guybydefault.domain;
 
-import java.util.ArrayList;
-
 public class MatrixExpression {
 
-    Expression expression;
+    private final Expression expression;
 
     public MatrixExpression(Expression expr) {
         expression = expr;
+    }
+
+    public Expression getExpression() {
+        return expression;
     }
 
     @Override
