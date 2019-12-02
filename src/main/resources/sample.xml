@@ -1,13 +1,13 @@
 <ExpressionInfo>
-    <BinaryOp Name="mMul">
-        <BinaryOp Name="msum">
+    <BinaryOp Name="Mul">
+        <BinaryOp Name="Sum">
             <ApplySymbol Name="m">
                 <ApplySymbol Name="l">
                     <BinaryOp Name="Sum">
                         <Const Value="7"/>
                         <Const Value="8"/>
                     </BinaryOp>
-                    <UnaryOp Name="Sum">
+                    <UnaryOp Name="Plus">
                         <Const>-8</Const>
                     </UnaryOp>
                     <BinaryOp Name="Mul">
@@ -25,7 +25,7 @@
                         <Const Value="4"/>
                     </Function>
                     <Function Name="pow">
-                        <UnaryOp Name="Sub">
+                        <UnaryOp Name="Minus">
                             <Const Value=""/>
                         </UnaryOp>
                         <BinaryOp Name="Mul">
@@ -79,7 +79,7 @@
                         <Const>345</Const>
                         <Const>0.243567</Const>
                     </Function>
-                    <UnaryOp Name="Sub">
+                    <UnaryOp Name="Minus">
                         <Const Value="12"/>
                     </UnaryOp>
                 </ApplySymbol>

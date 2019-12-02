@@ -1,18 +1,27 @@
 package ru.guybydefault.domain;
 
 public enum UnaryOpType {
-    PLUS ("plus"),
-    MINUS ("minus"),
-    TRANSPOSE("transpose");
+    PLUS ("Plus"),
+    MINUS ("Minus"),
+    TRANSPOSE("Transpose");
 
-    private String title;
+    private String name;
 
-    UnaryOpType(String title) {
-        this.title = title;
+    UnaryOpType(String name) {
+        this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
+    }
+
+    public static UnaryOpType findByName(String name) {
+        for (UnaryOpType unaryOpType : values()) {
+            if (unaryOpType.name.equals(name)) {
+                return unaryOpType;
+            }
+        }
+        return null;
     }
 
     public String toString(Expression arg) {

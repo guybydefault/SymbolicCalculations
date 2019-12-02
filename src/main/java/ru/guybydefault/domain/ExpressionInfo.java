@@ -8,9 +8,6 @@ public class ExpressionInfo {
         this.expression = expression;
     }
 
-    public MatrixExpression(Expression e) {
-        this.expression = e;
-    }
 
     public Expression getExpression() {
         return expression;
@@ -26,7 +23,7 @@ public class ExpressionInfo {
                 + "</math>\n";
     }
 
-    public MatrixExpression simplify() {
-        return new MatrixExpression(expression.simplify());
+    public ExpressionInfo simplify() {
+        return new ExpressionInfo(expression.simplify());
     }
 }

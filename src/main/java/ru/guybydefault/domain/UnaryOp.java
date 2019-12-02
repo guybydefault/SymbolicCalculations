@@ -8,7 +8,7 @@ public class UnaryOp implements Expression {
 
     public UnaryOp(String type, Expression arg) {
         this.arg = arg;
-        this.type = UnaryOpType.valueOf(type);
+        this.type = UnaryOpType.findByName(type);
     }
 
     public Expression getArg1() {

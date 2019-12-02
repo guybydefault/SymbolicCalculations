@@ -2,18 +2,27 @@ package ru.guybydefault.domain;
 
 public enum BinaryOpType {
     SUM("Sum"),
-    MINUS ("Sub"),
-    MULTIPLY ("Mul"),
-    DIVIDE ("Div");
+    SUB("Sub"),
+    MUL("Mul"),
+    DIV("Div");
 
-    private final String title;
+    private final String name;
 
-    BinaryOpType(String title) {
-        this.title = title;
+    BinaryOpType(String name) {
+        this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
+    }
+
+    public static BinaryOpType findByName(String name) {
+        for (BinaryOpType binaryOpType : BinaryOpType.values()) {
+            if (binaryOpType.name.equals(name)) {
+                return binaryOpType;
+            }
+        }
+        return null;
     }
 
     public String toString(Expression arg1, Expression arg2) {
@@ -23,17 +32,17 @@ public enum BinaryOpType {
                     + "<mo>+</mo>\n"
                     + arg2.toString()
                     + "<mo>)</mo>\n";
-            case MINUS: return "<mo>(</mo>\n"
+            case SUB: return "<mo>(</mo>\n"
                     + arg1.toString()
                     + "<mo>-</mo>\n"
                     + arg2.toString()
                     + "<mo>)</mo>\n";
-            case MULTIPLY: return "<mo>(</mo>\n"
+            case MUL: return "<mo>(</mo>\n"
                     + arg1.toString()
                     + "<mo>*</mo>\n"
                     + arg2.toString()
                     + "<mo>)</mo>\n";
-            case DIVIDE: return "<mfrac>\n"
+            case DIV: return "<mfrac>\n"
                     + "<mrow>\n"
                     + arg1.toString()
                     + "</mrow>\n"
