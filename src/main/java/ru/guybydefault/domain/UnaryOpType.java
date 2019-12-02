@@ -3,8 +3,7 @@ package ru.guybydefault.domain;
 public enum UnaryOpType {
     PLUS ("plus"),
     MINUS ("minus"),
-    TRANSPOSE("transpose"),
-    MODULE ("module");
+    TRANSPOSE("transpose");
 
     private String title;
 
@@ -21,9 +20,6 @@ public enum UnaryOpType {
             case PLUS: return arg.toString();
             case MINUS: return "<mo>-</mo>\n"
                     + arg.toString();
-            case MODULE: return "<mo>|</mo>\n"
-                    + arg.toString()
-                    + "<mo>|</mo>\n";
             case TRANSPOSE: return "<msup>\n"
                     + "<mrow>\n"
                     + "<mo>(</mo>\n"

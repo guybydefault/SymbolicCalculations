@@ -1,4 +1,5 @@
 package ru.guybydefault.domain;
 
-public abstract class Expression {
+public interface Expression {
+    public Expression simplify();
 }

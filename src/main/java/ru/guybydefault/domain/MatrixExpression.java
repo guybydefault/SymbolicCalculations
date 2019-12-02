@@ -8,6 +8,10 @@ public class MatrixExpression {
         String expr = "";
     }
 
+    public MatrixExpression(Expression e) {
+        this.expression = e;
+    }
+
     public Expression getExpression() {
         return expression;
     }
@@ -20,5 +24,9 @@ public class MatrixExpression {
                 + expression.toString()
                 + "</mrow>\n"
                 + "</math>\n";
+    }
+
+    public MatrixExpression simplify() {
+        return new MatrixExpression(expression.simplify());
     }
 }

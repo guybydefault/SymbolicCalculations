@@ -11,7 +11,8 @@ public enum FunctionType {
     ARCSIN ("arcsin"),
     ARCCOS ("arccos"),
     ARCTG ("arctg"),
-    ARCCTG ("arcctg");
+    ARCCTG ("arcctg"),
+    MODULE ("module");
 
     private String title;
 
@@ -45,6 +46,9 @@ public enum FunctionType {
                     + arg1.toString()
                     + arg2.toString()
                     + "</msup>\n";
+            case MODULE: return "<mo>|</mo>\n"
+                    + arg1.toString()
+                    + "<mo>|</mo>\n";
             //all trigonometric functions looks kinda same
             default: return "<mo>(</mo>\n"
                     + "<mi>"

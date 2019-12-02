@@ -1,6 +1,6 @@
 package ru.guybydefault.domain;
 
-public class Value extends Expression {
+public class Value implements Expression {
 
     private final String value;
     private final ValueType type;
@@ -21,5 +21,10 @@ public class Value extends Expression {
     @Override
     public String toString() {
         return type.toString(value);
+    }
+
+    @Override
+    public Expression simplify() {
+        return null;
     }
 }

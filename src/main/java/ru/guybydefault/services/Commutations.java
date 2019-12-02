@@ -7,14 +7,16 @@ public class Commutations {
 
     public Commutations(MatrixExpression me) {
         this.me = me;
-    } // поперли хиллс
-// TODO: вытащить волосы из-за уха
+    }
+
     public MatrixExpression commutate() {
         MatrixExpression simpleMe = null;
-        while (me != simpleMe) {
-            //callVisitors
-        } // прем по дереву чисто
+        MatrixExpression tmp;
+        while (simpleMe != me) {
+            tmp = simpleMe;
+            simpleMe = me.simplify();
+            me = tmp;
+        }
         return me;
-    } // TODO: переть по дереву
-} // прем
-// пиво курим, водку пьем, по дереву прем
+    }
+}
