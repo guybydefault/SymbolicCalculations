@@ -2,18 +2,24 @@ package ru.guybydefault.domain;
 
 public class Value extends Expression {
 
-    private final String val;
+    private final String value;
+    private final ValueType type;
 
-    public Value(String val) {
-        this.val = val;
+    public Value(String type, String val) {
+        this.type = ValueType.valueOf(type);
+        this.value = val;
     }
 
-    public String getVal() {
-        return this.val;
+    public String getValue() {
+        return value;
+    }
+
+    public ValueType getType() {
+        return type;
     }
 
     @Override
     public String toString() {
-        return "" + this.val + "";
+        return type.toString(value);
     }
 }

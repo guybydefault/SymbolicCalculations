@@ -27,8 +27,6 @@ public class Function extends Expression {
 
     @Override
     public String toString() {
-        String result = "";
-
-        return result;
+        return type.toString(arg1, arg2);
     }
 }

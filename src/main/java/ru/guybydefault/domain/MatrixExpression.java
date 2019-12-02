@@ -5,8 +5,7 @@ public class MatrixExpression {
     private final Expression expression;
 
     public MatrixExpression(String me) {
-        String expr;
-        expression = Expression(expr);
+        String expr = "";
     }
 
     public Expression getExpression() {
@@ -15,8 +14,11 @@ public class MatrixExpression {
 
     @Override
     public String toString() {
-        String result = "";
-
-        return result;
+        return  "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                + "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">"
+                + "<mrow>"
+                + expression.toString()
+                + "</mrow> "
+                + "</math>";
     }
 }

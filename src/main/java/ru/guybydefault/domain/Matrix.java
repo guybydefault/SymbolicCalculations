@@ -28,8 +28,15 @@ public class Matrix extends Expression {
 
     @Override
     public String toString() {
-        String result = "";
-
-        return result;
+        StringBuilder result = new StringBuilder("<mo>[</mo>\n"
+                + "<mtable>\n");
+        for (int i = 0; i < height; i++) {
+            result.append("<mtr>\n");
+            for (int j = 0; j < width; j++) {
+                result.append("<mtd>\n").append(matrix.get(i).get(j).toString()).append("</mtd>\n");
+            }
+            result.append("</mtr>\n");
+        }
+        return result.append("</mtable>\n<mo>]</mo>\n").toString();
     }
 }
