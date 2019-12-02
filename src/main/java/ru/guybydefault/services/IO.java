@@ -1,4 +1,4 @@
-package ru.guybydefault;
+package ru.guybydefault.services;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
