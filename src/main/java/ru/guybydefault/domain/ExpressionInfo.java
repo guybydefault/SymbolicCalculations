@@ -1,11 +1,11 @@
 package ru.guybydefault.domain;
 
-public class MatrixExpression {
+public class ExpressionInfo {
 
     private final Expression expression;
 
-    public MatrixExpression(String me) {
-        String expr = "";
+    public ExpressionInfo(Expression expression) {
+        this.expression = expression;
     }
 
     public Expression getExpression() {

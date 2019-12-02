@@ -8,9 +8,9 @@ public class BinaryOp extends Expression {
     private final BinaryOpType type;
 
     public BinaryOp(String type, Expression arg1, Expression arg2) {
+        this.type = BinaryOpType.valueOf(type);
         this.arg1 = arg1;
         this.arg2 = arg2;
-        this.type = BinaryOpType.valueOf(type);
     }
 
     public Expression getArg2() {

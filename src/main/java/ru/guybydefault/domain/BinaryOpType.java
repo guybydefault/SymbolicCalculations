@@ -1,10 +1,10 @@
 package ru.guybydefault.domain;
 
 public enum BinaryOpType {
-    PLUS ("plus"),
-    MINUS ("minus"),
-    MULTIPLY ("mult"),
-    DIVIDE ("div");
+    SUM("Sum"),
+    MINUS ("Sub"),
+    MULTIPLY ("Mul"),
+    DIVIDE ("Div");
 
     private final String title;
 
@@ -18,7 +18,7 @@ public enum BinaryOpType {
 
     public String toString(Expression arg1, Expression arg2) {
         switch (this) {
-            case PLUS: return "<mo>(</mo>\n"
+            case SUM: return "<mo>(</mo>\n"
                     + arg1.toString()
                     + "<mo>+</mo>\n"
                     + arg2.toString()

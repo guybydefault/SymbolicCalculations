@@ -1,5 +1,9 @@
 package ru.guybydefault;
 
+import ru.guybydefault.domain.ExpressionInfo;
+import ru.guybydefault.input.XMLParser;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -7,11 +11,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class IO {
-    public IO() {}
 
-    public String inCustomXml(String filename) throws IOException {
-        return Files.lines(Paths.get(filename), StandardCharsets.UTF_8).toString();
-        //may be some xml special classes
+    private final XMLParser xmlParser = new XMLParser();
+
+    public ExpressionInfo inCustomXml(String filename) throws IOException {
+        return xmlParser.parseExpression(Paths.get(filename).toFile());
     }
 
     public boolean outMathMl(String filename, String expr) throws IOException{
