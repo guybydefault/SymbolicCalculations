@@ -1,4 +1,12 @@
 package ru.guybydefault.visitors.matrix;
 
-public class Add {
+import ru.guybydefault.domain.Expression;
+import ru.guybydefault.visitors.Visitor;
+
+public class Add implements Visitor {
+
+    @Override
+    public Exception visit(Expression expression) {
+        return null;
+    }
 }

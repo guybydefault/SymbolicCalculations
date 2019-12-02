@@ -2,7 +2,7 @@ package ru.guybydefault.domain;
 
 import java.util.ArrayList;
 
-public class Matrix extends Expression {
+public class Matrix implements Expression {
 
     private final int height;
     private final int width;
@@ -38,5 +38,10 @@ public class Matrix extends Expression {
             result.append("</mtr>\n");
         }
         return result.append("</mtable>\n<mo>]</mo>\n").toString();
+    }
+
+    @Override
+    public Expression simplify() {
+        return null;
     }
 }

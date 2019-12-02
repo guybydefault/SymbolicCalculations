@@ -1,6 +1,6 @@
 package ru.guybydefault.domain;
 
-public class UnaryOp extends Expression {
+public class UnaryOp implements Expression {
 
     private final Expression arg;
 
@@ -22,5 +22,9 @@ public class UnaryOp extends Expression {
     @Override
     public String toString() {
         return type.toString(arg);
+    }
+    @Override
+    public Expression simplify() {
+        return null;
     }
 }

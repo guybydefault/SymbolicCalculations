@@ -1,6 +1,6 @@
 package ru.guybydefault.domain;
 
-public class BinaryOp extends Expression {
+public class BinaryOp implements Expression {
 
     private final Expression arg1;
     private final Expression arg2;
@@ -21,12 +21,17 @@ public class BinaryOp extends Expression {
         return arg1;
     }
 
-    public BinaryOpType getType() {
+    private BinaryOpType getType() {
         return type;
     }
 
     @Override
     public String toString() {
         return type.toString(arg1, arg2);
+    }
+
+    @Override
+    public Expression simplify() {
+        return null;
     }
 }

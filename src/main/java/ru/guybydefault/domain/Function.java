@@ -1,6 +1,7 @@
 package ru.guybydefault.domain;
 
-public class Function extends Expression {
+
+public class Function implements Expression {
 
     private final Expression arg1;
     private final Expression arg2;
@@ -21,12 +22,17 @@ public class Function extends Expression {
         return arg2;
     }
 
-    public FunctionType getType() {
+    private FunctionType getType() {
         return type;
     }
 
     @Override
     public String toString() {
         return type.toString(arg1, arg2);
+    }
+
+    @Override
+    public Expression simplify() {
+        return null;
     }
 }
