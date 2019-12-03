@@ -28,7 +28,7 @@ public class Matrix implements Expression {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("<mo>[</mo>\n"
+        StringBuilder result = new StringBuilder("<mfenced separators=\"\" open=\"[\" close=\"]\">\n"
                 + "<mtable>\n");
         for (int i = 0; i < height; i++) {
             result.append("<mtr>\n");
@@ -37,7 +37,7 @@ public class Matrix implements Expression {
             }
             result.append("</mtr>\n");
         }
-        return result.append("</mtable>\n<mo>]</mo>\n").toString();
+        return result.append("</mtable>\n</mfenced>\n").toString();
     }
 
     @Override

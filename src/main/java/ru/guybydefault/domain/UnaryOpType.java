@@ -31,9 +31,9 @@ public enum UnaryOpType {
                     + arg.toString();
             case TRANSPOSE: return "<msup>\n"
                     + "<mrow>\n"
-                    + "<mo>(</mo>\n"
+                    + "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                     + arg.toString()
-                    + "<mo>)</mo>\n"
+                    + "</mfenced>\n"
                     + "</mrow>\n"
                     + "<mi>T</mi>\n"
                     + "</msup>\n";

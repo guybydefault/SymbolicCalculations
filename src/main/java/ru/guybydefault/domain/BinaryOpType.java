@@ -27,21 +27,21 @@ public enum BinaryOpType {
 
     public String toString(Expression arg1, Expression arg2) {
         switch (this) {
-            case SUM: return "<mo>(</mo>\n"
+            case SUM: return "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                     + arg1.toString()
                     + "<mo>+</mo>\n"
                     + arg2.toString()
-                    + "<mo>)</mo>\n";
-            case SUB: return "<mo>(</mo>\n"
+                    + "</mfenced>\n";
+            case SUB: return "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                     + arg1.toString()
                     + "<mo>-</mo>\n"
                     + arg2.toString()
-                    + "<mo>)</mo>\n";
-            case MUL: return "<mo>(</mo>\n"
+                    + "</mfenced>\n";
+            case MUL: return "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                     + arg1.toString()
                     + "<mo>*</mo>\n"
                     + arg2.toString()
-                    + "<mo>)</mo>\n";
+                    + "</mfenced>\n";
             case DIV: return "<mfrac>\n"
                     + "<mrow>\n"
                     + arg1.toString()

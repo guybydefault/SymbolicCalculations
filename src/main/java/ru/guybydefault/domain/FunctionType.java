@@ -38,15 +38,17 @@ public enum FunctionType {
             case LOG:
                 if (arg2 == null) {
                     return "<mi>ln</mi>\n"
-                            + "<mo>(</mo>"
+                            + "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                             + arg1.toString()
-                            + "<mo>)</mo>";
+                            + "</mfenced>\n";
                 } else {
                     return "<msub>\n"
                             + "<mi>log</mi>\n"
                             + arg1.toString()
                             + "</msub>\n"
-                            + "";
+                            + "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
+                            + arg2.toString()
+                            + "</mfenced>\n";
                 }
             case EXP:
                 return "<msup>\n"
@@ -55,23 +57,27 @@ public enum FunctionType {
                         + "</msup>\n";
             case POW:
                 return "<msup>\n"
+                        + "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                         + arg1.toString()
+                        + "</mfenced>\n"
+                        + "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                         + arg2.toString()
+                        + "</mfenced>\n"
                         + "</msup>\n";
             case MODULE:
-                return "<mo>|</mo>\n"
+                return "<mfenced separators=\"\" open=\"|\" close=\"|\">\n"
                         + arg1.toString()
-                        + "<mo>|</mo>\n";
+                        + "</mfenced>\n";
             //all trigonometric functions looks kinda same
             default:
-                return "<mo>(</mo>\n"
+                return "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                         + "<mi>"
                         + this.getName()
                         + "</mi>\n"
-                        + "<mo>(</mo>\n"
+                        + "<mfenced separators=\"\" open=\"(\" close=\")\">\n"
                         + arg1.toString()
-                        + "<mo>)</mo>\n"
-                        + "<mo>)</mo>\n";
+                        + "</mfenced>\n"
+                        + "</mfenced>\n";
         }
     }
 }
