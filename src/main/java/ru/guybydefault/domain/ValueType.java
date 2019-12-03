@@ -2,7 +2,9 @@ package ru.guybydefault.domain;
 
 public enum ValueType {
     CONST ("const"),
-    VARIABLE ("var");
+    VARIABLE ("symbol"),
+    PI ("pi"),
+    EXP ("e");
 
     private String title;
 
@@ -17,7 +19,10 @@ public enum ValueType {
     public String toString(String value) {
         switch (this) {
             case CONST: return "<mn>" + value + "</mn>\n";
-            case VARIABLE: return "<mo>" + value + "</mo>\n";
+            case VARIABLE:
+            case PI:
+            case EXP:
+                return "<mo>" + value + "</mo>\n";
             default: throw new IllegalArgumentException("There's no other types in this enum");
         }
     }

@@ -25,6 +25,6 @@ public class Value implements Expression {
 
     @Override
     public Expression simplify() {
-        return null;
+        return this;
     }
 }
