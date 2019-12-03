@@ -3,7 +3,8 @@ package ru.guybydefault.domain;
 public enum UnaryOpType {
     PLUS ("Plus"),
     MINUS ("Minus"),
-    TRANSPOSE("Transpose");
+    TRANSPOSE("Transpose"),
+    DETERMINANT("Determinant");
 
     private String name;
 
@@ -37,6 +38,9 @@ public enum UnaryOpType {
                     + "</mrow>\n"
                     + "<mi>T</mi>\n"
                     + "</msup>\n";
+            case DETERMINANT: return "<mfenced separators=\"\" open=\"|\" close=\"|\">\n"
+                    + arg.toString()
+                    + "</mfenced>\n";
             default: throw new IllegalArgumentException("There's no other types in this enum");
         }
     }
