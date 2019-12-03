@@ -8,10 +8,10 @@ public class Matrix implements Expression {
     private final int width;
     private final Expression[][] matrix;
 
-    public Matrix(int h, int w, ArrayList<ArrayList<Expression>> m) {
-        this.height = h;
-        this.width = w;
-        this.matrix = new Expression[height][width];
+    public Matrix(int height, int width, ArrayList<ArrayList<Expression>> m) {
+        this.height = height;
+        this.width = width;
+        this.matrix = transformToArray(m);
     }
 
     public Expression[][] getMatrix() {
@@ -43,5 +43,15 @@ public class Matrix implements Expression {
     @Override
     public Expression simplify() {
         return null;
+    }
+
+    private Expression[][] transformToArray(ArrayList<ArrayList<Expression>> list) {
+        Expression[][] array = new Expression[list.size()][list.get(0).size()];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                array[i][j] = list.get(i).get(j);
+            }
+        }
+        return array;
     }
 }

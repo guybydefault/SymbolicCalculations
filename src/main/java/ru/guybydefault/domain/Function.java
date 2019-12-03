@@ -8,10 +8,16 @@ public class Function implements Expression {
 
     private final FunctionType type;
 
+    public Function(String type, Expression arg1) {
+        this.arg1 = arg1;
+        this.arg2 = null;
+        this.type = FunctionType.findByName(type);
+    }
+
     public Function(String type, Expression arg1, Expression arg2) {
         this.arg1 = arg1;
         this.arg2 = arg2;
-        this.type = FunctionType.valueOf(type);
+        this.type = FunctionType.findByName(type);
     }
 
     public Expression getArg1() {

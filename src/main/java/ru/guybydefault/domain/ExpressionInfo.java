@@ -8,7 +8,6 @@ public class ExpressionInfo {
         this.expression = expression;
     }
 
-
     public Expression getExpression() {
         return expression;
     }

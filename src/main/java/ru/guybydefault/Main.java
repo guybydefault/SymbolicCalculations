@@ -21,5 +21,4 @@ public class Main {
 
         io.outMathMl(outputFileName, me.toString());
     }
-
 }

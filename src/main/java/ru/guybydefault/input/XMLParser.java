@@ -27,6 +27,8 @@ public class XMLParser {
     private Matrix parseMatrix(Element element) {
         ArrayList<ArrayList<Expression>> matrixExpressionsList = new ArrayList<>();
         Iterator<Element> it = element.elementIterator();
+        int height = 0;
+        int width = 0;
         while (it.hasNext()) {
             Element list = it.next();
             if (!"l".equals(list.attributeValue("Name"))) {
@@ -36,10 +38,24 @@ public class XMLParser {
             Iterator<Element> listIt = list.elementIterator();
             while (listIt.hasNext()) {
                 expressionsList.add(parse(listIt.next()));
+                if (height == 0) {
+                    width++;
+                }
+            }
+            if (height > 0 && expressionsList.size() != width) {
+                throw new IllegalArgumentException("Matrix row #" + (height + 1) + " does not fit width " + width);
             }
             matrixExpressionsList.add(expressionsList);
+            height++;
         }
-        return new Matrix(matrixExpressionsList.size(), matrixExpressionsList.get(0).size(), matrixExpressionsList);
+        return new Matrix(height, width, matrixExpressionsList);
+    }
+
+    private Function parseFunction(Element element) {
+        Iterator<Element> elementIterator = element.elementIterator();
+        Expression arg1 = parse(elementIterator.next());
+        Expression arg2 = elementIterator.hasNext() ? parse(elementIterator.next()) : null;
+        return arg2 == null ? new Function(element.attributeValue("Name"), arg1) : new Function(element.attributeValue("Name"), arg1, arg2);
     }
 
     private Expression parse(Element element) {
@@ -64,7 +80,7 @@ public class XMLParser {
             case "Const":
                 return new Value(ValueType.CONST, element.attributeValue("Value"));
             case "Function":
-
+                return parseFunction(element);
             default:
                 return null;
         }
