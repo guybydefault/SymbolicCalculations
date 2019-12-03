@@ -1,0 +1,106 @@
+<ExpressionInfo>
+    <BinaryOp Name="Mul">
+        <BinaryOp Name="Sum">
+            <ApplySymbol Name="m">
+                <ApplySymbol Name="l">
+                    <BinaryOp Name="Sum">
+                        <Const Value="7"/>
+                        <Const Value="8"/>
+                    </BinaryOp>
+                    <UnaryOp Name="Plus">
+                        <Const>-8</Const>
+                    </UnaryOp>
+                    <BinaryOp Name="Mul">
+                        <Const>-e</Const>
+                        <Const>pi</Const>
+                    </BinaryOp>
+                </ApplySymbol>
+                <ApplySymbol Name="l">
+                    <Function Name="log">
+                        <Const Value="2"/>
+                        <Const Value="4"/>
+                    </Function>
+                    <Function Name="exp">
+                        <Const Value="3"/>
+                        <Const Value="4"/>
+                    </Function>
+                    <Function Name="pow">
+                        <UnaryOp Name="Minus">
+                            <Const Value=""/>
+                        </UnaryOp>
+                        <BinaryOp Name="Mul">
+                            <Const Value="5"/>
+                            <Const Value="6"/>
+                        </BinaryOp>
+                    </Function>
+                </ApplySymbol>
+                <ApplySymbol Name="l">
+                    <BinaryOp Name="Div">
+                        <Const Value=""/>
+                        <Const>30</Const>
+                    </BinaryOp>
+                    <Function Name="sin">
+                        <Const>30</Const>
+                    </Function>
+                    <Function Name="cos">
+                        <Const>30</Const>
+                    </Function>
+                </ApplySymbol>
+            </ApplySymbol>
+            <ApplySymbol Name="m">
+                <ApplySymbol Name="l">
+                    <Function Name="tg">
+                        <Const Value="10"/>
+                    </Function>
+                    <Function Name="ctg">
+                        <Const Value="9"/>
+                    </Function>
+                    <Function Name="arcsin">
+                        <Const>pi</Const>
+                    </Function>
+                </ApplySymbol>
+                <ApplySymbol Name="l">
+                    <Function Name="arccos">
+                        <Const>e</Const>
+                    </Function>
+                    <Function Name="arctg">
+                        <Const>12</Const>
+                    </Function>
+                    <Function Name="arcctg">
+                        <Const>15</Const>
+                    </Function>
+                </ApplySymbol>
+                <ApplySymbol Name="l">
+                    <Function Name="exp">
+                        <Const Value="11"/>
+                        <Const>78</Const>
+                    </Function>
+                    <Function Name="log">
+                        <Const>345</Const>
+                        <Const>0.243567</Const>
+                    </Function>
+                    <UnaryOp Name="Minus">
+                        <Const Value="12"/>
+                    </UnaryOp>
+                </ApplySymbol>
+            </ApplySymbol>
+        </BinaryOp>
+        <ApplySymbol Name="m">
+            <ApplySymbol Name="l">
+                <Symbol Name="x"/>
+                <Const Value="14"/>
+                <Const Value="2"/>
+            </ApplySymbol>
+            <ApplySymbol Name="l">
+                <Const Value="3"/>
+                <Const Value="5"/>
+                <Symbol Name="x"/>
+            </ApplySymbol>
+            <ApplySymbol Name="l">
+                <Const Value="4"/>
+                <Const Value="2"/>
+                <Const Value="1"/>
+            </ApplySymbol>
+        </ApplySymbol>
+    </BinaryOp>
+</ExpressionInfo>

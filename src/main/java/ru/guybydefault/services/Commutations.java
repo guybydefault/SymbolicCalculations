@@ -1,17 +1,17 @@
 package ru.guybydefault.services;
 
-import ru.guybydefault.domain.MatrixExpression;
+import ru.guybydefault.domain.ExpressionInfo;
 
 public class Commutations {
-    private MatrixExpression me;
+    private ExpressionInfo me;
 
-    public Commutations(MatrixExpression me) {
+    public Commutations(ExpressionInfo me) {
         this.me = me;
     }
 
-    public MatrixExpression commutate() {
-        MatrixExpression simpleMe = null;
-        MatrixExpression tmp;
+    public ExpressionInfo commutate() {
+        ExpressionInfo simpleMe = null;
+        ExpressionInfo tmp;
         while (simpleMe != me) {
             tmp = simpleMe;
             simpleMe = me.simplify();

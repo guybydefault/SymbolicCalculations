@@ -5,8 +5,8 @@ public class Value implements Expression {
     private final String value;
     private final ValueType type;
 
-    public Value(String type, String val) {
-        this.type = ValueType.valueOf(type);
+    public Value(ValueType type, String val) {
+        this.type = type;
         this.value = val;
     }
 

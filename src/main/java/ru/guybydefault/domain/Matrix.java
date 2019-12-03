@@ -6,15 +6,15 @@ public class Matrix implements Expression {
 
     private final int height;
     private final int width;
-    private final ArrayList<ArrayList<Expression>> matrix;
+    private final Expression[][] matrix;
 
-    public Matrix(int h, int w, ArrayList<ArrayList<Expression>> m) {
-        this.height = h;
-        this.width = w;
-        this.matrix = m;
+    public Matrix(int height, int width, ArrayList<ArrayList<Expression>> m) {
+        this.height = height;
+        this.width = width;
+        this.matrix = transformToArray(m);
     }
 
-    public ArrayList<ArrayList<Expression>> getMatrix() {
+    public Expression[][] getMatrix() {
         return matrix;
     }
 
@@ -33,7 +33,7 @@ public class Matrix implements Expression {
         for (int i = 0; i < height; i++) {
             result.append("<mtr>\n");
             for (int j = 0; j < width; j++) {
-                result.append("<mtd>\n").append(matrix.get(i).get(j).toString()).append("</mtd>\n");
+                result.append("<mtd>\n").append(matrix[i][j].toString()).append("</mtd>\n");
             }
             result.append("</mtr>\n");
         }
@@ -43,5 +43,15 @@ public class Matrix implements Expression {
     @Override
     public Expression simplify() {
         return null;
+    }
+
+    private Expression[][] transformToArray(ArrayList<ArrayList<Expression>> list) {
+        Expression[][] array = new Expression[list.size()][list.get(0).size()];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                array[i][j] = list.get(i).get(j);
+            }
+        }
+        return array;
     }
 }

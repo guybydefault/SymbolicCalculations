@@ -1,15 +1,11 @@
 package ru.guybydefault.domain;
 
-public class MatrixExpression {
+public class ExpressionInfo {
 
     private final Expression expression;
 
-    public MatrixExpression(String me) {
-        String expr = "";
-    }
-
-    public MatrixExpression(Expression e) {
-        this.expression = e;
+    public ExpressionInfo(Expression expression) {
+        this.expression = expression;
     }
 
     public Expression getExpression() {
@@ -26,7 +22,7 @@ public class MatrixExpression {
                 + "</math>\n";
     }
 
-    public MatrixExpression simplify() {
-        return new MatrixExpression(expression.simplify());
+    public ExpressionInfo simplify() {
+        return new ExpressionInfo(expression.simplify());
     }
 }
