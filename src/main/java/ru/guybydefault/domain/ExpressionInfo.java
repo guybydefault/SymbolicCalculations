@@ -23,6 +23,6 @@ public class ExpressionInfo {
     }
 
     public ExpressionInfo simplify() {
-        return new ExpressionInfo(expression.simplify());
+        return new ExpressionInfo(expression.evaluate());
     }
 }

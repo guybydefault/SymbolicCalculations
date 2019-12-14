@@ -1,5 +1,9 @@
 package ru.guybydefault.domain;
 
+import ru.guybydefault.services.Serializer;
+import ru.guybydefault.visitors.Evaluator;
+
 public interface Expression {
-    public Expression simplify();
+    Expression evaluate(Evaluator visitor);
+    String serialize(Serializer serializer);
 }

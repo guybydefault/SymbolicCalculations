@@ -1,5 +1,8 @@
 package ru.guybydefault.domain;
 
+import ru.guybydefault.services.Serializer;
+import ru.guybydefault.visitors.Evaluator;
+
 public class Value implements Expression {
 
     private final String value;
@@ -24,7 +27,12 @@ public class Value implements Expression {
     }
 
     @Override
-    public Expression simplify() {
-        return this;
+    public Expression evaluate(Evaluator visitor) {
+        return visitor.evaluate(this);
+    }
+
+    @Override
+    public String serialize(Serializer serializer) {
+        return serializer.serialize(this);
     }
 }

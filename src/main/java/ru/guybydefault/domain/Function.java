@@ -1,6 +1,8 @@
 package ru.guybydefault.domain;
 
 
+import ru.guybydefault.visitors.Evaluator;
+
 public class Function implements Expression {
 
     private final Expression arg1;
@@ -38,7 +40,7 @@ public class Function implements Expression {
     }
 
     @Override
-    public Expression simplify() {
-        return null;
+    public void evaluate(Evaluator visitor) {
+        visitor.visit(this);
     }
 }

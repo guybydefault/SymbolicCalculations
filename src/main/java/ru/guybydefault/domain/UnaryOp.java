@@ -1,5 +1,7 @@
 package ru.guybydefault.domain;
 
+import ru.guybydefault.visitors.Evaluator;
+
 public class UnaryOp implements Expression {
 
     private final Expression arg;
@@ -23,8 +25,9 @@ public class UnaryOp implements Expression {
     public String toString() {
         return type.toString(arg);
     }
+
     @Override
-    public Expression simplify() {
-        return null;
+    public Expression evaluate(Evaluator visitor) {
+        return visitor.visit(this, arg);
     }
 }

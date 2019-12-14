@@ -1,5 +1,7 @@
 package ru.guybydefault.domain;
 
+import ru.guybydefault.visitors.Evaluator;
+
 import java.util.ArrayList;
 
 public class Matrix implements Expression {
@@ -40,9 +42,10 @@ public class Matrix implements Expression {
         return result.append("</mtable>\n</mfenced>\n").toString();
     }
 
+
     @Override
-    public Expression simplify() {
-        return null;
+    public Expression evaluate(Evaluator visitor) {
+      return visitor.evaluate(this);
     }
 
     private Expression[][] transformToArray(ArrayList<ArrayList<Expression>> list) {
