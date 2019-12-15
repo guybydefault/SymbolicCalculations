@@ -26,7 +26,7 @@ public class XMLParser {
     }
 
     private Matrix parseMatrix(Element element) {
-        ArrayList<ArrayList<Expression>> matrixExpressionsList = new ArrayList<>();
+        ArrayList<ArrayList<MatrixExpression>> matrixExpressionsList = new ArrayList<>();
         Iterator<Element> it = element.elementIterator();
         int height = 0;
         int width = 0;
@@ -35,7 +35,7 @@ public class XMLParser {
             if (!"l".equals(list.attributeValue("Name"))) {
                 throw new IllegalArgumentException("Only Symbol[Name='l'] are allowed inside Symbol[Name='m']");
             }
-            ArrayList<Expression> expressionsList = new ArrayList<>();
+            ArrayList<MatrixExpression> expressionsList = new ArrayList<>();
             Iterator<Element> listIt = list.elementIterator();
             while (listIt.hasNext()) {
                 expressionsList.add(parse(listIt.next()));
@@ -54,12 +54,12 @@ public class XMLParser {
 
     private Function parseFunction(Element element) {
         Iterator<Element> elementIterator = element.elementIterator();
-        Expression arg1 = parse(elementIterator.next());
-        Expression arg2 = elementIterator.hasNext() ? parse(elementIterator.next()) : null;
+        MatrixExpression arg1 = parse(elementIterator.next());
+        MatrixExpression arg2 = elementIterator.hasNext() ? parse(elementIterator.next()) : null;
         return arg2 == null ? new Function(element.attributeValue("Name"), arg1) : new Function(element.attributeValue("Name"), arg1, arg2);
     }
 
-    private Expression parse(Element element) {
+    private MatrixExpression parse(Element element) {
         switch (element.getName()) {
             case "ExpressionInfo":
                 return parse(element.elementIterator().next());

@@ -3,7 +3,7 @@ package ru.guybydefault.domain;
 import ru.guybydefault.services.Serializer;
 import ru.guybydefault.visitors.Evaluator;
 
-public class Value implements Expression {
+public class Value implements OrdinaryExpression {
 
     private final String value;
     private final ValueType type;
@@ -27,7 +27,7 @@ public class Value implements Expression {
     }
 
     @Override
-    public Expression evaluate(Evaluator visitor) {
+    public OrdinaryExpression evaluate(Evaluator visitor) {
         return visitor.evaluate(this);
     }
 

@@ -33,7 +33,7 @@ public enum FunctionType {
         return null;
     }
 
-    public String toString(Expression arg1, Expression arg2) {
+    public String toString(OrdinaryExpression arg1, OrdinaryExpression arg2) {
         switch (this) {
             case LOG:
                 if (arg2 == null) {

@@ -9,37 +9,37 @@ import ru.guybydefault.domain.operations.matrix.MatrixSum;
 
 public interface Evaluator {
 
-     default Expression evaluate(Matrix matrix) {
+     default MatrixExpression evaluate(Matrix matrix) {
           return matrix;
      }
 
-     default Expression evaluate(UnaryOp unaryOp) {
+     default OrdinaryExpression evaluate(UnaryOp unaryOp) {
           return unaryOp;
      }
 
-     default Expression evaluate(BinaryOp binaryOp) {
+     default OrdinaryExpression evaluate(BinaryOp binaryOp) {
           return binaryOp;
      }
 
-     default Expression evaluate(Value value) {
+     default OrdinaryExpression evaluate(Value value) {
           return value;
      }
 
-     default Expression evaluate(Function function) {
+     default OrdinaryExpression evaluate(Function function) {
           return function;
      }
 
-     default Expression evaluate(MatrixMultiplicate matrixMultiplicate) {
+     default MatrixExpression evaluate(MatrixMultiplicate matrixMultiplicate) {
           return matrixMultiplicate;
      }
 
-     default Expression evaluate(MatrixSubtract matrixSubtract) {
+     default MatrixExpression evaluate(MatrixSubtract matrixSubtract) {
           return matrixSubtract;
      };
 
-     default Expression evaluate(MatrixSum matrixSum) {
+     default MatrixExpression evaluate(MatrixSum matrixSum) {
           return matrixSum;
      };
 
-     default Expression evaluate(Multiplicate multiplicate) { return multiplicate; }
+     default OrdinaryExpression evaluate(Multiplicate multiplicate) { return multiplicate; }
 }

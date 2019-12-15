@@ -1,6 +1,6 @@
 package ru.guybydefault.domain.operations.matrix;
 
-import ru.guybydefault.domain.Expression;
+import ru.guybydefault.domain.MatrixExpression;
 import ru.guybydefault.services.Serializer;
 import ru.guybydefault.visitors.Evaluator;
 
@@ -10,7 +10,7 @@ public class MatrixSum extends MatrixBinaryOperation {
     }
 
     @Override
-    public Expression evaluate(Evaluator visitor) {
+    public MatrixExpression evaluate(Evaluator visitor) {
         return visitor.evaluate(this);
     }
 

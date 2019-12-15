@@ -1,8 +1,12 @@
 package ru.guybydefault.services;
 
+import ru.guybydefault.domain.Function;
+import ru.guybydefault.domain.Matrix;
+import ru.guybydefault.domain.UnaryOp;
 import ru.guybydefault.domain.Value;
 import ru.guybydefault.domain.operations.Divide;
 import ru.guybydefault.domain.operations.Multiplicate;
+import ru.guybydefault.domain.operations.Subtract;
 import ru.guybydefault.domain.operations.Sum;
 import ru.guybydefault.domain.operations.matrix.MatrixMultiplicate;
 import ru.guybydefault.domain.operations.matrix.MatrixSubtract;
@@ -21,4 +25,11 @@ public interface Serializer {
 
     String serialize(Value value);
 
+    String serialize(Matrix matrix);
+
+    String serialize(Function function);
+
+    String serialize(UnaryOp unaryOp);
+
+    String serialize(Subtract subtract);
 }

@@ -1,8 +1,9 @@
 package ru.guybydefault.services;
 
-import ru.guybydefault.domain.Expression;
+import ru.guybydefault.domain.*;
 import ru.guybydefault.domain.operations.Divide;
 import ru.guybydefault.domain.operations.Multiplicate;
+import ru.guybydefault.domain.operations.Subtract;
 import ru.guybydefault.domain.operations.Sum;
 import ru.guybydefault.domain.operations.matrix.MatrixMultiplicate;
 import ru.guybydefault.domain.operations.matrix.MatrixSubtract;
@@ -39,6 +40,40 @@ public class MathMLSerializer implements Serializer {
     @Override
     public String serialize(Multiplicate multiplicate) {
         return serializeOperation(multiplicate.getArg1(), multiplicate.getArg2(), "*");
+    }
+
+    @Override
+    public String serialize(Value value) {
+        return null;
+    }
+
+    @Override
+    public String serialize(Matrix matrix) {
+        StringBuilder result = new StringBuilder("<mfenced separators=\"\" open=\"[\" close=\"]\">\n"
+                + "<mtable>\n");
+        for (int i = 0; i < matrix.getHeight(); i++) {
+            result.append("<mtr>\n");
+            for (int j = 0; j < matrix.getWidth(); j++) {
+                result.append("<mtd>\n").append(matrix.getMatrix()[i][j].toString()).append("</mtd>\n");
+            }
+            result.append("</mtr>\n");
+        }
+        return result.append("</mtable>\n</mfenced>\n").toString();
+    }
+
+    @Override
+    public String serialize(Function function) {
+        return function.getType().toString(function.getArg1(), function.getArg2());;
+    }
+
+    @Override
+    public String serialize(UnaryOp unaryOp) {
+        return null;
+    }
+
+    @Override
+    public String serialize(Subtract subtract) {
+        return null;
     }
 
     private String serializeDivOperation(Expression arg1, Expression arg2) {

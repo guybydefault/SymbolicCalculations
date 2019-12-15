@@ -1,9 +1,9 @@
 package ru.guybydefault.domain.operations.matrix;
 
 
-import ru.guybydefault.domain.Expression;
+import ru.guybydefault.domain.MatrixExpression;
 
-public abstract class MatrixBinaryOperation implements Expression {
+public abstract class MatrixBinaryOperation implements MatrixExpression {
 
     private final MatrixBinaryOperation arg1;
     private final MatrixBinaryOperation arg2;

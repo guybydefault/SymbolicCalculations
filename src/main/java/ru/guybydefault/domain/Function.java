@@ -1,46 +1,49 @@
 package ru.guybydefault.domain;
 
 
+import ru.guybydefault.services.Serializer;
 import ru.guybydefault.visitors.Evaluator;
 
-public class Function implements Expression {
+public class Function implements OrdinaryExpression {
 
-    private final Expression arg1;
-    private final Expression arg2;
+    private final OrdinaryExpression arg1;
+    private final OrdinaryExpression arg2;
 
     private final FunctionType type;
 
-    public Function(String type, Expression arg1) {
+    public Function(String type, OrdinaryExpression arg1) {
         this.arg1 = arg1;
         this.arg2 = null;
         this.type = FunctionType.findByName(type);
     }
 
-    public Function(String type, Expression arg1, Expression arg2) {
+    public Function(String type, OrdinaryExpression arg1, OrdinaryExpression arg2) {
         this.arg1 = arg1;
         this.arg2 = arg2;
         this.type = FunctionType.findByName(type);
     }
 
-    public Expression getArg1() {
+    public OrdinaryExpression getArg1() {
         return arg1;
     }
 
-    public Expression getArg2() {
+    public OrdinaryExpression getArg2() {
         return arg2;
     }
 
-    private FunctionType getType() {
+    public FunctionType getType() {
         return type;
     }
 
+
+
     @Override
-    public String toString() {
-        return type.toString(arg1, arg2);
+    public OrdinaryExpression evaluate(Evaluator visitor) {
+       return visitor.evaluate(this);
     }
 
     @Override
-    public void evaluate(Evaluator visitor) {
-        visitor.visit(this);
+    public String serialize(Serializer serializer) {
+        return serializer.serialize(this);
     }
 }

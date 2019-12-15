@@ -25,7 +25,7 @@ public enum UnaryOpType {
         return null;
     }
 
-    public String toString(Expression arg) {
+    public String toString(MatrixExpression arg) {
         switch (this) {
             case PLUS: return arg.toString();
             case MINUS: return "<mo>-</mo>\n"

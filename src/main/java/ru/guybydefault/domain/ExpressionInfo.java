@@ -2,13 +2,13 @@ package ru.guybydefault.domain;
 
 public class ExpressionInfo {
 
-    private final Expression expression;
+    private final MatrixExpression expression;
 
-    public ExpressionInfo(Expression expression) {
+    public ExpressionInfo(MatrixExpression expression) {
         this.expression = expression;
     }
 
-    public Expression getExpression() {
+    public MatrixExpression getExpression() {
         return expression;
     }
 

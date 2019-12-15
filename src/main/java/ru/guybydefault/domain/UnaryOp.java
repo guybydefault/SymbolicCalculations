@@ -1,19 +1,20 @@
 package ru.guybydefault.domain;
 
+import ru.guybydefault.services.Serializer;
 import ru.guybydefault.visitors.Evaluator;
 
-public class UnaryOp implements Expression {
+public class UnaryOp implements OrdinaryExpression {
 
-    private final Expression arg;
+    private final OrdinaryExpression arg;
 
     private final UnaryOpType type;
 
-    public UnaryOp(String type, Expression arg) {
+    public UnaryOp(String type, OrdinaryExpression arg) {
         this.arg = arg;
         this.type = UnaryOpType.findByName(type);
     }
 
-    public Expression getArg1() {
+    public OrdinaryExpression getArg1() {
         return arg;
     }
 
@@ -21,13 +22,14 @@ public class UnaryOp implements Expression {
         return type;
     }
 
+
     @Override
-    public String toString() {
-        return type.toString(arg);
+    public OrdinaryExpression evaluate(Evaluator visitor) {
+        return visitor.evaluate(this);
     }
 
     @Override
-    public Expression evaluate(Evaluator visitor) {
-        return visitor.visit(this, arg);
+    public String serialize(Serializer serializer) {
+        return serializer.serialize(this);
     }
 }
