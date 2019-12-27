@@ -4,8 +4,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
-import ru.guybydefault.domain.ExpressionInfo;
-import ru.guybydefault.services.XMLParser;
+import ru.guybydefault.old.domain.ExpressionInfo;
+import ru.guybydefault.old.services.XMLParser;
 
 import java.io.IOException;
 import java.nio.file.Files;

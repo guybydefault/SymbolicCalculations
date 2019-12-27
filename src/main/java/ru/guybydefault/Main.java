@@ -1,7 +1,7 @@
 package ru.guybydefault;
 
-import ru.guybydefault.domain.ExpressionInfo;
-import ru.guybydefault.services.IO;
+import ru.guybydefault.old.domain.ExpressionInfo;
+import ru.guybydefault.old.services.IO;
 
 import java.io.IOException;
 
@@ -16,9 +16,17 @@ public class Main {
         String inputFileName = args[0];
         String outputFileName = args[1];
 
-        IO io = new IO();
-        ExpressionInfo me = io.inCustomXml(inputFileName);
+        Symbol symbol = null; // TODO parse from XML
+        Context context = new Context();
+        CalculationResult calculationResult = context.run(symbol);
 
-        io.outMathMl(outputFileName, me.toString());
+
+        // calculationResult.getResult(); TODO transform to MathML
+
+//        IO io = new IO();
+//        ExpressionInfo me = io.inCustomXml(inputFileName);
+
+
+//        io.outMathMl(outputFileName, me.toString());
     }
 }
