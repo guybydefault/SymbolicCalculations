@@ -28,4 +28,8 @@ public final class StringSymbol extends Symbol {
     protected <T> T visitImplementation(ISymbolVisitor<T> visitor) {
         return visitor.visitSymbol(this);
     }
+
+    public boolean equals(StringSymbol other) {
+        return this.name.equals(other.name);
+    }
 }

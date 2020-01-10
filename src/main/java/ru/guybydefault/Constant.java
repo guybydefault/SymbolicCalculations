@@ -17,5 +17,7 @@ public class Constant extends Symbol {
         return visitor.visitConstant(this);
     }
 
-
+    public boolean equals(Constant other) {
+        return this.value == other.value;
+    }
 }
