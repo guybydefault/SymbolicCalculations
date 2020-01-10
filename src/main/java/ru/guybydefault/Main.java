@@ -1,5 +1,6 @@
 package ru.guybydefault;
 
+import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.old.domain.ExpressionInfo;
 import ru.guybydefault.old.services.IO;
 
@@ -19,14 +20,12 @@ public class Main {
         Symbol symbol = null; // TODO parse from XML
         Context context = new Context();
         CalculationResult calculationResult = context.run(symbol);
-
-
         // calculationResult.getResult(); TODO transform to MathML
 
-//        IO io = new IO();
-//        ExpressionInfo me = io.inCustomXml(inputFileName);
+        IO io = new IO();
+        ExpressionInfo me = io.inCustomXml(inputFileName);
 
 
-//        io.outMathMl(outputFileName, me.toString());
+        io.outMathMl(outputFileName, me.toString());
     }
 }

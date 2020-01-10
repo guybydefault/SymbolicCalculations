@@ -1,5 +1,7 @@
 package ru.guybydefault;
 
+import ru.guybydefault.domain.StringSymbol;
+
 public class Attributes {
     public static final StringSymbol HoldAll = new StringSymbol("HoldAll");
     public static final StringSymbol HoldRest = new StringSymbol("HoldRest");
