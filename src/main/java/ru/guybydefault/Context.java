@@ -1,5 +1,7 @@
 package ru.guybydefault;
 
+import ru.guybydefault.domain.Symbol;
+
 import java.util.LinkedList;
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package ru.guybydefault;
+package ru.guybydefault.domain;
+
+import ru.guybydefault.ISymbolVisitor;
 
 import java.util.List;
 
