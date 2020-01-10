@@ -9,6 +9,11 @@ public final  class Expression extends Symbol {
     private Symbol head;
     private List<Symbol> arguments;
 
+    public Expression(Symbol hesd, List<Symbol> arguments) {
+        this.head = hesd;
+        this.arguments = arguments;
+    }
+
     @Override
     protected Object visitImplementation(ISymbolVisitor visitor) {
         return visitor.visitExpression(this);
