@@ -7,6 +7,7 @@ import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.dsl.library.Functions;
 
+
 public class ApplyListImplementation extends AbstractFunctionImplementation {
 
     private final StringSymbol[] names = new StringSymbol[] {Functions.ApplyList};
@@ -24,7 +25,10 @@ public class ApplyListImplementation extends AbstractFunctionImplementation {
             return expression;
         }
 
-        return
-                func[list?.Arguments?.ToArray()];
+        try {
+            return new Expression(func, list.getArguments());
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

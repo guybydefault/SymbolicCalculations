@@ -7,6 +7,9 @@ import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.functions.ListFunctions;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class RangeImplementation extends AbstractFunctionImplementation  {
     private final StringSymbol[] names = new StringSymbol[] {ListFunctions.Range};
 
@@ -24,14 +27,13 @@ public class RangeImplementation extends AbstractFunctionImplementation  {
             return expression;
         }
 
-        var step = (to.Value - @from.Value) / amount.Value;
+        Double step = (to.getValue() - from.getValue()) / amount.getValue();
 
-        return List[
-                Enumerable.Range(0, Math.Abs((int) amount.Value))
-                        .Select(i => from.Value + i * step)
-                    .Select(x => new Constant(x))
-                    .OfType<Symbol>()
-                .ToArray()
-            ];
+        return new Expression(ListFunctions.List,
+                IntStream.rangeClosed(0, Math.abs((int)amount.getValue()))
+                        .boxed().collect(Collectors.toList())
+                        .stream().map(i -> from.getValue() + i * step)
+                        .map(x -> new Constant(x))
+                        .collect(Collectors.toList()));
     }
 }

@@ -7,6 +7,10 @@ import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.functions.ArithmeticFunctions;
 
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 public class PlusImplementation extends AbstractFunctionImplementation  {
     private final StringSymbol[] names = new StringSymbol[] {ArithmeticFunctions.BinaryPlus, ArithmeticFunctions.Plus};
 
@@ -16,17 +20,16 @@ public class PlusImplementation extends AbstractFunctionImplementation  {
 
     @Override
     protected Symbol Evaluate(Expression expression) {
-        Constant[] constants = expression.getArguments()
-                .Select(x => x.visit(new AsConstantVisitor()))
-                .ToList();
+        List<Constant> constants = expression.getArguments().stream()
+                .map(x -> (Constant) x.visit(new AsConstantVisitor()))
+                .collect(Collectors.toList());
 
-        if (constants.Any(x => x == null)) {
+        if (constants.contains(null)) {
             return expression;
-        }
+        } //почему так? получается, если там вообще есть пустой элемент хотя бы один
+        //а логичнее мне кажется, чтобы все элементы были пустые
 
-        return constants
-                .Where(x => x != null)
-                .Select(x => x.Value)
-                .Aggregate(0m, (acc, x) => acc + x);
+        return new Constant(constants.stream().filter(Objects::nonNull)
+                .map(Constant::getValue).reduce(1.0, Double::sum));
     }
 }

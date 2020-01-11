@@ -7,6 +7,9 @@ import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.functions.ListFunctions;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class GenerateListImplementation extends AbstractFunctionImplementation  {
     private final StringSymbol[] names = new StringSymbol[] {ListFunctions.GenerateList};
 
@@ -18,11 +21,10 @@ public class GenerateListImplementation extends AbstractFunctionImplementation  
     protected Symbol Evaluate(Expression expression) {
         Constant count = (Constant) expression.getArguments().get(0).visit(new AsConstantVisitor());
 
-        return List[
-                Enumerable.Range(0, (int) count.Value)
-                        .Select(x => new Constant(x))
-                    .OfType<Symbol>()
-                .ToArray()
-            ];
+        return new Expression(ListFunctions.List,
+                IntStream.rangeClosed(0, (int)count.getValue())
+                .boxed().collect(Collectors.toList())
+                .stream().map(x -> new Constant(x))
+                .collect(Collectors.toList()));
     }
 }
