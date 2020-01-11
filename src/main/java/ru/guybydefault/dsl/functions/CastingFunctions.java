@@ -25,7 +25,7 @@ public class CastingFunctions {
                 new Expression(BooleanFunctions.Not, Collections.singletonList(
                         new Expression(BooleanFunctions.Eq, Arrays.asList(
                                 new Expression(AsConstant, Collections.singletonList(Alphabet.x)),
-                                null))))));
+                                Null))))));
     }
 //    Fun[x,
 //    Not[Eq[AsConstant[x], Null]]
@@ -35,7 +35,7 @@ public class CastingFunctions {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                 new Expression(BooleanFunctions.Not, Arrays.asList(
                         new Expression(AsStringSymbol, Collections.singletonList(Alphabet.x)),
-                        null))));
+                        Null))));
     }
 //    Fun[x,
 //    Not[Eq[AsStringSymbol[x], Null]]
@@ -49,7 +49,7 @@ public class CastingFunctions {
                                         new Expression(AsExpressionArgs, Arrays.asList(
                                                 new StringSymbol("name'"),
                                                 new StringSymbol("expression'"))),
-                                        null))))))));
+                                        Null))))))));
     }
 //    Fun["name'", Fun["expression'",
 //    Not[Eq[AsExpressionArgs["name'", "expression'"], Null]]
@@ -59,7 +59,7 @@ public class CastingFunctions {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                 new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
                         new Expression(BooleanFunctions.If, Arrays.asList(
-                                new Expression(BooleanFunctions.Eq, Arrays.asList(Alphabet.x, null)),
+                                new Expression(BooleanFunctions.Eq, Arrays.asList(Alphabet.x, Null)),
                                 Alphabet.y, Alphabet.x))))));
     }
 //    Fun[x, Fun[y,
