@@ -55,7 +55,7 @@ public class CastingFunctions {
 //    Not[Eq[AsExpressionArgs["name'", "expression'"], Null]]
 //            ]];
 
-    public static Expression DefaultValueImplementation(){
+    public static Expression DefaultValueImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                 new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
                         new Expression(BooleanFunctions.If, Arrays.asList(
