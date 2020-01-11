@@ -5,19 +5,26 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 
-public class AsStringSymbolVisitor implements ISymbolVisitor {
+public class AsStringSymbolVisitor implements ISymbolVisitor<StringSymbol> {
+
+    private static final AsStringSymbolVisitor instance = new AsStringSymbolVisitor();
+
     @Override
-    public Object visitExpression(Expression expression) {
+    public StringSymbol visitExpression(Expression expression) {
         return null;
     }
 
     @Override
-    public Object visitSymbol(StringSymbol symbol) {
+    public StringSymbol visitSymbol(StringSymbol symbol) {
         return symbol;
     }
 
     @Override
-    public Object visitConstant(Constant constant) {
+    public StringSymbol visitConstant(Constant constant) {
         return null;
+    }
+
+    public static AsStringSymbolVisitor getInstance() {
+        return instance;
     }
 }
