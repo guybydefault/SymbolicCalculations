@@ -1,6 +1,6 @@
 package ru.guybydefault.attributes;
 
-import ru.guybydefault.Attributes;
+import ru.guybydefault.dsl.library.Attributes;
 import ru.guybydefault.ISymbolVisitor;
 import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
