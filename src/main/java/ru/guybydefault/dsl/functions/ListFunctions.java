@@ -45,9 +45,6 @@ public class ListFunctions {
                                                         new Expression(Append, Arrays.asList(Alphabet.acc,
                                                                 new Expression(Alphabet.f, Collections.singletonList(Alphabet.x))))))))))))));
     }
-//    Fun[list, Fun[f,
-//    Fold[list][EmptyList][Fun[acc, Fun[x,
-//    Append[acc, f[x]]]]]]];
 
     public static Expression FilterImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
@@ -65,11 +62,6 @@ public class ListFunctions {
                                                                 Alphabet.acc
                                                         ))))))))))));
     }
-//    Fun[list, Fun[f,
-//    Fold[list][EmptyList][Fun[acc, Fun[x,
-//    If[f[x],
-//    Append[acc, x],
-//    acc]]]]]];
 
     public static Expression ConcatImplementation(){
         return new Expression(Alphabet.list, Collections.singletonList(
@@ -83,9 +75,6 @@ public class ListFunctions {
                                                 new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                                                         new Expression(Append, Arrays.asList(Alphabet.acc, Alphabet.x))))))))))));
     }
-//    Fun[list, Fun[list2,
-//    Fold[list2][list][Fun[acc, Fun[x,
-//    Append[acc, x]]]]]];
 
     public static Expression CountItemImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
@@ -101,9 +90,6 @@ public class ListFunctions {
                                                         new Expression(ArithmeticFunctions.Plus, Arrays.asList(Alphabet.acc, new Constant(1))),
                                                         Alphabet.acc))))))))));
     }
-//    Fun[list, Fun[x,
-//    Fold[list][0][Fun[acc, Fun[y,
-//    If[Eq[x, y], Plus[acc, 1], acc]]]]]];
 
     public static Expression ContainsImplementation(){
         return new Expression(Functions.Fun, Collections.singletonList(
@@ -118,9 +104,6 @@ public class ListFunctions {
                                                         new Expression(BooleanFunctions.If, Arrays.asList(Alphabet.acc, Alphabet.acc,
                                                                 new Expression(BooleanFunctions.Eq, Arrays.asList(Alphabet.x, Alphabet.y))))))))))))));
     }
-//    Fun[list, Fun[x,
-//    Fold[list][False][Fun[acc, Fun[y,
-//    If[acc, acc, Eq[x, y]]]]]]];
 
     public static Expression FoldImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
@@ -153,39 +136,4 @@ public class ListFunctions {
                                                 Collections.singletonList(
                                                         new Expression(Length, Collections.singletonList(Alphabet.list))))))))))));
     }
-//    Fun[list,
-//      Fun["initialState'",
-//          Fun[f,
-//              Fun[n,
-//                  Part[
-//                      While[
-//                          List[0, "initialState'"]
-//                          ]
-//                          [Fun[x,
-//                              Less[
-//                                  Part[x, 0]
-//                                  ]
-//                                  [n]
-//                              ]
-//                           ]
-//                          ?
-//                          [Fun[x,
-//                              List[
-//                                  Plus[
-//                                      Part[x, 0],
-//                                      1],
-//                                  f[
-//                                      Part[x, 1]
-//                                   ]
-    //                                  [
-//                                      Part[list,
-//                                          Part[x, 0]
-//                                          ]
-    //                                  ]
-//                                  ] (list ends)
-//                              ] (args end)
-//                           ], (Fun end)
-//                           1]
-//                      ] (Part end)
-//                      [Length[list]]]]];
 }

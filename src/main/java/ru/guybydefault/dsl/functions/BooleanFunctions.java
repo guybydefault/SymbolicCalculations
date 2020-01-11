@@ -45,20 +45,12 @@ public class BooleanFunctions {
                         new Expression(Eq, Arrays.asList(Alphabet.x, Alphabet.y)),
                         new Constant(1)))));
     }
-//    Fun[x, Fun[y,
-//    Eq[Compare[x, y], 1]
-//            ]];
 
     public static Expression AndImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                 new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
                         new Expression(If, Arrays.asList(Alphabet.x, Alphabet.y, False))))));
     }
-//    Fun[x, Fun[y,
-//    If[x,
-//    y,
-//    False
-//                ]]];
 
     public static Expression OrImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
@@ -66,12 +58,6 @@ public class BooleanFunctions {
                         new Expression(If, Arrays.asList(Alphabet.x, True, Alphabet.y,
                                 new StringSymbol("Error")))))));
     }
-//    Fun[x, Fun[y,
-//    If[x,
-//    True,
-//    y,
-//    "Error"
-//            ]]];
 
     public static Expression WhileImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
@@ -89,9 +75,4 @@ public class BooleanFunctions {
                                         Alphabet.x
                                 ))))))));
     }
-//    Fun[x, Fun[pred, Fun[body,
-//    If[pred[x],
-//    While[body[x]][pred][body],
-//    x
-//                ]]]];
 }

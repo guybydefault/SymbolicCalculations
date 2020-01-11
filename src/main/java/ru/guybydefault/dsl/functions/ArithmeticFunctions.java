@@ -44,7 +44,6 @@ public class ArithmeticFunctions {
                         new Expression(Minus, Collections.singletonList(Alphabet.x)), Alphabet.x
                 ))));
     }
-//    Fun[x, If[Less[x][0], Minus[x], x]];
 
     public static Expression ListPlusImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
@@ -58,9 +57,6 @@ public class ArithmeticFunctions {
                                         new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                                                 new Expression(BinaryPlus, Arrays.asList(Alphabet.acc, Alphabet.x))))))))));
     }
-//    Fun[list,
-//    Fold[list][0][Fun[acc, Fun[x, BinaryPlus[acc, x]]]]
-//            ];
 
     public static Expression ListTimesImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
@@ -73,7 +69,4 @@ public class ArithmeticFunctions {
                                 new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
                                         new Expression(BinaryTimes, Arrays.asList(Alphabet.acc, Alphabet.x))))))))));
     }
-//    Fun[list,
-//    Fold[list][1][Fun[acc, Fun[x, BinaryTimes[acc, x]]]]
-//            ];
 }

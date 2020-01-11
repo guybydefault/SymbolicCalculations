@@ -27,9 +27,6 @@ public class CastingFunctions {
                                 new Expression(AsConstant, Collections.singletonList(Alphabet.x)),
                                 Null))))));
     }
-//    Fun[x,
-//    Not[Eq[AsConstant[x], Null]]
-//            ];
 
     public static Expression IsStringSymbolImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
@@ -37,9 +34,6 @@ public class CastingFunctions {
                         new Expression(AsStringSymbol, Collections.singletonList(Alphabet.x)),
                         Null))));
     }
-//    Fun[x,
-//    Not[Eq[AsStringSymbol[x], Null]]
-//            ];
 
     public static Expression IsExpressionWithNameImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(new StringSymbol("name'"),
@@ -51,9 +45,6 @@ public class CastingFunctions {
                                                 new StringSymbol("expression'"))),
                                         Null))))))));
     }
-//    Fun["name'", Fun["expression'",
-//    Not[Eq[AsExpressionArgs["name'", "expression'"], Null]]
-//            ]];
 
     public static Expression DefaultValueImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
@@ -62,7 +53,4 @@ public class CastingFunctions {
                                 new Expression(BooleanFunctions.Eq, Arrays.asList(Alphabet.x, Null)),
                                 Alphabet.y, Alphabet.x))))));
     }
-//    Fun[x, Fun[y,
-//    If[Eq[x, Null], y, x]
-//            ]];
 }

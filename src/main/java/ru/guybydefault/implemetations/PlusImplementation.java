@@ -26,8 +26,7 @@ public class PlusImplementation extends AbstractFunctionImplementation  {
 
         if (constants.contains(null)) {
             return expression;
-        } //почему так? получается, если там вообще есть пустой элемент хотя бы один
-        //а логичнее мне кажется, чтобы все элементы были пустые
+        }
 
         return new Constant(constants.stream().filter(Objects::nonNull)
                 .map(Constant::getValue).reduce(1.0, Double::sum));
