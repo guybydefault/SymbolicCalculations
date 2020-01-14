@@ -58,6 +58,8 @@ public class ArithmeticFunctions {
                                                 new Expression(BinaryPlus, Arrays.asList(Alphabet.acc, Alphabet.x))))))))));
     }
 
+    //TODO: ListPlusListImplementation
+
     public static Expression ListTimesImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
                 new Expression(

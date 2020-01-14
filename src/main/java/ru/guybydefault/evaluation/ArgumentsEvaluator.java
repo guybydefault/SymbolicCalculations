@@ -28,4 +28,6 @@ public class ArgumentsEvaluator implements ISymbolVisitor<CalculationResult> {
     public CalculationResult visitConstant(Constant constant) {
         return null;
     }
+
+    //TODO: дописать
 }
