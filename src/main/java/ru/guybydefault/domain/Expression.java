@@ -2,6 +2,7 @@ package ru.guybydefault.domain;
 
 import ru.guybydefault.ISymbolVisitor;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public final  class Expression extends Symbol {
@@ -12,6 +13,12 @@ public final  class Expression extends Symbol {
     public Expression(Symbol hesd, List<Symbol> arguments) {
         this.head = hesd;
         this.arguments = arguments;
+    }
+
+    public static Expression newInstance(Symbol head, Symbol arg) {
+        List<Symbol> args = new LinkedList<>();
+        args.add(arg);
+        return new Expression(head, args);
     }
 
     @Override

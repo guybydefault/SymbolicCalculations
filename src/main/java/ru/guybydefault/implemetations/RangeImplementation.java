@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RangeImplementation extends AbstractFunctionImplementation  {
-    private final StringSymbol[] names = new StringSymbol[] {ListFunctions.Range};
+    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.Range};
 
-    public RangeImplementation(StringSymbol[] names){
+    public RangeImplementation(){
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Constant from = (Constant) expression.getArguments().get(0).visit(new AsConstantVisitor());
         Constant to = (Constant) expression.getArguments().get(1).visit(new AsConstantVisitor());
         Constant amount = (Constant) expression.getArguments().get(2).visit(new AsConstantVisitor());

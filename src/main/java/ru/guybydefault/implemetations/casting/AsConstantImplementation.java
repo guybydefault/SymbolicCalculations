@@ -10,14 +10,14 @@ import ru.guybydefault.implemetations.AbstractFunctionImplementation;
 
 public class AsConstantImplementation extends AbstractFunctionImplementation {
 
-    private final StringSymbol[] names = new StringSymbol[] {CastingFunctions.AsConstant};
+    private static final StringSymbol[] names = new StringSymbol[] {CastingFunctions.AsConstant};
 
-    public AsConstantImplementation(StringSymbol[] names) {
+    public AsConstantImplementation() {
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Symbol argument = expression.getArguments().get(0);
         Constant constant = (Constant) argument.visit(new AsConstantVisitor());
 

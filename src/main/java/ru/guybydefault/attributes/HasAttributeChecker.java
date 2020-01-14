@@ -7,26 +7,26 @@ import ru.guybydefault.domain.StringSymbol;
 
 import java.util.Arrays;
 
-public class HasAttributeChecker implements ISymbolVisitor {
+public class HasAttributeChecker implements ISymbolVisitor<Boolean> {
 
-    public HasAttributeChecker(StringSymbol attribute){
+    public HasAttributeChecker(StringSymbol attribute) {
         this.attribute = attribute;
     }
 
     private StringSymbol attribute;
 
     @Override
-    public Object visitExpression(Expression expression) {
+    public Boolean visitExpression(Expression expression) {
         return false;
     }
 
     @Override
-    public Object visitSymbol(StringSymbol symbol) {
+    public Boolean visitSymbol(StringSymbol symbol) {
         return Arrays.asList(symbol.getAttributes()).contains(attribute);
     }
 
     @Override
-    public Object visitConstant(Constant constant) {
+    public Boolean visitConstant(Constant constant) {
         return false;
     }
 
