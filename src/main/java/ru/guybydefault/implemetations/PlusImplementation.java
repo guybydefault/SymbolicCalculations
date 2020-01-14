@@ -12,14 +12,14 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class PlusImplementation extends AbstractFunctionImplementation  {
-    private final StringSymbol[] names = new StringSymbol[] {ArithmeticFunctions.BinaryPlus, ArithmeticFunctions.Plus};
+    private static final StringSymbol[] names = new StringSymbol[] {ArithmeticFunctions.BinaryPlus, ArithmeticFunctions.Plus};
 
-    public PlusImplementation(StringSymbol[] names){
+    public PlusImplementation(){
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         List<Constant> constants = expression.getArguments().stream()
                 .map(x -> (Constant) x.visit(new AsConstantVisitor()))
                 .collect(Collectors.toList());

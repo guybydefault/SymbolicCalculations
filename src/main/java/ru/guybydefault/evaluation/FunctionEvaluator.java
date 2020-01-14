@@ -3,14 +3,13 @@ package ru.guybydefault.evaluation;
 import ru.guybydefault.CalculationResult;
 import ru.guybydefault.ISymbolVisitor;
 import ru.guybydefault.cast.AsExpressionVisitor;
+import ru.guybydefault.cast.AsStringSymbolVisitor;
 import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.functions.ListFunctions;
-import ru.guybydefault.dsl.library.Alphabet;
 import ru.guybydefault.dsl.library.Functions;
-import ru.guybydefault.old.domain.Function;
 
 import java.util.LinkedList;
 import java.util.Objects;
@@ -46,23 +45,23 @@ public class FunctionEvaluator implements ISymbolVisitor<CalculationResult> {
         if (listParameters != null && Objects.equals(listParameters.getHead(), ListFunctions.List)) {
             // Replace list
             return listParameters.getArguments()
-                    .Zip(expression.Arguments)22
+                    .Zip(expression.getArguments())
                     .Aggregate(
                             funBody,
                             (acc, x) => acc.Visit(new VariableReplacer(x.First, x.Second, true))
                     ).Visit(fullEvaluator);
         }
 
-        var variable = funParameter.Visit(AsStringSymbolVisitor.Instance);
+        StringSymbol variable = funParameter.visit(AsStringSymbolVisitor.getInstance());
 
         if (variable == null) {
-            throw new ArgumentException("Fun parameter can be only StringSymbol or List. Something gone wrong");
+            throw new IllegalArgumentException("Fun parameter can be only StringSymbol or List. Something gone wrong");
         }
 
-        var functionArgument = expression.getArguments().get(0);
-        var substituted = funBody.Visit(new VariableReplacer(variable, functionArgument, true));
+        Symbol functionArgument = expression.getArguments().get(0);
+        Symbol substituted = funBody.visit(new VariableReplacer(variable, functionArgument, true));
 
-        return substituted.Visit(fullEvaluator);
+        return substituted.visit(fullEvaluator);
     }
 
     @Override

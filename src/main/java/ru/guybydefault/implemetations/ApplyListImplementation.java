@@ -10,14 +10,14 @@ import ru.guybydefault.dsl.library.Functions;
 
 public class ApplyListImplementation extends AbstractFunctionImplementation {
 
-    private final StringSymbol[] names = new StringSymbol[] {Functions.ApplyList};
+    private static final StringSymbol[] names = new StringSymbol[] {Functions.ApplyList};
 
-    public ApplyListImplementation(StringSymbol[] names){
+    public ApplyListImplementation(){
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Symbol func = expression.getArguments().get(0);
         Expression list = (Expression) expression.getArguments().get(1).visit(new AsExpressionVisitor());
 

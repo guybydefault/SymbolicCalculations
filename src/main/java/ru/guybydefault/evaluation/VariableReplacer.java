@@ -6,10 +6,15 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
+import ru.guybydefault.dsl.library.Functions;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static ru.guybydefault.dsl.library.Attributes.*;
+
 
 public final class VariableReplacer implements ISymbolVisitor<Symbol> {
         private static final HasAttributeChecker HoldAllChecker = new HasAttributeChecker(HoldAll);
@@ -32,38 +37,48 @@ public final class VariableReplacer implements ISymbolVisitor<Symbol> {
         public Symbol visitExpression(Expression expression) {
             Symbol head = expression.getHead().visit(this);
 
-            if (Equals(head, Fun) && Equals(expression.getArguments().get(0), variable)) {
+            if (Objects.equals(head, Functions.Fun) && Objects.equals(expression.getArguments().get(0), variable)) {
                 return expression;
             }
 
             if (!eager) {
-                if (head.Visit(HoldAllChecker)) {
-                    return head[expression.Arguments.ToArray()];
+                if (head.visit(HoldAllChecker)) {
+                    return new Expression(head, expression.getArguments());
                 }
 
-                if (head.Visit(HoldFirstChecker)) {
-                    return head[
-                            expression.Arguments
-                                    .Select((x, i) => i != 0 ? x.Visit(this) : x)
-                            .ToArray()
-                    ];
+                if (head.visit(HoldFirstChecker)) {
+                    List<Symbol> arguments = new LinkedList<>();
+                    for (int i = 0; i < expression.getArguments().size(); i++) {
+                        Symbol symbol = expression.getArguments().get(i);
+                        if (i != 0) {
+                            arguments.add(symbol.visit(this));
+                        } else {
+                            arguments.add(symbol);
+                        }
+                    }
+                    return new Expression(head, arguments);
                 }
 
 
-                if (head.Visit(HoldRestChecker)) {
-                    return head[
-                            expression.Arguments
-                                    .Select((x, i) => i == 0 ? x.Visit(this) : x)
-                            .ToArray()
-                    ];
+                if (head.visit(HoldRestChecker)) {
+                    List<Symbol> arguments = new LinkedList<>();
+                    for (int i = 0; i < expression.getArguments().size(); i++) {
+                        Symbol symbol = expression.getArguments().get(i);
+                        if (i == 0) {
+                            arguments.add(symbol.visit(this));
+                        } else {
+                            arguments.add(symbol);
+                        }
+                    }
+                    return new Expression(head, arguments);
                 }
             }
 
-            var arguments = expression.Arguments
-                    .Select(x => x.Visit(this))
-                .ToArray();
-
-            return head[arguments];
+            return new Expression(head,
+                    expression.getArguments()
+                            .stream()
+                            .map(x -> x.visit(this))
+                            .collect(Collectors.toList()));
         }
 
     @Override

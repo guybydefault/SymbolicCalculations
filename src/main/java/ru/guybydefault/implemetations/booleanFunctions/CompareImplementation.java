@@ -11,14 +11,14 @@ import ru.guybydefault.implemetations.AbstractFunctionImplementation;
 public class CompareImplementation extends AbstractFunctionImplementation {
     private static final SymbolComparer symbolComparer = new SymbolComparer();
 
-    private final StringSymbol[] names = new StringSymbol[] {BooleanFunctions.Compare};
+    private static final StringSymbol[] names = new StringSymbol[] {BooleanFunctions.Compare};
 
-    public CompareImplementation(StringSymbol[] names) {
+    public CompareImplementation() {
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Symbol x = expression.getArguments().get(0);
         Symbol y = expression.getArguments().get(1);
 

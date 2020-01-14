@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
 
 public class TimesImplementation extends AbstractFunctionImplementation{
 
-    private final StringSymbol[] names = new StringSymbol[] {ArithmeticFunctions.Times, ArithmeticFunctions.BinaryTimes};
+    private static final StringSymbol[] names = new StringSymbol[] {ArithmeticFunctions.Times, ArithmeticFunctions.BinaryTimes};
 
-    protected TimesImplementation(StringSymbol[] names) {
+    public TimesImplementation() {
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         List<Constant> constants = expression.getArguments().stream()
                 .map(x -> (Constant) x.visit(new AsConstantVisitor()))
                 .collect(Collectors.toList());

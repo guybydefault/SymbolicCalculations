@@ -9,14 +9,14 @@ import ru.guybydefault.implemetations.AbstractFunctionImplementation;
 
 public class AsStringSymbolImplementation extends AbstractFunctionImplementation {
 
-    private final StringSymbol[] names = new StringSymbol[] {CastingFunctions.AsStringSymbol};
+    private static final StringSymbol[] names = new StringSymbol[] {CastingFunctions.AsStringSymbol};
 
-    public AsStringSymbolImplementation(StringSymbol[] names) {
+    public AsStringSymbolImplementation() {
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Symbol argument = expression.getArguments().get(0);
         StringSymbol stringSymbol = (StringSymbol) argument.visit(new AsStringSymbolVisitor());
 

@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GenerateListImplementation extends AbstractFunctionImplementation  {
-    private final StringSymbol[] names = new StringSymbol[] {ListFunctions.GenerateList};
+    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.GenerateList};
 
-    public GenerateListImplementation(StringSymbol[] names){
+    public GenerateListImplementation(){
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Constant count = (Constant) expression.getArguments().get(0).visit(new AsConstantVisitor());
 
         return new Expression(ListFunctions.List,

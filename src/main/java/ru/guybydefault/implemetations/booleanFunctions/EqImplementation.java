@@ -8,14 +8,14 @@ import ru.guybydefault.dsl.functions.CastingFunctions;
 import ru.guybydefault.implemetations.AbstractFunctionImplementation;
 
 public class EqImplementation extends AbstractFunctionImplementation {
-    private final StringSymbol[] names = new StringSymbol[] {BooleanFunctions.Eq};
+    private static final StringSymbol[] names = new StringSymbol[] {BooleanFunctions.Eq};
 
-    public EqImplementation(StringSymbol[] names) {
+    public EqImplementation() {
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Symbol x = expression.getArguments().get(0);
         Symbol y = expression.getArguments().get(1);
 

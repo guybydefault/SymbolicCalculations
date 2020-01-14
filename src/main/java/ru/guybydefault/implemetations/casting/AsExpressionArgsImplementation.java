@@ -9,14 +9,14 @@ import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.implemetations.AbstractFunctionImplementation;
 
 public class AsExpressionArgsImplementation extends AbstractFunctionImplementation {
-    private final StringSymbol[] names = new StringSymbol[] {CastingFunctions.AsExpressionArgs};
+    private static final StringSymbol[] names = new StringSymbol[] {CastingFunctions.AsExpressionArgs};
 
-    public AsExpressionArgsImplementation(StringSymbol[] names) {
+    public AsExpressionArgsImplementation() {
         super(names);
     }
 
     @Override
-    protected Symbol Evaluate(Expression expression) {
+    protected Symbol evaluate(Expression expression) {
         Symbol head = expression.getArguments().get(0);
         Symbol argument = expression.getArguments().get(1);
 
