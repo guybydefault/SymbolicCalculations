@@ -9,6 +9,7 @@ public class MatrixFunctions {
     public static final StringSymbol MatrixPlus = new StringSymbol("MatrixPlus");
 
     public static Expression MatrixPlusImplementation() {
-        return new Expression(Functions.Fun, new Expression(ArithmeticFunctions.ListPlus, ));
+//        return new Expression(Functions.Fun, new Expression(ArithmeticFunctions.ListPlus, ));
+        return null;
     }
 }

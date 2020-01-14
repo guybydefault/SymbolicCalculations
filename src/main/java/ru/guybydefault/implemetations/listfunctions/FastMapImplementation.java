@@ -22,7 +22,7 @@ public class FastMapImplementation extends AbstractListFunctionImplementation {
         for (Symbol item : items) {
             mappedItems.add(Expression.newInstance(expression.getArguments().get(1), item));
         }
-        return new Expression(ListFunctions.KindaList, mappedItems);
+        return new Expression(ListFunctions.List, mappedItems);
     }
 
 }
