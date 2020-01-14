@@ -10,6 +10,7 @@ import java.util.Collections;
 
 import ru.guybydefault.dsl.library.Alphabet;
 import ru.guybydefault.dsl.library.Functions;
+import ru.guybydefault.old.domain.Function;
 
 public class ArithmeticFunctions {
     public static final StringSymbol Plus = new StringSymbol("Plus",
@@ -28,6 +29,7 @@ public class ArithmeticFunctions {
     public static final StringSymbol Minus = new StringSymbol("Minus");
     public static final StringSymbol ListPlus = new StringSymbol("ListPlus");
     public static final StringSymbol ListTimes = new StringSymbol("ListTimes");
+    public static final StringSymbol ListPlusList = new StringSymbol("ListPlusList");
 
     public static Expression MinusImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
@@ -58,7 +60,18 @@ public class ArithmeticFunctions {
                                                 new Expression(BinaryPlus, Arrays.asList(Alphabet.acc, Alphabet.x))))))))));
     }
 
-    //TODO: ListPlusListImplementation
+    public static Expression ListPlusListImplementation() {
+        return new Expression(Functions.Fun, Arrays.asList(
+                new Expression(ListFunctions.List, Arrays.asList(Alphabet.list, Alphabet.list2)),
+                new Expression(ListFunctions.FastMap, Arrays.asList(
+                        new Expression(ListFunctions.GenerateList, Collections.singletonList(
+                                new Expression(ListFunctions.Length, Collections.singletonList(Alphabet.list))
+                        )),
+                        new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
+                                new Expression(Plus, Arrays.asList(
+                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list, Alphabet.x)),
+                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list2, Alphabet.x))))))))));
+    }
 
     public static Expression ListTimesImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
