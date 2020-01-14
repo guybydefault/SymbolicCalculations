@@ -2,6 +2,8 @@ package ru.guybydefault.domain;
 
 import ru.guybydefault.ISymbolVisitor;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,8 +12,12 @@ public final  class Expression extends Symbol {
     private Symbol head;
     private List<Symbol> arguments;
 
-    public Expression(Symbol hesd, List<Symbol> arguments) {
-        this.head = hesd;
+    public Expression(Symbol head, Symbol ... arguments) {
+        this(head, Arrays.asList(arguments));
+    }
+
+    public Expression(Symbol head, List<Symbol> arguments) {
+        this.head = head;
         this.arguments = arguments;
     }
 
