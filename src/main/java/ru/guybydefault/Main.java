@@ -1,8 +1,12 @@
 package ru.guybydefault;
 
+import ru.guybydefault.domain.Constant;
+import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
+import ru.guybydefault.dsl.functions.ArithmeticFunctions;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -15,9 +19,10 @@ public class Main {
         String inputFileName = args[0];
         String outputFileName = args[1];
 
-        Symbol symbol = null; // TODO parse from XML
+        Symbol symbol = new Expression(ArithmeticFunctions.Plus, Arrays.asList(new Constant(1), new Constant(2))); // TODO parse from XML
         Context context = new Context();
         CalculationResult calculationResult = context.run(symbol);
+        System.out.println(calculationResult);
         // calculationResult.getResult(); TODO transform to MathML
 
 //        IO io = new IO();

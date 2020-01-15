@@ -1,22 +1,17 @@
 package ru.guybydefault;
 
-import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.implemetations.VariableAssigner;
-import ru.guybydefault.dsl.library.Functions;
 import ru.guybydefault.visitors.ISymbolVisitor;
 import ru.guybydefault.visitors.evaluation.FullEvaluator;
 import ru.guybydefault.visitors.evaluation.GlobalVariablesReplacer;
 
 import java.util.LinkedList;
 import java.util.List;
-import static ru.guybydefault.dsl.functions.CastingFunctions.*;
-import static ru.guybydefault.dsl.functions.ListFunctions.*;
-import static ru.guybydefault.dsl.functions.BooleanFunctions.*;
-import static ru.guybydefault.dsl.library.Functions.*;
-import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 
 public class Context {
+
+    private int iterations = 0;
 
     public CalculationResult run(Symbol symbol) {
         VariableAssigner variableAssigner = new VariableAssigner();
@@ -28,7 +23,7 @@ public class Context {
 
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
-        while (true) {
+        while (iterations <= 1000) {
             resultHistory.add(currResult);
 
             /**
@@ -56,7 +51,10 @@ public class Context {
                 return new CalculationResult(resultHistory, currResult);
             }
             resultHistory.add(newResult);
+            iterations += 1;
         }
+
+        return null;
     }
 
 }

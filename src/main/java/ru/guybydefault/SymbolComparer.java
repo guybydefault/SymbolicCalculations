@@ -40,6 +40,6 @@ public class SymbolComparer implements Comparator {
     }
 
     private int CompareInternal(Constant firstConstant, Constant secondConstant) {
-        return Integer.compare(compare(firstConstant.getValue(), secondConstant.getValue()), 0);
+        return Double.compare(firstConstant.getValue(), secondConstant.getValue());
     }
 }
