@@ -17,12 +17,16 @@ public class MatrixOperationsTests {
                         new Expression(ListFunctions.List,
                                 new Expression(ListFunctions.List, new Constant(1), new Constant(1)),
                                 new Expression(ListFunctions.List, new Constant(1), new Constant(1))
+                        ),
+                        new Expression(ListFunctions.List,
+                                new Expression(ListFunctions.List, new Constant(1), new Constant(1)),
+                                new Expression(ListFunctions.List, new Constant(1), new Constant(1))
                         )
                 ),
                 new Expression(
-                        MatrixFunctions.MatrixPlus,
-                        new Expression(ListFunctions.List, new Constant(1)),
-                        new Expression(ListFunctions.List, new Constant(1))
+                        ListFunctions.List,
+                        new Expression(ListFunctions.List, new Constant(2), new Constant(2)),
+                        new Expression(ListFunctions.List, new Constant(2), new Constant(2))
                 )
         );
     }
