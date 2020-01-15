@@ -10,7 +10,6 @@ import java.util.Collections;
 
 import ru.guybydefault.dsl.library.Alphabet;
 import ru.guybydefault.dsl.library.Functions;
-import ru.guybydefault.old.domain.Function;
 
 public class ArithmeticFunctions {
     public static final StringSymbol Plus = new StringSymbol("Plus",

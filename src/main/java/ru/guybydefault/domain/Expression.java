@@ -1,9 +1,8 @@
 package ru.guybydefault.domain;
 
-import ru.guybydefault.ISymbolVisitor;
+import ru.guybydefault.visitors.ISymbolVisitor;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 

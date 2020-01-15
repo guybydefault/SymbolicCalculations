@@ -7,18 +7,18 @@ import java.util.List;
 public class CalculationResult {
 
     private final List<Symbol> steps;
-    private final Symbol result;
+    private final Symbol symbol;
 
-    public CalculationResult(List<Symbol> steps, Symbol result) {
+    public CalculationResult(List<Symbol> steps, Symbol symbol) {
         this.steps = steps;
-        this.result = result;
+        this.symbol = symbol;
     }
 
     public List<Symbol> getSteps() {
         return steps;
     }
 
-    public Symbol getResult() {
-        return result;
+    public Symbol getSymbol() {
+        return symbol;
     }
 }

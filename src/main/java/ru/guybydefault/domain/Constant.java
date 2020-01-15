@@ -1,6 +1,6 @@
 package ru.guybydefault.domain;
 
-import ru.guybydefault.ISymbolVisitor;
+import ru.guybydefault.visitors.ISymbolVisitor;
 
 public class Constant extends Symbol {
 

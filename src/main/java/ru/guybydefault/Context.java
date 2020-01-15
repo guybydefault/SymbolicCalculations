@@ -2,8 +2,11 @@ package ru.guybydefault;
 
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
+import ru.guybydefault.dsl.implemetations.VariableAssigner;
 import ru.guybydefault.dsl.library.Functions;
-import ru.guybydefault.evaluation.FullEvaluator;
+import ru.guybydefault.visitors.ISymbolVisitor;
+import ru.guybydefault.visitors.evaluation.FullEvaluator;
+import ru.guybydefault.visitors.evaluation.GlobalVariablesReplacer;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,50 +19,30 @@ import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 public class Context {
 
     private static Expression DefaultContext = new Expression(Functions.Seq,
-            new Expression(Functions.SetDelayed, IsConstant, IsConstantImplementation()),
-            new Expression(Functions.SetDelayed, IsStringSymbol, IsStringSymbolImplementation()),
-            new Expression(Functions.SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
-            new Expression(Functions.SetDelayed, DefaultValue, DefaultValueImplementation()),
+            new Expression(SetDelayed, IsConstant, IsConstantImplementation()),
+            new Expression(SetDelayed, IsStringSymbol, IsStringSymbolImplementation()),
+            new Expression(SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
+            new Expression(SetDelayed, DefaultValue, DefaultValueImplementation()),
 
-            new Expression(Functions.SetDelayed, Contains, ContainsImplementation()),
-            new Expression(Functions.SetDelayed, Concat, ConcatImplementation()),
-            new Expression(Functions.SetDelayed, Count, IsExpressionWithNameImplementation()),
+            new Expression(SetDelayed, Contains, ContainsImplementation()),
+            new Expression(SetDelayed, Concat, ConcatImplementation()),
+            new Expression(SetDelayed, CountItem, CountItemImplementation()),
+            new Expression(SetDelayed, Filter, FilterImplementation()),
+            new Expression(SetDelayed, Map, MapImplementation()),
+            new Expression(SetDelayed, Fold, FoldImplementation()),
 
+            new Expression(SetDelayed, ListTimes, ListTimesImplementation()),
+            new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
+            new Expression(SetDelayed, ListPlusList, ListPlusListImplementation()),
 
-
-
-            new Expression(Functions.SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
-            new Expression(Functions.SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
-
-
-
+            new Expression(SetDelayed, Minus, MinusImplementation()),
+            new Expression(SetDelayed, Or, OrImplementation()),
+            new Expression(SetDelayed, And, AndImplementation()),
+            new Expression(SetDelayed, More, MoreImplementation()),
+            new Expression(SetDelayed, Less, LessImplementation()),
+            new Expression(SetDelayed, Not, NotImplementation()),
+            new Expression(SetDelayed, While, WhileImplementation())
             );
-    Seq[
-    SetDelayed[IsConstant, IsConstantImplementation],
-    SetDelayed[IsStringSymbol, IsStringSymbolImplementation],
-    SetDelayed[IsExpressionWithName, IsExpressionWithNameImplementation],
-    SetDelayed[DefaultValue, DefaultValueImplementation],
-    //
-    SetDelayed[Contains, ContainsImplementation],
-    SetDelayed[Concat, ConcatImplementation],
-    SetDelayed[CountItem, CountItemImplementation],
-    SetDelayed[Filter, FilterImplementation],
-    SetDelayed[Map, MapImplementation],
-    SetDelayed[Fold, FoldImplementation],
-    //
-    SetDelayed[Factorial, FactorialImplementation],
-    SetDelayed[TaylorSin, TaylorSinImplementation],
-    SetDelayed[ListTimes, ListTimesImplementation],
-    SetDelayed[ListPlus, ListPlusImplementation],
-    //
-    SetDelayed[Minus, MinusImplementation],
-    SetDelayed[Or, OrImplementation],
-    SetDelayed[And, AndImplementation],
-    SetDelayed[More, MoreImplementation],
-    SetDelayed[Less, LessImplementation],
-    SetDelayed[Not, NotImplementation],
-    SetDelayed[While, WhileImplementation]
-            ];
 
 
     public CalculationResult run(Symbol symbol) {
@@ -70,6 +53,8 @@ public class Context {
         visitors.add(variableAssigner);
         FullEvaluator fullEvaluator = new FullEvaluator(visitors);
 
+        Symbol context = DefaultContext.visit(fullEvaluator).getSymbol();
+
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
         while (true) {
@@ -79,8 +64,15 @@ public class Context {
              * Here we make evaluations, transformations,
              * apply definitions, etc...
              */
-            currResult.visit()
-            Symbol newResult = null;
+            Symbol newResult = currResult
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(fullEvaluator)
+                    .getSymbol();
+
 
             /**
              * NOTE
