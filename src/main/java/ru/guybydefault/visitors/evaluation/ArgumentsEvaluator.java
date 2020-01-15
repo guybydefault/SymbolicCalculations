@@ -107,6 +107,8 @@ public class ArgumentsEvaluator implements ISymbolVisitor<CalculationResult> {
                 for (Symbol expressionArgument : expression.getArguments()) {
                     calculationResults.add(expressionArgument.visit(fullEvaluator));
                 }
+            } else {
+                calculationResults.add(new CalculationResult(new LinkedList<>(), symbol));
             }
         }
         return calculationResults;

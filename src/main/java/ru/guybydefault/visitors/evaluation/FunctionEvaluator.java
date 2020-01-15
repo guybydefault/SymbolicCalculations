@@ -13,6 +13,8 @@ import ru.guybydefault.dsl.library.Functions;
 import java.util.LinkedList;
 import java.util.Objects;
 
+import static ru.guybydefault.dsl.functions.ListFunctions.List;
+
 public class FunctionEvaluator implements ISymbolVisitor<CalculationResult> {
 
     private final FullEvaluator fullEvaluator;
@@ -41,7 +43,16 @@ public class FunctionEvaluator implements ISymbolVisitor<CalculationResult> {
         Symbol funBody = funcHead.getArguments().get(1);
 
         Expression listParameters = funParameter.visit(AsExpressionVisitor.getInstance());
-//        TODO list params
+        if (listParameters != null && Objects.equals(listParameters.getHead(), List)) {
+            for (int i = 0; i < listParameters.getArguments().size() && i < expression.getArguments().size(); i++) {
+                funBody = funBody.visit(
+                        new VariableReplacer(
+                                listParameters.getArguments().get(i),
+                                expression.getArguments().get(i),
+                                true));
+            }
+            return funBody.visit(fullEvaluator);
+        }
 
         StringSymbol variable = funParameter.visit(AsStringSymbolVisitor.getInstance());
 

@@ -1,7 +1,5 @@
 package ru.guybydefault;
 
-import com.sun.org.apache.xpath.internal.operations.And;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.implemetations.VariableAssigner;
@@ -17,11 +15,12 @@ import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 import static ru.guybydefault.dsl.functions.BooleanFunctions.*;
 import static ru.guybydefault.dsl.functions.CastingFunctions.*;
 import static ru.guybydefault.dsl.functions.ListFunctions.*;
-import static ru.guybydefault.dsl.library.Functions.*;
+import static ru.guybydefault.dsl.functions.MatrixFunctions.MatrixPlus;
+import static ru.guybydefault.dsl.functions.MatrixFunctions.MatrixPlusImplementation;
+import static ru.guybydefault.dsl.library.Functions.Seq;
+import static ru.guybydefault.dsl.library.Functions.SetDelayed;
 
 public class Context {
-
-    private int iterations = 0;
 
     private static Expression DefaultContext = new Expression(Functions.Seq,
             new Expression(SetDelayed, IsConstant, IsConstantImplementation()),
@@ -46,8 +45,11 @@ public class Context {
             new Expression(SetDelayed, More, MoreImplementation()),
             new Expression(SetDelayed, Less, LessImplementation()),
             new Expression(SetDelayed, Not, NotImplementation()),
-            new Expression(SetDelayed, While, WhileImplementation())
+            new Expression(SetDelayed, While, WhileImplementation()),
+
+            new Expression(SetDelayed, MatrixPlus, MatrixPlusImplementation())
     );
+    private int iterations = 0;
 
     public CalculationResult run(Symbol symbol) {
         VariableAssigner variableAssigner = new VariableAssigner();
@@ -71,6 +73,11 @@ public class Context {
              * apply definitions, etc...
              */
             Symbol newResult = currResult
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
+                    .visit(globalVariablesReplacer)
                     .visit(globalVariablesReplacer)
                     .visit(fullEvaluator)
                     .getSymbol();
