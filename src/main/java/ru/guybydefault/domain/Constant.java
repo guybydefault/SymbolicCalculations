@@ -2,6 +2,8 @@ package ru.guybydefault.domain;
 
 import ru.guybydefault.visitors.ISymbolVisitor;
 
+import java.util.Objects;
+
 public class Constant extends Symbol {
 
     private double value;
@@ -19,7 +21,16 @@ public class Constant extends Symbol {
         return visitor.visitConstant(this);
     }
 
-    public boolean equals(Constant other) {
-        return this.value == other.value;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Constant constant = (Constant) o;
+        return Double.compare(constant.value, value) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

@@ -2,6 +2,8 @@ package ru.guybydefault.domain;
 
 import ru.guybydefault.visitors.ISymbolVisitor;
 
+import java.util.Objects;
+
 public final class StringSymbol extends Symbol {
 
     private final String name;
@@ -33,5 +35,18 @@ public final class StringSymbol extends Symbol {
 
     public boolean equals(StringSymbol other) {
         return this.name.equals(other.name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StringSymbol that = (StringSymbol) o;
+        return name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
