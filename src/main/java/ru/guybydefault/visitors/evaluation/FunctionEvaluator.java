@@ -42,15 +42,6 @@ public class FunctionEvaluator implements ISymbolVisitor<CalculationResult> {
 
         Expression listParameters = funParameter.visit(AsExpressionVisitor.getInstance());
 //        TODO list params
-//        if (listParameters != null && Objects.equals(listParameters.getHead(), ListFunctions.List)) {
-//            // Replace list
-//            return listParameters.getArguments()
-//                    .Zip(expression.getArguments())
-//                    .Aggregate(
-//                            funBody,
-//                            (acc, x) => acc.Visit(new VariableReplacer(x.First, x.Second, true))
-//                    ).Visit(fullEvaluator);
-//        }
 
         StringSymbol variable = funParameter.visit(AsStringSymbolVisitor.getInstance());
 

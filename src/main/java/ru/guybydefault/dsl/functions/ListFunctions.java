@@ -11,7 +11,6 @@ import java.util.Collections;
 
 public class ListFunctions {
     public static final StringSymbol List = new StringSymbol("List");
-    public static final StringSymbol KindaList = new StringSymbol("");
     public static final StringSymbol GenerateList = new StringSymbol("GenerateList");
 
     public static final StringSymbol Part = new StringSymbol("Part");

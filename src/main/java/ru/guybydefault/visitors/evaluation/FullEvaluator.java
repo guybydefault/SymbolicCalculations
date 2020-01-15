@@ -1,10 +1,6 @@
 package ru.guybydefault.visitors.evaluation;
 
 import ru.guybydefault.CalculationResult;
-import ru.guybydefault.visitors.ISymbolVisitor;
-import ru.guybydefault.visitors.attributes.ArgumentsSorter;
-import ru.guybydefault.visitors.attributes.FlatFlattener;
-import ru.guybydefault.visitors.attributes.OneIdentityShrinker;
 import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
@@ -16,10 +12,11 @@ import ru.guybydefault.dsl.implemetations.booleanFunctions.IfImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsConstantImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsExpressionArgsImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsStringSymbolImplementation;
-import ru.guybydefault.dsl.implemetations.listfunctions.AppendImplementation;
-import ru.guybydefault.dsl.implemetations.listfunctions.DistinctImplementation;
-import ru.guybydefault.dsl.implemetations.listfunctions.FastMapImplementation;
-import ru.guybydefault.dsl.implemetations.listfunctions.LengthImplementation;
+import ru.guybydefault.dsl.implemetations.listfunctions.*;
+import ru.guybydefault.visitors.ISymbolVisitor;
+import ru.guybydefault.visitors.attributes.FlatHandler;
+import ru.guybydefault.visitors.attributes.OneIdentityHandler;
+import ru.guybydefault.visitors.attributes.OrderlessHandler;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -27,15 +24,15 @@ import java.util.List;
 public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     public static final FullEvaluator Default = new FullEvaluator();
 
-    private static final OneIdentityShrinker OneIdentityShrinker = new OneIdentityShrinker();
-    private static final FlatFlattener FlatFlattener = new FlatFlattener();
+    private static final OneIdentityHandler OneIdentityShrinker = new OneIdentityHandler();
+    private static final FlatHandler FlatFlattener = new FlatHandler();
 
-    private static final ArgumentsSorter ArgumentsSorter = new ArgumentsSorter();
+    private static final OrderlessHandler ArgumentsSorter = new OrderlessHandler();
     private static final PlusImplementation PlusImplementation = new PlusImplementation();
     private static final TimesImplementation TimesImplementation = new TimesImplementation();
 
     private static final IfImplementation IfImplementation = new IfImplementation();
-    //    private static final PartImplementation PartImplementation = new PartImplementation();
+    private static final PartImplementation PartImplementation = new PartImplementation();
     private static final AppendImplementation AppendImplementation = new AppendImplementation();
     private static final EqImplementation EqImplementation = new EqImplementation();
     private static final CompareImplementation CompareImplementation = new CompareImplementation();
@@ -116,7 +113,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
         flow.add(IfImplementation);
         flow.add(EqImplementation);
         flow.add(CompareImplementation);
-//                PartImplementation,
+        flow.add(PartImplementation);
         flow.add(AppendImplementation);
         flow.add(AsConstant);
         flow.add(AsStringSymbol);
