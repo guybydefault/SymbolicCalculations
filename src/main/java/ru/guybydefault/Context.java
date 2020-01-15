@@ -18,6 +18,8 @@ import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 
 public class Context {
 
+    private int iterations = 0;
+
     private static Expression DefaultContext = new Expression(Functions.Seq,
             new Expression(SetDelayed, IsConstant, IsConstantImplementation()),
             new Expression(SetDelayed, IsStringSymbol, IsStringSymbolImplementation()),
@@ -53,11 +55,11 @@ public class Context {
         visitors.add(variableAssigner);
         FullEvaluator fullEvaluator = new FullEvaluator(visitors);
 
-        Symbol context = DefaultContext.visit(fullEvaluator).getSymbol();
+        //Symbol context = DefaultContext.visit(fullEvaluator).getSymbol();
 
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
-        while (true) {
+        while (iterations <= 1000) {
             resultHistory.add(currResult);
 
             /**
@@ -89,7 +91,8 @@ public class Context {
                 return new CalculationResult(resultHistory, currResult);
             }
             resultHistory.add(newResult);
+            iterations += 1;
         }
-    }
 
+    }
 }
