@@ -18,35 +18,6 @@ import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 
 public class Context {
 
-    private int iterations = 0;
-
-    private static Expression DefaultContext = new Expression(Functions.Seq,
-            new Expression(SetDelayed, IsConstant, IsConstantImplementation()),
-            new Expression(SetDelayed, IsStringSymbol, IsStringSymbolImplementation()),
-            new Expression(SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
-            new Expression(SetDelayed, DefaultValue, DefaultValueImplementation()),
-
-            new Expression(SetDelayed, Contains, ContainsImplementation()),
-            new Expression(SetDelayed, Concat, ConcatImplementation()),
-            new Expression(SetDelayed, CountItem, CountItemImplementation()),
-            new Expression(SetDelayed, Filter, FilterImplementation()),
-            new Expression(SetDelayed, Map, MapImplementation()),
-            new Expression(SetDelayed, Fold, FoldImplementation()),
-
-            new Expression(SetDelayed, ListTimes, ListTimesImplementation()),
-            new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
-            new Expression(SetDelayed, ListPlusList, ListPlusListImplementation()),
-
-            new Expression(SetDelayed, Minus, MinusImplementation()),
-            new Expression(SetDelayed, Or, OrImplementation()),
-            new Expression(SetDelayed, And, AndImplementation()),
-            new Expression(SetDelayed, More, MoreImplementation()),
-            new Expression(SetDelayed, Less, LessImplementation()),
-            new Expression(SetDelayed, Not, NotImplementation()),
-            new Expression(SetDelayed, While, WhileImplementation())
-            );
-
-
     public CalculationResult run(Symbol symbol) {
         VariableAssigner variableAssigner = new VariableAssigner();
         GlobalVariablesReplacer globalVariablesReplacer = new GlobalVariablesReplacer(variableAssigner);
@@ -54,8 +25,6 @@ public class Context {
         List<ISymbolVisitor<Symbol>> visitors = new LinkedList<>();
         visitors.add(variableAssigner);
         FullEvaluator fullEvaluator = new FullEvaluator(visitors);
-
-        //Symbol context = DefaultContext.visit(fullEvaluator).getSymbol();
 
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
@@ -67,10 +36,6 @@ public class Context {
              * apply definitions, etc...
              */
             Symbol newResult = currResult
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
                     .visit(globalVariablesReplacer)
                     .visit(fullEvaluator)
                     .getSymbol();
@@ -93,6 +58,6 @@ public class Context {
             resultHistory.add(newResult);
             iterations += 1;
         }
-
     }
+
 }

@@ -11,7 +11,7 @@ import ru.guybydefault.domain.Symbol;
 import java.util.Comparator;
 import java.util.List;
 
-public class ArgumentsSorter implements ISymbolVisitor {
+public class OrderlessHandler implements ISymbolVisitor {
     private static final Comparator comparer = new SymbolComparer();
 
     private static final HasAttributeChecker orderlessChecker = new HasAttributeChecker(Attributes.Orderless);

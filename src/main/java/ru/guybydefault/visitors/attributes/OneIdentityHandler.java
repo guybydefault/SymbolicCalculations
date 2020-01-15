@@ -6,7 +6,7 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 
-public class OneIdentityShrinker implements ISymbolVisitor {
+public class OneIdentityHandler implements ISymbolVisitor {
 
     private static final HasAttributeChecker IsOneIdentityVisitor =
             new HasAttributeChecker(Attributes.OneIdentity);

@@ -9,7 +9,7 @@ import ru.guybydefault.domain.StringSymbol;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FlatFlattener implements ISymbolVisitor {
+public class FlatHandler implements ISymbolVisitor {
     private static final HasAttributeChecker FlatChecker =
             new HasAttributeChecker(Attributes.Flat);
 
