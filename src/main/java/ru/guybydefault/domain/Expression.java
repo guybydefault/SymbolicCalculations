@@ -28,7 +28,7 @@ public final  class Expression extends Symbol {
     }
 
     @Override
-    protected Object visitImplementation(ISymbolVisitor visitor) {
+    protected <T> T visitImplementation(ISymbolVisitor<T> visitor) {
         return visitor.visitExpression(this);
     }
 

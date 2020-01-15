@@ -20,7 +20,7 @@ public class ListFunctions {
     public static final Expression EmptyList = new Expression(List, Collections.singletonList(new Constant(0)));
 
     public static final StringSymbol Map = new StringSymbol("Map");
-    public static final StringSymbol FastMap = new StringSymbol("FastMap");
+    public static final StringSymbol FMap = new StringSymbol("FMap");
     public static final StringSymbol Filter = new StringSymbol("Filter");
     public static final StringSymbol Length = new StringSymbol("Length");
     public static final StringSymbol Concat = new StringSymbol("Concat");

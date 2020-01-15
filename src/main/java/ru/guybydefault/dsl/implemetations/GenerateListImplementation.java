@@ -19,8 +19,10 @@ public class GenerateListImplementation extends AbstractFunctionImplementation  
 
     @Override
     protected Symbol evaluate(Expression expression) {
-        Constant count = (Constant) expression.getArguments().get(0).visit(new AsConstantVisitor());
-
+        Constant count = expression.getArguments().get(0).visit(new AsConstantVisitor());
+        if (count == null) {
+            return expression;
+        }
         return new Expression(ListFunctions.List,
                 IntStream.rangeClosed(0, (int)count.getValue())
                 .boxed().collect(Collectors.toList())

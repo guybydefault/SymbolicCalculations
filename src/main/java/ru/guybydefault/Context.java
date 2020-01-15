@@ -74,11 +74,6 @@ public class Context {
              */
             Symbol newResult = currResult
                     .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
-                    .visit(globalVariablesReplacer)
                     .visit(fullEvaluator)
                     .getSymbol();
 

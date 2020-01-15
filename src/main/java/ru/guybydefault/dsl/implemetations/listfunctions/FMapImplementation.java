@@ -8,10 +8,10 @@ import ru.guybydefault.dsl.functions.ListFunctions;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FastMapImplementation extends AbstractListFunctionImplementation {
-    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.FastMap};
+public class FMapImplementation extends AbstractListFunctionImplementation {
+    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.FMap};
 
-    public FastMapImplementation() {
+    public FMapImplementation() {
         super(names);
     }
 

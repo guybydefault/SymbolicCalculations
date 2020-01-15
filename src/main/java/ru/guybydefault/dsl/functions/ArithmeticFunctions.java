@@ -62,7 +62,7 @@ public class ArithmeticFunctions {
     public static Expression ListPlusListImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(
                 new Expression(ListFunctions.List, Arrays.asList(Alphabet.list, Alphabet.list2)),
-                new Expression(ListFunctions.FastMap, Arrays.asList(
+                new Expression(ListFunctions.FMap, Arrays.asList(
                         new Expression(ListFunctions.GenerateList, Collections.singletonList(
                                 new Expression(ListFunctions.Length, Collections.singletonList(Alphabet.list))
                         )),
