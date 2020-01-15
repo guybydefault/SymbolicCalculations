@@ -5,9 +5,9 @@ import ru.guybydefault.domain.Expression;
 import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.dsl.functions.MatrixFunctions;
 
-import static src.main.tools.Test.evaluateAndAssert;
+import static src.main.tools.TestRunner.evaluateAndAssert;
 
-public class Test {
+public class MatrixOperationsTests {
 
     @org.junit.Test
     public void testMatrixPlus() {

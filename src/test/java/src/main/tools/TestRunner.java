@@ -7,7 +7,7 @@ import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
 
 
-public class Test {
+public class TestRunner {
     public static void evaluateAndAssert(
             Expression expression,
             Symbol expectedResult
