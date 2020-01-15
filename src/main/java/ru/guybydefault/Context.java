@@ -50,6 +50,7 @@ public class Context {
             if (currResult.equals(newResult)) {
                 return new CalculationResult(resultHistory, currResult);
             }
+            currResult = newResult;
             resultHistory.add(newResult);
             iterations += 1;
         }
