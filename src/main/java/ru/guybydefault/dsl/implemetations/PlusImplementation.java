@@ -29,6 +29,6 @@ public class PlusImplementation extends AbstractFunctionImplementation  {
         }
 
         return new Constant(constants.stream().filter(Objects::nonNull)
-                .map(Constant::getValue).reduce(1.0, Double::sum));
+                .map(Constant::getValue).reduce(0.0, Double::sum));
     }
 }

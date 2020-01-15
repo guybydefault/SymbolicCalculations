@@ -22,7 +22,7 @@ public class Main {
         Symbol symbol = new Expression(ArithmeticFunctions.Plus, Arrays.asList(new Constant(1), new Constant(2))); // TODO parse from XML
         Context context = new Context();
         CalculationResult calculationResult = context.run(symbol);
-        System.out.println(calculationResult);
+        System.out.println(calculationResult.getSymbol());
         // calculationResult.getResult(); TODO transform to MathML
 
 //        IO io = new IO();

@@ -7,7 +7,7 @@ import ru.guybydefault.dsl.functions.MatrixFunctions;
 
 import java.util.Arrays;
 
-import static src.main.tools.Test.evaluateAndAssert;
+import static src.main.tools.TestRunner.evaluateAndAssert;
 
 public class Test {
 

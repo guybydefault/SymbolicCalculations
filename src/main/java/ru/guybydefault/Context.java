@@ -24,6 +24,7 @@ public class Context {
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
         while (iterations <= 1000) {
+
             resultHistory.add(currResult);
 
             /**
@@ -50,6 +51,7 @@ public class Context {
             if (currResult.equals(newResult)) {
                 return new CalculationResult(resultHistory, currResult);
             }
+            currResult = newResult;
             resultHistory.add(newResult);
             iterations += 1;
         }
