@@ -58,6 +58,7 @@ public class Context {
         FullEvaluator fullEvaluator = new FullEvaluator(visitors);
 
         Symbol context = DefaultContext.visit(fullEvaluator).getSymbol();
+        symbol = new Expression(Seq, context, symbol);
 
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
