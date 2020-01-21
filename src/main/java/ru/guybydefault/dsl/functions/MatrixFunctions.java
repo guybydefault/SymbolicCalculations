@@ -20,10 +20,12 @@ public class MatrixFunctions {
                         new Expression(ListFunctions.GenerateList, Collections.singletonList(
                                 new Expression(ListFunctions.Length, Collections.singletonList(Alphabet.list))
                         )),
-                        new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
+                        new Expression(Functions.Fun, Arrays.asList(
+                                new Expression(ListFunctions.List, Alphabet.x),
                                 new Expression(ArithmeticFunctions.ListPlusList, Arrays.asList(
                                         new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list, Alphabet.x)),
-                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list2, Alphabet.x))))))))));
+                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list2, Alphabet.x))))
+                        ))))));
     }
 
     public static Expression MatrixMultImplementation() {

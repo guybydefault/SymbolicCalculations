@@ -9,7 +9,7 @@ import ru.guybydefault.dsl.functions.ListFunctions;
 import java.util.List;
 
 public class LengthImplementation extends AbstractListFunctionImplementation {
-    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.FMap};
+    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.Length};
 
     public LengthImplementation() {
         super(names);
