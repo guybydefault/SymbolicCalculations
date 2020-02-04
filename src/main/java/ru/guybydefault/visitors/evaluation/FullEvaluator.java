@@ -5,6 +5,7 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
+import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.dsl.implemetations.*;
 import ru.guybydefault.dsl.implemetations.booleanFunctions.CompareImplementation;
 import ru.guybydefault.dsl.implemetations.booleanFunctions.EqImplementation;
