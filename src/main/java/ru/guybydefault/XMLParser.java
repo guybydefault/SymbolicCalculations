@@ -1,0 +1,88 @@
+package ru.guybydefault;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
+import ru.guybydefault.domain.Constant;
+import ru.guybydefault.domain.Expression;
+import ru.guybydefault.domain.StringSymbol;
+import ru.guybydefault.domain.Symbol;
+
+import javax.xml.XMLConstants;
+import javax.xml.parsers.*;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+class XMLParser {
+    private static DocumentBuilder documentBuilder;
+
+    private static final String XSD_SCHEMA_PATH = "src/main/resources/schema.xsd";
+
+    XMLParser() throws ParserConfigurationException {
+        documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+    }
+
+    Symbol parse(String fileName) throws IOException, SAXException {
+        Symbol result = null;
+        if (validateXMLSchema(fileName)) {
+            Document document = documentBuilder.parse(fileName);
+            Node root = document.getDocumentElement();
+            result = dfsParse(root.getFirstChild());
+        }
+        return result;
+    }
+
+    private Symbol dfsParse(Node node) {
+        switch (node.getNodeName()) {
+            case "Expression": return parseExpression(node);
+            case "StringSymbol": return parseStringSymbol(node);
+            case "Constant": return parseConstant(node);
+            default: throw new IllegalArgumentException("There must be only Expression," +
+                    "StringSymbol or Constant types in parsing XML file!");
+        }
+    }
+
+    private Expression parseExpression(Node node) {
+        List<Symbol> arguments = new ArrayList<>();
+        for (int i = 1; i < node.getChildNodes().getLength(); i ++) {
+            arguments.add(dfsParse(node.getChildNodes().item(i)));
+        }
+        return new Expression(dfsParse(node.getFirstChild()), arguments);
+    }
+
+    private StringSymbol parseStringSymbol(Node node) {
+        StringSymbol[] arguments = new StringSymbol[node.getChildNodes().getLength()];
+        for (int i = 0; i < node.getChildNodes().getLength(); i ++) {
+            arguments[i] = parseStringSymbol(node.getChildNodes().item(i));
+        }
+        return new StringSymbol(node.getAttributes().getNamedItem("name").getNodeValue(), arguments);
+    }
+
+    private Constant parseConstant(Node node) {
+        return new Constant(Double.parseDouble(node.getTextContent()));
+    }
+
+    private static boolean validateXMLSchema(String xmlFile){
+        try {
+            SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = factory.newSchema(new File(XSD_SCHEMA_PATH));
+            Validator validator = schema.newValidator();
+            validator.validate(new StreamSource(new File(xmlFile)));
+        } catch (IOException e){
+            System.out.println("Exception: "+e.getMessage());
+            return false;
+        }catch(SAXException e1){
+            System.out.println("SAX Exception: "+e1.getMessage());
+            return false;
+        }
+
+        return true;
+
+    }
+}

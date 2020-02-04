@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public final  class Expression extends Symbol {
+public final class Expression extends Symbol {
 
     private Symbol head;
     private List<Symbol> arguments;

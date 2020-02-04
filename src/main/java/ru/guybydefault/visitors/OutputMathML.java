@@ -12,14 +12,16 @@ public class OutputMathML implements ISymbolVisitor{
 
     @Override
     public Object visitExpression(Expression expression) {
-        return expression.getHead().visit(new OutputMathML()).toString()
-                + expression.getArguments().stream()
-                .map(x -> x.visit(new OutputMathML()).toString())
-                .collect(Collectors.joining( " " ));
+//        return expression.getHead().visit(new OutputMathML()).toString()
+//                + expression.getArguments().stream()
+//                .map(x -> x.visit(new OutputMathML()).toString())
+//                .collect(Collectors.joining( " " ));
+        return null;
     }
 
     @Override
     public Object visitSymbol(StringSymbol symbol) {
+        String result = "";
 //        switch (symbol.getName()) {
 //
 //        }
