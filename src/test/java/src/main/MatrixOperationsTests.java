@@ -1,4 +1,4 @@
-package src.main;
+package java.src.main;
 
 import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;

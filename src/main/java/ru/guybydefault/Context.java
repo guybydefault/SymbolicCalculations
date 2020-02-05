@@ -15,8 +15,7 @@ import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 import static ru.guybydefault.dsl.functions.BooleanFunctions.*;
 import static ru.guybydefault.dsl.functions.CastingFunctions.*;
 import static ru.guybydefault.dsl.functions.ListFunctions.*;
-import static ru.guybydefault.dsl.functions.MatrixFunctions.MatrixPlus;
-import static ru.guybydefault.dsl.functions.MatrixFunctions.MatrixPlusImplementation;
+import static ru.guybydefault.dsl.functions.MatrixFunctions.*;
 import static ru.guybydefault.dsl.library.Functions.Seq;
 import static ru.guybydefault.dsl.library.Functions.SetDelayed;
 
@@ -49,6 +48,7 @@ public class Context {
 
             new Expression(SetDelayed, MatrixPlus, MatrixPlusImplementation())
     );
+
     private int iterations = 0;
 
     public CalculationResult run(Symbol symbol) {
