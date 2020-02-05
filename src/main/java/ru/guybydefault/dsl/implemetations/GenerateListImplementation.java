@@ -24,7 +24,7 @@ public class GenerateListImplementation extends AbstractFunctionImplementation  
             return expression;
         }
         return new Expression(ListFunctions.List,
-                IntStream.rangeClosed(0, (int)count.getValue())
+                IntStream.range(0, (int)count.getValue())
                 .boxed().collect(Collectors.toList())
                 .stream().map(x -> new Constant(x))
                 .collect(Collectors.toList()));

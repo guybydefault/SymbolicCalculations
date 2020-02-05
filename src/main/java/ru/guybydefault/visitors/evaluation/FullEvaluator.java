@@ -45,13 +45,14 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final GenerateListImplementation GenerateList = new GenerateListImplementation();
     private static final LengthImplementation LengthImplementation = new LengthImplementation();
     private static final DistinctImplementation DistinctImplementation = new DistinctImplementation();
-    private static final RangeImplementation RangeImplementation = new RangeImplementation();
+    private static final RangeImplementation RangeImplementation = rangeImplementation;
     private static final FMapImplementation FastMapImplementation = new FMapImplementation();
 
     private final ArgumentsEvaluator argumentsEvaluator;
     private final FunctionEvaluator functionEvaluator;
     private final List<ISymbolVisitor<Symbol>> visitors;
     private List<ISymbolVisitor<Symbol>> flow;
+    private final RangeImplementation rangeImplementation = new RangeImplementation();
 
     public FullEvaluator() {
         this(null);
