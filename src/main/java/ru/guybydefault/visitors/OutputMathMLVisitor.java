@@ -4,17 +4,15 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 
-import java.util.stream.Collectors;
+public class OutputMathMLVisitor implements ISymbolVisitor{
 
-public class OutputMathML implements ISymbolVisitor{
-
-
+    private static final OutputMathMLVisitor instance = new OutputMathMLVisitor();
 
     @Override
     public Object visitExpression(Expression expression) {
-//        return expression.getHead().visit(new OutputMathML()).toString()
+//        return expression.getHead().visit(new OutputMathMLVisitor()).toString()
 //                + expression.getArguments().stream()
-//                .map(x -> x.visit(new OutputMathML()).toString())
+//                .map(x -> x.visit(new OutputMathMLVisitor()).toString())
 //                .collect(Collectors.joining( " " ));
         return null;
     }
@@ -32,4 +30,9 @@ public class OutputMathML implements ISymbolVisitor{
     public Object visitConstant(Constant constant) {
         return constant.getValue();
     }
+
+    public static OutputMathMLVisitor getInstance() {
+        return instance;
+    }
+
 }

@@ -20,11 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 class XMLParser {
+    private static final String XSD_SCHEMA_PATH = "src/main/resources/schema.xsd";
+    private static final String EXPRESSION = "Expression";
+    private static final String STRING_SYMBOL = "StringSymbol";
+    private static final String CONSTANT = "Constant";
+
+    private static StringSymbolHashMapService stringSymbolHashMapService;
+
     private static DocumentBuilder documentBuilder;
 
-    private static final String XSD_SCHEMA_PATH = "src/main/resources/schema.xsd";
+
 
     XMLParser() throws ParserConfigurationException {
+        stringSymbolHashMapService = new StringSymbolHashMapService();
         documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
     }
 
@@ -40,9 +48,9 @@ class XMLParser {
 
     private Symbol dfsParse(Node node) {
         switch (node.getNodeName()) {
-            case "Expression": return parseExpression(node);
-            case "StringSymbol": return parseStringSymbol(node);
-            case "Constant": return parseConstant(node);
+            case EXPRESSION: return parseExpression(node);
+            case STRING_SYMBOL: return parseStringSymbol(node);
+            case CONSTANT: return parseConstant(node);
             default: throw new IllegalArgumentException("There must be only Expression," +
                     "StringSymbol or Constant types in parsing XML file!");
         }
@@ -61,7 +69,7 @@ class XMLParser {
         for (int i = 0; i < node.getChildNodes().getLength(); i ++) {
             arguments[i] = parseStringSymbol(node.getChildNodes().item(i));
         }
-        return new StringSymbol(node.getAttributes().getNamedItem("name").getNodeValue(), arguments);
+        return stringSymbolHashMapService.get(node.getAttributes().getNamedItem("name").getNodeValue());
     }
 
     private Constant parseConstant(Node node) {
@@ -81,8 +89,6 @@ class XMLParser {
             System.out.println("SAX Exception: "+e1.getMessage());
             return false;
         }
-
         return true;
-
     }
 }

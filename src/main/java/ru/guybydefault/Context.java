@@ -1,5 +1,6 @@
 package ru.guybydefault;
 
+import org.xml.sax.SAXException;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.implemetations.VariableAssigner;
@@ -8,6 +9,8 @@ import ru.guybydefault.visitors.ISymbolVisitor;
 import ru.guybydefault.visitors.evaluation.FullEvaluator;
 import ru.guybydefault.visitors.evaluation.GlobalVariablesReplacer;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,33 +24,52 @@ import static ru.guybydefault.dsl.library.Functions.SetDelayed;
 
 public class Context {
 
-    private static Expression DefaultContext = new Expression(Functions.Seq,
-            new Expression(SetDelayed, IsConstant, IsConstantImplementation()),
-            new Expression(SetDelayed, IsStringSymbol, IsStringSymbolImplementation()),
-            new Expression(SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
-            new Expression(SetDelayed, DefaultValue, DefaultValueImplementation()),
+    private static XMLParser xmlParser;
+    static {
+        try {
+            xmlParser = new XMLParser();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
 
-            new Expression(SetDelayed, Contains, ContainsImplementation()),
-            new Expression(SetDelayed, Concat, ConcatImplementation()),
-            new Expression(SetDelayed, CountItem, CountItemImplementation()),
-            new Expression(SetDelayed, Filter, FilterImplementation()),
-            new Expression(SetDelayed, Map, MapImplementation()),
-            new Expression(SetDelayed, Fold, FoldImplementation()),
+    private static Expression DefaultContext;
 
-            new Expression(SetDelayed, ListTimes, ListTimesImplementation()),
-            new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
-            new Expression(SetDelayed, ListPlusList, ListPlusListImplementation()),
+    static {
+        try {
+            DefaultContext = new Expression(Functions.Seq,
+                        new Expression(SetDelayed, IsConstant, IsConstantImplementation()),
+                        new Expression(SetDelayed, IsStringSymbol, IsStringSymbolImplementation()),
+                        new Expression(SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
+                        new Expression(SetDelayed, DefaultValue, DefaultValueImplementation()),
 
-            new Expression(SetDelayed, Minus, MinusImplementation()),
-            new Expression(SetDelayed, Or, OrImplementation()),
-            new Expression(SetDelayed, And, AndImplementation()),
-            new Expression(SetDelayed, More, MoreImplementation()),
-            new Expression(SetDelayed, Less, LessImplementation()),
-            new Expression(SetDelayed, Not, NotImplementation()),
-            new Expression(SetDelayed, While, WhileImplementation()),
+                        new Expression(SetDelayed, Contains, ContainsImplementation()),
+                        new Expression(SetDelayed, Concat, ConcatImplementation()),
+                        new Expression(SetDelayed, CountItem, CountItemImplementation()),
+                        new Expression(SetDelayed, Filter, FilterImplementation()),
+                        new Expression(SetDelayed, Map, MapImplementation()),
+                        new Expression(SetDelayed, Fold, FoldImplementation()),
 
-            new Expression(SetDelayed, MatrixPlus, MatrixPlusImplementation())
-    );
+                        new Expression(SetDelayed, ListTimes, ListTimesImplementation()),
+                        new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
+                        new Expression(SetDelayed, ListPlusList, ListPlusListImplementation()),
+
+                        new Expression(SetDelayed, Minus, MinusImplementation()),
+                        new Expression(SetDelayed, Or, OrImplementation()),
+                        new Expression(SetDelayed, And, AndImplementation()),
+                        new Expression(SetDelayed, More, MoreImplementation()),
+                        new Expression(SetDelayed, Less, LessImplementation()),
+                        new Expression(SetDelayed, Not, NotImplementation()),
+                        new Expression(SetDelayed, While, WhileImplementation()),
+
+                        //adding matrix functions in context
+                        new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml")),
+                        new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_muls.xml"))
+                );
+        } catch (IOException | SAXException e) {
+            e.printStackTrace();
+        }
+    }
 
     private int iterations = 0;
 
