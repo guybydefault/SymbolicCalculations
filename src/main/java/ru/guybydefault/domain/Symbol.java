@@ -10,4 +10,6 @@ public abstract class Symbol {
 
     protected abstract <T> T visitImplementation(ISymbolVisitor<T> visitor);
 
+    @Override
+    public abstract String toString();
 }

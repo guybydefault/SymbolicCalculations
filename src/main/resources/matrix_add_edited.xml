@@ -13,7 +13,7 @@
                 <StringSymbol name="GenerateList"></StringSymbol>
                 <Expression>
                     <StringSymbol name="Length"></StringSymbol>
-                    <StringSymbol name="Alphabet"></StringSymbol>
+                    <StringSymbol name="list'"></StringSymbol>
                 </Expression>
             </Expression>
             <Expression>

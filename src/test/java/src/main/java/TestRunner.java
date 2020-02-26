@@ -1,4 +1,4 @@
-package src.main.tools;
+package src.main.java.tools;
 
 import org.junit.Assert;
 import ru.guybydefault.CalculationResult;

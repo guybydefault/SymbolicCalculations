@@ -53,4 +53,12 @@ public final class Expression extends Symbol {
     public int hashCode() {
         return Objects.hash(head, arguments);
     }
+
+    @Override
+    public String toString() {
+        return "Expression{" +
+                "head=" + head +
+                ", arguments=" + arguments +
+                '}';
+    }
 }

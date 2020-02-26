@@ -63,8 +63,9 @@ public class Context {
                         new Expression(SetDelayed, While, WhileImplementation()),
 
                         //adding matrix functions in context
-                        new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml")),
-                        new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_muls.xml"))
+                        new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml"))
+//                    ,
+//                        new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_muls.xml"))
                 );
         } catch (IOException | SAXException e) {
             e.printStackTrace();
