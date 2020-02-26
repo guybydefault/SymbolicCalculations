@@ -31,6 +31,12 @@ public class ListFunctions {
 
     public static final StringSymbol Range = new StringSymbol("Range");
 
+    private static final java.util.List<StringSymbol> symbols = Arrays.asList();
+
+    public static boolean isFromListFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
+
     public static Expression MapImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
                 new Expression(Functions.Fun, Arrays.asList(Alphabet.f,

@@ -9,6 +9,7 @@ import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class BooleanFunctions {
     public static final StringSymbol True = new StringSymbol("True");
@@ -25,6 +26,12 @@ public class BooleanFunctions {
     public static final StringSymbol And = new StringSymbol("And");
     public static final StringSymbol Or = new StringSymbol("Or");
     public static final StringSymbol While = new StringSymbol("While");
+
+    private static final List<StringSymbol> symbols = Arrays.asList(True, False, If, Eq, Compare, Not, Less, More, And, Or, While);
+
+    public static boolean isFromBooleanFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
 
     public static Expression NotImplementation() {
         return new Expression(Alphabet.x, Collections.singletonList(

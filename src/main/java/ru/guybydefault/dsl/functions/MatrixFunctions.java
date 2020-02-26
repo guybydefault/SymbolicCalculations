@@ -8,10 +8,18 @@ import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class MatrixFunctions {
     public static final StringSymbol MatrixPlus = new StringSymbol("MatrixPlus");
     public static final StringSymbol MatrixMult = new StringSymbol("MatrixMult");
+
+    private static final List<StringSymbol> symbols = Arrays.asList(MatrixPlus, MatrixMult);
+
+    public static boolean isFromMatrixFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
+
 //
 //    public static Expression MatrixPlusImplementation() {
 //        return new Expression(Functions.Fun, Arrays.asList(
