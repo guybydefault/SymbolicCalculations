@@ -1,4 +1,4 @@
-package ru.guybydefault;
+package ru.guybydefault.io.xml;
 
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.dsl.functions.*;
@@ -69,16 +69,16 @@ public class StringSymbolHashMapService {
 
         //alphabet
         hashMap.put("x'", Alphabet.x);
-        hashMap.put("y'", Alphabet.x);
-        hashMap.put("n'", Alphabet.x);
-        hashMap.put("expr'", Alphabet.x);
-        hashMap.put("list'", Alphabet.x);
-        hashMap.put("list2'", Alphabet.x);
-        hashMap.put("tuple'", Alphabet.x);
-        hashMap.put("f'", Alphabet.x);
-        hashMap.put("acc'", Alphabet.x);
-        hashMap.put("pred'", Alphabet.x);
-        hashMap.put("body'", Alphabet.x);
+        hashMap.put("y'", Alphabet.y);
+        hashMap.put("n'", Alphabet.n);
+        hashMap.put("expr'", Alphabet.expr);
+        hashMap.put("list'", Alphabet.list);
+        hashMap.put("list2'", Alphabet.list2);
+        hashMap.put("tuple'", Alphabet.tuple);
+        hashMap.put("f'", Alphabet.f);
+        hashMap.put("acc'", Alphabet.acc);
+        hashMap.put("pred'", Alphabet.pred);
+        hashMap.put("body'", Alphabet.body);
 
         //attributes
         hashMap.put("HoldAll", Attributes.HoldAll);

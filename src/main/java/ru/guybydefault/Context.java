@@ -1,15 +1,20 @@
 package ru.guybydefault;
 
+import org.apache.commons.io.FileUtils;
 import org.xml.sax.SAXException;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.implemetations.VariableAssigner;
 import ru.guybydefault.dsl.library.Functions;
+import ru.guybydefault.io.xml.XMLPrinterVisitor;
 import ru.guybydefault.visitors.ISymbolVisitor;
 import ru.guybydefault.visitors.evaluation.FullEvaluator;
 import ru.guybydefault.visitors.evaluation.GlobalVariablesReplacer;
+import ru.guybydefault.io.xml.XMLParser;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -91,6 +96,16 @@ public class Context {
 
             resultHistory.add(currResult);
 
+            try {
+                String debugFolderName = "t_debug";
+                new File(debugFolderName).mkdir();
+                XMLPrinterVisitor xmlPrinterVisitor = new XMLPrinterVisitor(FileUtils.getFile( debugFolderName, "iteration_" + (iterations + 1) + ".xml"));
+                xmlPrinterVisitor.print(currResult);
+            } catch (ParserConfigurationException | TransformerException e) {
+                e.printStackTrace();
+            }
+            System.out.println(currResult);
+
             /**
              * Here we make evaluations, transformations,
              * apply definitions, etc...
@@ -99,7 +114,6 @@ public class Context {
                     .visit(globalVariablesReplacer)
                     .visit(fullEvaluator)
                     .getSymbol();
-
 
             /**
              * NOTE
