@@ -7,6 +7,7 @@ import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.visitors.ISymbolVisitor;
+import ru.guybydefault.visitors.cast.AsExpressionVisitor;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,6 +19,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 
+import static ru.guybydefault.dsl.library.Functions.SetDelayed;
 import static ru.guybydefault.io.xml.XMLConstants.STRING_SYMBOL_ATTRIBUTE_NAME;
 
 public class XMLPrinterVisitor implements ISymbolVisitor<Element> {
@@ -37,7 +39,13 @@ public class XMLPrinterVisitor implements ISymbolVisitor<Element> {
     public Element visitExpression(Expression expression) {
         Element element = document.createElement(XMLConstants.EXPRESSION);
         element.appendChild(expression.getHead().visit(this));
-        expression.getArguments().forEach(arg -> element.appendChild(arg.visit(this)));
+        expression.getArguments().forEach(arg -> {
+            Expression expr = arg.visit(AsExpressionVisitor.getInstance());
+            if (expr!= null && expr.getHead().equals(SetDelayed)) {
+                return;
+            }
+            element.appendChild(arg.visit(this));
+        });
         return element;
     }
 
@@ -51,7 +59,7 @@ public class XMLPrinterVisitor implements ISymbolVisitor<Element> {
     @Override
     public Element visitConstant(Constant constant) {
         Element element = document.createElement(XMLConstants.CONSTANT);
-        element.setNodeValue(String.valueOf(constant.getValue()));
+        element.appendChild(document.createTextNode(String.valueOf(constant.getValue())));
         return element;
     }
 

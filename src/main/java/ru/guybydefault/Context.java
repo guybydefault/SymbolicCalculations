@@ -97,7 +97,7 @@ public class Context {
             resultHistory.add(currResult);
 
             try {
-                String debugFolderName = "s_debug";
+                String debugFolderName = "t_debug";
                 new File(debugFolderName).mkdir();
                 XMLPrinterVisitor xmlPrinterVisitor = new XMLPrinterVisitor(FileUtils.getFile( debugFolderName, "iteration_" + (iterations + 1) + ".xml"));
                 xmlPrinterVisitor.print(currResult);
@@ -114,9 +114,6 @@ public class Context {
                     .visit(globalVariablesReplacer)
                     .visit(fullEvaluator)
                     .getSymbol();
-
-
-
 
             /**
              * NOTE
