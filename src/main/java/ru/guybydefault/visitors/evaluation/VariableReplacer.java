@@ -7,7 +7,6 @@ import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.library.Functions;
-import ru.guybydefault.visitors.cast.AsStringSymbolVisitor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -77,11 +76,7 @@ public final class VariableReplacer implements ISymbolVisitor<Symbol> {
 
 //            System.out.println("VariableReplacer.visitExpression() HEAD: " + expression.getHead());
 //            System.out.println("VariableReplacer.visitExpression() Arguments: " + expression.getArguments());
-//            System.out.println();
 
-            if (head.visit(AsStringSymbolVisitor.getInstance()) != null && head.visit(AsStringSymbolVisitor.getInstance()).getName().equals("Length")) {
-                System.out.println("wow");
-            }
             return new Expression(head,
                     expression.getArguments()
                             .stream()

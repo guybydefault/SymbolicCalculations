@@ -1,4 +1,4 @@
-package ru.guybydefault;
+package ru.guybydefault.io.xml;
 
 import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
@@ -22,17 +22,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class XMLParser {
-    private static final String XSD_SCHEMA_PATH = "src/main/resources/schema.xsd";
-    private static final String EXPRESSION = "Expression";
-    private static final String STRING_SYMBOL = "StringSymbol";
-    private static final String CONSTANT = "Constant";
+import static ru.guybydefault.io.xml.XMLConstants.STRING_SYMBOL_ATTRIBUTE_NAME;
+
+public class XMLParser {
 
     private static StringSymbolHashMapService stringSymbolHashMapService;
 
     private static DocumentBuilder documentBuilder;
 
-    XMLParser() throws ParserConfigurationException {
+    public XMLParser() throws ParserConfigurationException {
         stringSymbolHashMapService = new StringSymbolHashMapService();
         documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
     }
@@ -40,7 +38,7 @@ class XMLParser {
     private static boolean validateXMLSchema(String xmlFile) {
         try {
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = factory.newSchema(new File(XSD_SCHEMA_PATH));
+            Schema schema = factory.newSchema(new File(ru.guybydefault.io.xml.XMLConstants.XSD_SCHEMA_PATH));
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(new File(xmlFile)));
         } catch (IOException e) {
@@ -53,7 +51,7 @@ class XMLParser {
         return true;
     }
 
-    Symbol parse(String fileName) throws IOException, SAXException {
+    public Symbol parse(String fileName) throws IOException, SAXException {
         adaptFileToParser(fileName);
         Symbol result = null;
         if (validateXMLSchema(fileName)) {
@@ -77,11 +75,11 @@ class XMLParser {
 
     private Symbol dfsParse(Node node) {
         switch (node.getNodeName()) {
-            case EXPRESSION:
+            case ru.guybydefault.io.xml.XMLConstants.EXPRESSION:
                 return parseExpression(node);
-            case STRING_SYMBOL:
+            case ru.guybydefault.io.xml.XMLConstants.STRING_SYMBOL:
                 return parseStringSymbol(node);
-            case CONSTANT:
+            case ru.guybydefault.io.xml.XMLConstants.CONSTANT:
                 return parseConstant(node);
             default:
                 throw new IllegalArgumentException("There must be only Expression," +
@@ -102,7 +100,7 @@ class XMLParser {
         for (int i = 0; i < node.getChildNodes().getLength(); i++) {
             arguments[i] = parseStringSymbol(node.getChildNodes().item(i));
         }
-        return stringSymbolHashMapService.get(node.getAttributes().getNamedItem("name").getNodeValue());
+        return stringSymbolHashMapService.get(node.getAttributes().getNamedItem(STRING_SYMBOL_ATTRIBUTE_NAME).getNodeValue());
     }
 
     private Constant parseConstant(Node node) {

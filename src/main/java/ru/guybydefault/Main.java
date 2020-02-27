@@ -3,6 +3,7 @@ package ru.guybydefault;
 import org.xml.sax.SAXException;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.visitors.OutputMathMLVisitor;
+import ru.guybydefault.io.xml.XMLParser;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;

@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
+import static ru.guybydefault.dsl.library.Functions.SetDelayed;
+
 public final class Expression extends Symbol {
 
     private Symbol head;
@@ -56,6 +58,9 @@ public final class Expression extends Symbol {
 
     @Override
     public String toString() {
+        if (head.equals(SetDelayed)) {
+            return "";
+        }
         return "Expression{" +
                 "head=" + head +
                 ", arguments=" + arguments +

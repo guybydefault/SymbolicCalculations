@@ -1,4 +1,4 @@
-package ru.guybydefault;
+package ru.guybydefault.io.xml;
 
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.dsl.functions.*;
