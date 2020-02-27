@@ -9,6 +9,8 @@ import ru.guybydefault.dsl.library.Alphabet;
 import ru.guybydefault.dsl.library.Attributes;
 import ru.guybydefault.dsl.library.Functions;
 
+import java.util.List;
+
 public class OutputMathMLVisitor implements ISymbolVisitor{
 
     private static final OutputMathMLVisitor instance = new OutputMathMLVisitor();
@@ -22,17 +24,16 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
             result.append(expression.getHead().visit(getInstance()));
         } else if (expression.getHead() instanceof StringSymbol) {
             StringSymbol head = (StringSymbol) expression.getHead();
+            List<Symbol> args = expression.getArguments();
             if (Alphabet.isFromAlphabet(head)) result.append(head.visit(getInstance()));
             if (Attributes.isFromAttributes(head)) result.append(head.visit(getInstance()));
-            if (Functions.isFromFunctions(head)) {
-                result.append(head.visit(getInstance()));
-                result.append(simpleFunctionArgs(result, expression, ","));
-            }
+            if (Functions.isFromFunctions(head)) result.append(head.visit(getInstance()))
+                    .append(simpleFunctionArgs(result, expression, ","));
             if (ArithmeticFunctions.isFromArithmeticFunctions(head)) {
                 if (head == ArithmeticFunctions.Minus) {
-                    if (expression.getArguments().size() != 1)
+                    if (args.size() != 1)
                         throw new IllegalArgumentException("Minus mustbe applied to one arg, not several or zero!");
-                    result.append("<mo>-</mo>").append(expression.getArguments().get(0).visit(getInstance()));
+                    result.append("<mo>-</mo>").append(args.get(0).visit(getInstance()));
                 } else if (head == ArithmeticFunctions.ListPlus) {
                     //hz che tut delat'
                 } else {
@@ -45,11 +46,11 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
                     result.append(head.visit(getInstance()));
                 } else if (head == BooleanFunctions.More || head == BooleanFunctions.Less
                         || head == BooleanFunctions.Eq) {
-                    if (expression.getArguments().size() != 2)
+                    if (args.size() != 2)
                         throw new IllegalArgumentException("More or Less must have 2 args!");
-                    result.append(expression.getArguments().get(0).visit(getInstance()))
+                    result.append(args.get(0).visit(getInstance()))
                             .append(head.visit(getInstance()))
-                            .append(expression.getArguments().get(1).visit(getInstance()));
+                            .append(args.get(1).visit(getInstance()));
                 } else {
                     result.append(head.visit(getInstance()))
                             .append(simpleFunctionArgs(result, expression, ","));
@@ -57,24 +58,55 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
             }
             if (CastingFunctions.isFromCastingFunctions(head)) {
                 if (head == CastingFunctions.Null) {
-                    if (expression.getArguments().size() != 0)
+                    if (args.size() != 0)
                         throw new IllegalArgumentException("Null can not have args!");
                     result.append(head.visit(getInstance()));
                 } else if (head == CastingFunctions.AsExpressionArgs) {
-                    result.append(head.visit(getInstance()));
-                    result.append(simpleFunctionArgs(result, expression, ","));
+                    result.append(head.visit(getInstance()))
+                            .append(simpleFunctionArgs(result, expression, ","));
                 } else {
-                    if (expression.getArguments().size() != 1)
+                    if (args.size() != 1)
                         throw new IllegalArgumentException("Most Casting functions must have only and minimum 1 arg!");
-                    result.append(head.visit(getInstance()));
-                    result.append(simpleFunctionArgs(result, expression, ","));
+                    result.append(head.visit(getInstance()))
+                            .append(simpleFunctionArgs(result, expression, ","));
                 }
             }
             if (ListFunctions.isFromListFunctions(head)) {
-
+                if (head == ListFunctions.List) {
+                    if (!args.isEmpty()) {
+                        Expression arg0 = null;
+                        if (args.get(0) instanceof Expression) {
+                            arg0 = (Expression) args.get(0);
+                        }
+                        if (arg0 != null && arg0.getHead() == ListFunctions.List) {
+                            result.append("<mfenced open=\"[\" close=\"]\"><mtable>");
+                            for (int i = 0; i < args.size(); i++) {
+                                result.append("<mtr>");
+                                Expression argi = (Expression) args.get(i);
+                                for (int j = 0; j < argi.getArguments().size(); j++) {
+                                    result.append("<mtd>").append(argi.getArguments().get(j).visit(getInstance()))
+                                            .append("</mtd>");
+                                }
+                                result.append("</mtr>");
+                            }
+                            result.append("</mtable></mfenced>");
+                            //<math xmlns="http://www.w3.org/1998/Math/MathML"><mfenced open="[" close="]"><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>3</mn></mtd><mtd><mn>4</mn></mtd></mtr></mtable></mfenced></math>
+                        } else {
+                            result.append(simpleFunctionArgs(result, expression, ","));
+                        }
+                    } else {
+                        result.append("<mfenced></mfenced>");
+                    }
+                } else {
+                    if (args.size() <= 0)
+                        throw new IllegalArgumentException("Most List functions must have minimum 1 arg!");
+                    result.append(head.visit(getInstance()))
+                            .append(simpleFunctionArgs(result, expression, ","));
+                }
             }
             if (MatrixFunctions.isFromMatrixFunctions(head)) {
-
+                String split = (head == MatrixFunctions.MatrixPlus) ? "<mo>+</mo>" : "<mo>*</mo>";
+                result.append(simpleFunctionArgs(result, expression, split));
             }
         } else {
             result.append(expression.getHead().visit(getInstance()));
@@ -98,8 +130,9 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
                 result = "<mi><</mi>";
             } else if (symbol == BooleanFunctions.Eq) {
                 result = "<mi>=</mi>";
+            } else {
+                result = "<mi>" + symbol.getName() + "</mi>";
             }
-            result = "<mi>" + symbol.getName() + "</mi>";
         }
         if (CastingFunctions.isFromCastingFunctions(symbol)) result = "<mi>" + symbol.getName() + "</mi>";
         if (ListFunctions.isFromListFunctions(symbol)) result = "<mi>" + symbol.getName() + "</mi>";
@@ -110,7 +143,7 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
 
     @Override
     public Object visitConstant(Constant constant) {
-        return "<mn>" + constant.getValue() + "</mn>";
+        return "<mo>" + constant.getValue() + "</mo>";
     }
 
     public static OutputMathMLVisitor getInstance() {
@@ -131,14 +164,18 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
 
     private StringBuilder simpleFunctionArgs(StringBuilder result, Expression expression, String spliterator) {
         if (!expression.getArguments().isEmpty()) {
-            result.append("<mfenced separators=\"" + spliterator + "\">");
-            for (Symbol s: expression.getArguments()) {
-                result.append(s.visit(getInstance()));
+            result.append("<mfenced><mrow>").append(expression.getArguments().get(0).visit(getInstance()));
+            for (int i = 1; i < expression.getArguments().size(); i++) {
+                result.append(spliterator).append(expression.getArguments().get(i).visit(getInstance()));
             }
-            result.append("</mfenced>");
+            result.append("</mrow></mfenced>");
         } else {
             result.append("<mfenced></mfenced>");
         }
         return result;
+    }
+
+    public String addMathMl(String inner) {
+        return "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow>" + inner.substring(0, inner.length()/2) + "</mrow></math>";
     }
 }

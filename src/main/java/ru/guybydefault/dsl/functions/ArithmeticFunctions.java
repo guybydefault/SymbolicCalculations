@@ -30,7 +30,8 @@ public class ArithmeticFunctions {
     public static final StringSymbol ListTimes = new StringSymbol("ListTimes");
     public static final StringSymbol ListPlusList = new StringSymbol("ListPlusList");
 
-    private static final List<StringSymbol> symbols = Arrays.asList(Plus, BinaryPlus, BinaryTimes, Times, Minus, ListPlus, ListTimes, ListPlusList);
+    private static final List<StringSymbol> symbols = Arrays.asList(Plus, BinaryPlus, BinaryTimes, Times, Minus,
+            ListPlus, ListTimes, ListPlusList);
 
     public static boolean isFromArithmeticFunctions(StringSymbol symbol) {
         return symbols.contains(symbol);

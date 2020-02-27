@@ -31,7 +31,8 @@ public class ListFunctions {
 
     public static final StringSymbol Range = new StringSymbol("Range");
 
-    private static final java.util.List<StringSymbol> symbols = Arrays.asList();
+    private static final java.util.List<StringSymbol> symbols = Arrays.asList(List, GenerateList, Part, Fold, Append,
+            Map, FMap, Filter, Length, Concat, CountItem, Contains, Distinct, Group);
 
     public static boolean isFromListFunctions(StringSymbol symbol) {
         return symbols.contains(symbol);
