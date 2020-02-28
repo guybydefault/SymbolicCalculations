@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 
-public class MatrixOperationsTests {
+public class MatrixSumOperationsTests {
 
     @org.junit.Test
     public void testMatrixPlusMatrix_1() {
