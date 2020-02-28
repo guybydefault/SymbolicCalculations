@@ -1,10 +1,10 @@
 package ru.guybydefault.dsl.implemetations.listfunctions;
 
-import ru.guybydefault.visitors.cast.AsExpressionVisitor;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.implemetations.AbstractFunctionImplementation;
+import ru.guybydefault.visitors.cast.AsExpressionVisitor;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,8 +22,7 @@ public abstract class AbstractListFunctionImplementation extends AbstractFunctio
         Expression list = expression.getArguments().get(0).visit(AsExpressionVisitor.getInstance());
 
         if (list == null || !Objects.equals(list.getHead(), List)) {
-//               TODO throw new ArgumentException("Invalid usage of {Name}: Argument is not a list: {expression.Arguments[0]}");
-            return expression;
+            throw new IllegalArgumentException("Argument is not a list");
         }
 
         return evaluateList(expression, list.getArguments());

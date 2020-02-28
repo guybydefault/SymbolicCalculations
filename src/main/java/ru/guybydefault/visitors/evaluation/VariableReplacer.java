@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static ru.guybydefault.dsl.functions.ArithmeticFunctions.ListPlusList;
 import static ru.guybydefault.dsl.library.Attributes.*;
 
 
@@ -37,6 +38,8 @@ public final class VariableReplacer implements ISymbolVisitor<Symbol> {
         public Symbol visitExpression(Expression expression) {
             Symbol head = expression.getHead().visit(this);
 
+//            TODO recheck
+//             TODO Check other arguments because there can be more than 1
             if (Objects.equals(head, Functions.Fun) && Objects.equals(expression.getArguments().get(0), variable)) {
                 return expression;
             }
@@ -73,9 +76,6 @@ public final class VariableReplacer implements ISymbolVisitor<Symbol> {
                     return new Expression(head, arguments);
                 }
             }
-
-//            System.out.println("VariableReplacer.visitExpression() HEAD: " + expression.getHead());
-//            System.out.println("VariableReplacer.visitExpression() Arguments: " + expression.getArguments());
 
             return new Expression(head,
                     expression.getArguments()
