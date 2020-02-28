@@ -4,6 +4,7 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.dsl.library.Alphabet;
+import ru.guybydefault.dsl.library.Attributes;
 import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;

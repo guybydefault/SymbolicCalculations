@@ -9,6 +9,7 @@ import ru.guybydefault.dsl.library.Functions;
 import ru.guybydefault.io.xml.XMLParser;
 import ru.guybydefault.io.xml.XMLPrinterVisitor;
 import ru.guybydefault.visitors.ISymbolVisitor;
+import ru.guybydefault.visitors.cast.AsExpressionVisitor;
 import ru.guybydefault.visitors.evaluation.FullEvaluator;
 import ru.guybydefault.visitors.evaluation.GlobalVariablesReplacer;
 
@@ -126,6 +127,8 @@ public class Context {
 
 
             if (currResult.equals(newResult)) {
+                // skipping DefaultContext SetDelayed stuff when returning result
+                currResult = currResult.visit(AsExpressionVisitor.getInstance()).getArguments().get(DefaultContext.getArguments().size());
                 return new CalculationResult(resultHistory, currResult);
             }
             currResult = newResult;

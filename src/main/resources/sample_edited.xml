@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Expression>
+        <Expression>
+            <StringSymbol name="name"></StringSymbol>
+            <Expression>
+                <Constant>5</Constant>
+            </Expression>
+        </Expression>
+        <Constant>9</Constant>
+        <Expression>
+            <Constant>-3.2</Constant>
+        </Expression>
+    </Expression>
+</Root>

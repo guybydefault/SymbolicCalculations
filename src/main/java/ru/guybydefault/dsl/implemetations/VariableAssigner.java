@@ -4,20 +4,19 @@ import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.library.Functions;
-import ru.guybydefault.dsl.implemetations.AbstractFunctionImplementation;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class VariableAssigner extends AbstractFunctionImplementation {
 
-        private static final StringSymbol[] names = new StringSymbol[]{Functions.SetDelayed, Functions.Set};
+    private static final StringSymbol[] names = new StringSymbol[]{Functions.SetDelayed, Functions.Set};
 
-        public Map<Symbol, Symbol> variables = new HashMap<>();
+    public Map<Symbol, Symbol> variables = new HashMap<>();
 
-        public VariableAssigner() {
-            super(names);
-        }
+    public VariableAssigner() {
+        super(names);
+    }
 
     @Override
     protected Symbol evaluate(Expression expression) {
@@ -26,9 +25,7 @@ public class VariableAssigner extends AbstractFunctionImplementation {
 
         if (variable instanceof StringSymbol) {
             if (!variables.containsKey(variable)) {
-                Map<Symbol, Symbol> newVariables = new HashMap<>(variables);
-                newVariables.put(variable, body);
-                variables = newVariables;
+                variables.put(variable, body);
             }
         }
 
