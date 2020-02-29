@@ -1,0 +1,26 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Root">
+        <xsd:complexType>
+            <xsd:choice>
+                <xsd:element name="Expression"/>
+                <xsd:element name="StringSymbol" type="StringSymbol"/>
+                <xsd:element name="Constant" type="xsd:double"/>
+            </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="StringSymbol">
+<!--        <xsd:sequence minOccurs="0" maxOccurs="unbounded">-->
+<!--            <xsd:element name="StringSymbol" type="StringSymbol"/>-->
+<!--        </xsd:sequence>-->
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Expression" mixed="true">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="Expression" type="Expression"/>
+            <xsd:element name="StringSymbol" type="StringSymbol"/>
+            <xsd:element name="Constant" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

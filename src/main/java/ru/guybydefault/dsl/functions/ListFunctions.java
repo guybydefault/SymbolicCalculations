@@ -46,11 +46,11 @@ public class ListFunctions {
                             new Expression(
                                     new Expression(Fold, Collections.singletonList(Alphabet.list)),
                                     Collections.singletonList(EmptyList)),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(Alphabet.acc,
-                                                new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                                                        new Expression(Append, Arrays.asList(Alphabet.acc,
-                                                                new Expression(Alphabet.f, Collections.singletonList(Alphabet.x))))))))))))));
+                            Collections.singletonList(
+                                    new Expression(Functions.Fun, Arrays.asList(Alphabet.acc,
+                                            new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
+                                                    new Expression(Append, Arrays.asList(Alphabet.acc,
+                                                            new Expression(Alphabet.f, Collections.singletonList(Alphabet.x))))))))))))));
     }
 
     public static Expression FilterImplementation(){

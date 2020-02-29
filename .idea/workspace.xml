@@ -1,0 +1,1572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="19e5d31d-ee21-41ec-86dc-7bade50015e5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_19_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symbolic-calc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/symbolic-calc.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/matrix_add.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/matrix_add_edited.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/matrix_mult.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/matrix_mult_edited.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/CalculationResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/Context.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/SymbolComparer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/domain/Constant.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/domain/Expression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/domain/StringSymbol.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/domain/Symbol.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/functions/ArithmeticFunctions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/functions/BooleanFunctions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/functions/CastingFunctions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/functions/ListFunctions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/functions/MatrixFunctions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/AbstractFunctionImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/ApplyListImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/GenerateListImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/PlusImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/RangeImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/TimesImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/VariableAssigner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/booleanFunctions/CompareImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/booleanFunctions/EqImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/booleanFunctions/IfImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/casting/AsConstantImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/casting/AsExpressionArgsImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/casting/AsStringSymbolImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/listfunctions/AbstractListFunctionImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/listfunctions/AppendImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/listfunctions/DistinctImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/listfunctions/FMapImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/listfunctions/LengthImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/implemetations/listfunctions/PartImplementation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/library/Alphabet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/library/Attributes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/dsl/library/Functions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/ISymbolVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/attributes/FlatHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/attributes/HasAttributeChecker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/attributes/OneIdentityHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/attributes/OrderlessHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/cast/AsConstantVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/cast/AsExpressionVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/cast/AsStringSymbolVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/evaluation/ArgumentsEvaluator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/evaluation/FullEvaluator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/evaluation/FunctionEvaluator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/evaluation/GlobalVariablesReplacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/guybydefault/visitors/evaluation/VariableReplacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/sample.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/sampleAdd.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/sampleAdd_edited.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/schema.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/META-INF/symbolic-calc.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/guybydefault/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/guybydefault/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/ListFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/ListFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/OutputMathMLVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/OutputMathMLVisitor.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/src/main/java/MatrixOperationsTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Context.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1513">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/listfunctions/FMapImplementation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/evaluation/FullEvaluator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&lt;mtr&gt;</find>
+      <find>Const</find>
+      <find>null</find>
+      <find>impl</find>
+      <find>const</find>
+      <find>SetDelayed</find>
+      <find>Context</find>
+      <find>list2</find>
+      <find>pred</find>
+      <find>array</find>
+      <find>body</find>
+      <find>ListPlus</find>
+      <find>Plus</find>
+      <find>Minus</find>
+      <find>True</find>
+      <find>expression.getHead()</find>
+      <find>DefaultValue</find>
+      <find>IsExpressionWithName</find>
+      <find>IsStringSymbol</find>
+      <find>IsConstant</find>
+      <find>AsConstant</find>
+      <find>list</find>
+      <find>listp</find>
+      <find>List</find>
+      <find>expression.getArguments()</find>
+      <find>EmptyList</find>
+      <find>simpleFunctionArgs</find>
+      <find>currResult</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/Library/Attributes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/Library/Functions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/functionsDsl/ArithmeticFunctions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/functionsDsl/MatrixFunctions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/functions/ArithmeticFunctions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/AbstractFunctionImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/TimesImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/GenerateListImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/ApplyListImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/RangeImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/booleanFunctions/IfImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/booleanFunctions/CompareImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/booleanFunctions/EqImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/Casting/AsStringSymbolImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/Casting/AsConstantImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/Casting/AsExpressionArgsImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/implemetations/PlusImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/evaluation/ArgumentsEvaluator.java" />
+        <option value="$PROJECT_DIR$/src/main/Test/unit/Tests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/SymbolComparer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/GenerateListImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/PlusImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/IO.java" />
+        <option value="$PROJECT_DIR$/src/test/src/main/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/IO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/Expression.java" />
+        <option value="$PROJECT_DIR$/src/main/Test/resources/test3.xml" />
+        <option value="$PROJECT_DIR$/src/main/Test/resources/schema.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/src/main/MatrixOperationsTests.java" />
+        <option value="$PROJECT_DIR$/src/test/src/test/java/src/main/MatrixOperationsTests.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sampleAdd.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/evaluation/FullEvaluator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/StringSymbolHashMapService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/schema.xsd" />
+        <option value="$PROJECT_DIR$/src/main/resources/sample.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/XMLParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/OutputMathML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/library/Alphabet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/library/Functions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/library/Attributes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/MatrixFunctions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/ArithmeticFunctions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/BooleanFunctions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/CastingFunctions.java" />
+        <option value="$PROJECT_DIR$/src/test/java/src/main/java/MatrixOperationsTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/OutputMathMLVisitor.java" />
+        <option value="$PROJECT_DIR$/t_debug/iteration_4.xml" />
+        <option value="$PROJECT_DIR$/t_debug/iteration_3.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/Context.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/ListFunctions.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="390" />
+    <option name="y" value="36" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="guybydefault" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="guybydefault" type="462c0819:PsiDirectoryNode" />
+              <item name="dsl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="guybydefault" type="462c0819:PsiDirectoryNode" />
+              <item name="dsl" type="462c0819:PsiDirectoryNode" />
+              <item name="implemetations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="guybydefault" type="462c0819:PsiDirectoryNode" />
+              <item name="dsl" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="guybydefault" type="462c0819:PsiDirectoryNode" />
+              <item name="visitors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="guybydefault" type="462c0819:PsiDirectoryNode" />
+              <item name="visitors" type="462c0819:PsiDirectoryNode" />
+              <item name="cast" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symbolic-calc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symbolic-Calculations" type="462c0819:PsiDirectoryNode" />
+              <item name="t_debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab2" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.guybydefault.dsl" />
+      <recent name="ru.guybydefault.visitors" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ITMO\3 course\5sem\symbol\Symbolic-Calculations\src\main\resources" />
+      <recent name="D:\ITMO\3 course\5sem\symbol\Symbolic-Calculations\src\main\Test\resources" />
+      <recent name="D:\ITMO\3 course\5sem\symbol\Symbolic-Calculations\src\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.MatrixOperationsTests.testMatrixPlus (2)">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="10" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="ru.guybydefault.Main" />
+      <module name="symbolic-calc" />
+      <option name="PROGRAM_PARAMETERS" value="src/main/test/resources/test2.xml src/main/test/resources/test2.ml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="10" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <module name="" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="0" />
+      <module name="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MatrixOperationsTests.testListPlus (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="symbolic-calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="src.main.java" />
+      <option name="MAIN_CLASS_NAME" value="src.main.java.MatrixOperationsTests" />
+      <option name="METHOD_NAME" value="testListPlus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixOperationsTests.testListPlus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="symbolic-calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java.src.main" />
+      <option name="MAIN_CLASS_NAME" value="src.main.MatrixOperationsTests" />
+      <option name="METHOD_NAME" value="testListPlus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixOperationsTests.testMatrixPlus (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="symbolic-calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java.src.main" />
+      <option name="MAIN_CLASS_NAME" value="src.main.MatrixOperationsTests" />
+      <option name="METHOD_NAME" value="testMatrixPlus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixOperationsTests.testMatrixPlus (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="symbolic-calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="src.main.java" />
+      <option name="MAIN_CLASS_NAME" value="src.main.java.MatrixOperationsTests" />
+      <option name="METHOD_NAME" value="testMatrixPlus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixOperationsTests.testMatrixPlus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="symbolic-calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java.src.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java.src.main" />
+      <option name="MAIN_CLASS_NAME" value="java.src.main.MatrixOperationsTests" />
+      <option name="METHOD_NAME" value="testMatrixPlus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MatrixOperationsTests.testMatrixPlus" />
+      <item itemvalue="JUnit.MatrixOperationsTests.testMatrixPlus (1)" />
+      <item itemvalue="JUnit.MatrixOperationsTests.testListPlus" />
+      <item itemvalue="JUnit.MatrixOperationsTests.testListPlus (1)" />
+      <item itemvalue="JUnit.MatrixOperationsTests.testMatrixPlus (2)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MatrixOperationsTests.testMatrixPlus (2)" />
+        <item itemvalue="JUnit.MatrixOperationsTests.testListPlus (1)" />
+        <item itemvalue="JUnit.MatrixOperationsTests.testListPlus" />
+        <item itemvalue="JUnit.MatrixOperationsTests.testMatrixPlus (1)" />
+        <item itemvalue="JUnit.MatrixOperationsTests.testMatrixPlus" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19e5d31d-ee21-41ec-86dc-7bade50015e5" name="Default Changelist" comment="" />
+      <created>1575216808539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575216808539</updated>
+      <workItem from="1575216811615" duration="38025000" />
+      <workItem from="1576575729549" duration="490000" />
+      <workItem from="1577189776260" duration="3106000" />
+      <workItem from="1577471352318" duration="1204000" />
+      <workItem from="1578680019095" duration="42507000" />
+      <workItem from="1579081405048" duration="15473000" />
+      <workItem from="1579397443864" duration="5553000" />
+      <workItem from="1580762714225" duration="20379000" />
+      <workItem from="1581772798993" duration="29180000" />
+      <workItem from="1582918793551" duration="258000" />
+    </task>
+    <task id="LOCAL-00001" summary="model1">
+      <created>1575224010833</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575224010833</updated>
+    </task>
+    <task id="LOCAL-00002" summary="unary binary">
+      <created>1575224488031</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575224488031</updated>
+    </task>
+    <task id="LOCAL-00003" summary="model is ready">
+      <created>1575226021267</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575226021267</updated>
+    </task>
+    <task id="LOCAL-00004" summary="фигня для инпута">
+      <created>1575226636258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575226636258</updated>
+    </task>
+    <task id="LOCAL-00005" summary="all output is ready">
+      <created>1575245009216</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575245009216</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ПРем по дереву">
+      <created>1575273219373</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575273219373</updated>
+    </task>
+    <task id="LOCAL-00007" summary="started commutations">
+      <created>1575316479042</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575316479042</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bug fix added var pi exp into valueType">
+      <created>1575370688257</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575370688257</updated>
+    </task>
+    <task id="LOCAL-00009" summary="io bug fix">
+      <created>1575373294733</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575373294733</updated>
+    </task>
+    <task id="LOCAL-00010" summary="parser">
+      <created>1575373557351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1575373557351</updated>
+    </task>
+    <task id="LOCAL-00011" summary="tests and determinant UnaryOp">
+      <created>1575379194449</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1575379194449</updated>
+    </task>
+    <task id="LOCAL-00012" summary="equals-es">
+      <created>1578683714459</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1578683714459</updated>
+    </task>
+    <task id="LOCAL-00013" summary="dana midnight commit">
+      <created>1578690260738</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1578690260739</updated>
+    </task>
+    <task id="LOCAL-00014" summary="functions implementation + some adds in dsl">
+      <created>1578705608156</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1578705608156</updated>
+    </task>
+    <task id="LOCAL-00015" summary="implementation things">
+      <created>1578741116156</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1578741116156</updated>
+    </task>
+    <task id="LOCAL-00016" summary="implementation things">
+      <created>1578742916514</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1578742916514</updated>
+    </task>
+    <task id="LOCAL-00017" summary="implementation casting and boolean&#10;+ some bugfix">
+      <created>1578745410621</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1578745410621</updated>
+    </task>
+    <task id="LOCAL-00018" summary="матрицы не удались">
+      <created>1578749919338</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1578749919338</updated>
+    </task>
+    <task id="LOCAL-00019" summary="upd 16.50">
+      <created>1578750563567</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1578750563567</updated>
+    </task>
+    <task id="LOCAL-00020" summary="upd 14.01 21.40">
+      <created>1579027301955</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1579027301955</updated>
+    </task>
+    <task id="LOCAL-00021" summary="matrix + added">
+      <created>1579042010613</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1579042010613</updated>
+    </task>
+    <task id="LOCAL-00022" summary="some bugfix">
+      <created>1579083231648</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1579083231648</updated>
+    </task>
+    <task id="LOCAL-00023" summary="some bugfix">
+      <created>1579083964058</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1579083964058</updated>
+    </task>
+    <task id="LOCAL-00024" summary="matrix">
+      <created>1579085221532</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1579085221532</updated>
+    </task>
+    <task id="LOCAL-00025" summary="bugfix">
+      <created>1579087007271</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1579087007271</updated>
+    </task>
+    <task id="LOCAL-00026" summary="matrix multiply">
+      <created>1579097190592</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1579097190592</updated>
+    </task>
+    <task id="LOCAL-00027" summary="xml parser with xsd validator">
+      <created>1580851949348</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1580851949348</updated>
+    </task>
+    <task id="LOCAL-00028" summary="xml parser with xsd validator">
+      <created>1580933390864</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1580933390864</updated>
+    </task>
+    <task id="LOCAL-00029" summary="all input and matrix functions implementations from xml adding">
+      <created>1581782525174</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1581782525174</updated>
+    </task>
+    <task id="LOCAL-00030" summary="almost done output">
+      <created>1582755244388</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1582755244388</updated>
+    </task>
+    <task id="LOCAL-00031" summary="done mathml output">
+      <created>1582799873270</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1582799873270</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="MatrixOperationsTests_testListPlus - 2020.01.15 at 17h 40m 28s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testListPlus - 2020.01.15 at 17h 43m 55s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testMatrixPlus_(1) - 2020.01.16 at 12h 16m 49s.xml">
+      <configuration name="MatrixOperationsTests.testMatrixPlus (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testListPlus_(1) - 2020.02.27 at 13h 56m 48s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testMatrixPlus_(2) - 2020.02.27 at 13h 58m 02s.xml">
+      <configuration name="MatrixOperationsTests.testMatrixPlus (2)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testListPlus_(1) - 2020.02.27 at 14h 23m 54s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testListPlus_(1) - 2020.02.27 at 14h 47m 23s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testListPlus_(1) - 2020.02.27 at 14h 48m 20s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testListPlus_(1) - 2020.02.27 at 14h 59m 34s.xml">
+      <configuration name="MatrixOperationsTests.testListPlus (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixOperationsTests_testMatrixPlus_(2) - 2020.02.27 at 14h 59m 37s.xml">
+      <configuration name="MatrixOperationsTests.testMatrixPlus (2)" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="156175000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Capture Tool" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Designer" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21073826" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50067115" side_tool="true" weight="0.28895184" />
+      <window_info anchor="bottom" id="Database Changes" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49932885" weight="0.28895184" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.3286119" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.33144477" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.53257793" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3385269" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="13" visible="true" weight="0.3286119" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Leiningen" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="REPL" order="6" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Capture Tool" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Designer" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.22013423" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50067115" side_tool="true" weight="0.28895184" />
+      <window_info anchor="bottom" id="Database Changes" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49932885" weight="0.28895184" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.48300284" />
+      <window_info anchor="bottom" id="Debug" order="8" visible="true" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3385269" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="13" visible="true" weight="0.3286119" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Leiningen" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="REPL" order="6" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="фигня для инпута" />
+    <MESSAGE value="all output is ready" />
+    <MESSAGE value="ПРем по дереву" />
+    <MESSAGE value="started commutations" />
+    <MESSAGE value="bug fix added var pi exp into valueType" />
+    <MESSAGE value="io bug fix" />
+    <MESSAGE value="parser" />
+    <MESSAGE value="tests and determinant UnaryOp" />
+    <MESSAGE value="equals-es" />
+    <MESSAGE value="dana midnight commit" />
+    <MESSAGE value="functions implementation + some adds in dsl" />
+    <MESSAGE value="implementation things" />
+    <MESSAGE value="implementation casting and boolean&#10;+ some bugfix" />
+    <MESSAGE value="матрицы не удались" />
+    <MESSAGE value="upd 16.50" />
+    <MESSAGE value="upd 14.01 21.40" />
+    <MESSAGE value="matrix + added" />
+    <MESSAGE value="some bugfix" />
+    <MESSAGE value="matrix" />
+    <MESSAGE value="bugfix" />
+    <MESSAGE value="matrix multiply" />
+    <MESSAGE value="xml parser with xsd validator" />
+    <MESSAGE value="all input and matrix functions implementations from xml adding" />
+    <MESSAGE value="almost done output" />
+    <MESSAGE value="done mathml output" />
+    <option name="LAST_COMMIT_MESSAGE" value="done mathml output" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/UnaryOp.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/UnaryOpType.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/src/main/Test.java</url>
+          <line>15</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/src/main/tools/TestRunner.java</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Context.java</url>
+          <line>114</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/listfunctions/FMapImplementation.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/evaluation/FullEvaluator.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((java.util.LinkedList)((Expression)expression.arguments.get(1)).arguments).get(1)" custom="java.util.LinkedList,ru.guybydefault.domain.Expression" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="((Expression)((Expression)a).head).arguments" custom="ru.guybydefault.domain.Expression" />
+        <watch expression="((Expression)((Expression)a).head).head" custom="ru.guybydefault.domain.Expression" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>currSymbol.visit(visitor)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>currSymbol</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((Expression) ((Expression) currSymbol).getArguments().get(1)).getArguments()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((Expression) ((Expression) currSymbol).getArguments().get(1)).getArguments()</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>java.util.LinkedList,ru.guybydefault.domain.Expression</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((Expression) currSymbol).getArguments()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>stringSymbolHashMapService.get(node.getAttributes().getNamedItem(&quot;name&quot;).getNodeValue())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>stringSymbolHashMapService.get(&quot;Plus&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node.getAttributes().getNamedItem(&quot;name&quot;).getNodeValue()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node.getAttributes().getNamedItem(&quot;name&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding>
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#244#245#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.xml/org/w3c/dom/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Test/resources/test1.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/Test/resources/test1.ml" />
+    <entry file="file://$PROJECT_DIR$/src/main/Test/resources/sample.xml" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/src/main/tools/TestRunner.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/Test/unit/Tests.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/src/main/MatrixOperationsTests.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/evaluation/VariableReplacer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="39" column="116" lean-forward="true" selection-start-line="39" selection-start-column="116" selection-end-line="39" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/GenerateListImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="94" selection-start-line="13" selection-start-column="94" selection-end-line="13" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/booleanFunctions/EqImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/booleanFunctions/CompareImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/schema.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/cast/AsExpressionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/cast/AsConstantVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/cast/AsStringSymbolVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/StringSymbolHashMapService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/XMLParser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/StringSymbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/library/Alphabet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/library/Attributes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/library/Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/TimesImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/BooleanFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="120" lean-forward="true" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/CastingFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="87" lean-forward="true" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/ArithmeticFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/MatrixFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="77" lean-forward="true" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/VariableAssigner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/PlusImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_debug/iteration_3.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="54" lean-forward="true" selection-start-column="54" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/CalculationResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/OutputMathMLVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="178" column="74" lean-forward="true" selection-start-line="178" selection-start-column="74" selection-end-line="178" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7960#7961#0" expanded="true" />
+            <element signature="e#8046#8047#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/evaluation/FunctionEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/functions/ListFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="55" column="73" lean-forward="true" selection-start-line="55" selection-start-column="73" selection-end-line="55" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_debug/iteration_4.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#215#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/domain/Expression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#925#926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/AbstractFunctionImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/listfunctions/AbstractListFunctionImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="48" column="73" lean-forward="true" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sample.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="152" lean-forward="true" selection-start-column="152" selection-end-column="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sampleAdd_edited.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/matrix_mult_edited.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="53" lean-forward="true" selection-start-line="72" selection-start-column="53" selection-end-line="72" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/matrix_add_edited.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="51" lean-forward="true" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sampleAdd.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="46" selection-start-column="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/matrix_add.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/src/main/java/MatrixOperationsTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/dsl/implemetations/listfunctions/FMapImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/guybydefault/visitors/evaluation/FullEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>symbolic-calc</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

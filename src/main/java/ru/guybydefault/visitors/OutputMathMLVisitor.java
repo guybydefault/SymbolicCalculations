@@ -44,13 +44,13 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
             if (BooleanFunctions.isFromBooleanFunctions(head)) {
                 if (head == BooleanFunctions.True || head == BooleanFunctions.False) {
                     result.append(head.visit(getInstance()));
-                } else if (head == BooleanFunctions.More || head == BooleanFunctions.Less
-                        || head == BooleanFunctions.Eq) {
-                    if (args.size() != 2)
-                        throw new IllegalArgumentException("More or Less must have 2 args!");
-                    result.append(args.get(0).visit(getInstance()))
-                            .append(head.visit(getInstance()))
-                            .append(args.get(1).visit(getInstance()));
+//                } else if (head == BooleanFunctions.More || head == BooleanFunctions.Less
+//                        || head == BooleanFunctions.Eq) {
+//                    if (args.size() != 2)
+//                        throw new IllegalArgumentException("More or Less must have 2 args!");
+//                    result.append(args.get(0).visit(getInstance()))
+//                            .append(head.visit(getInstance()))
+//                            .append(args.get(1).visit(getInstance()));
                 } else {
                     result.append(head.visit(getInstance()))
                             .append(simpleFunctionArgs(result, expression, ","));
@@ -176,6 +176,6 @@ public class OutputMathMLVisitor implements ISymbolVisitor{
     }
 
     public String addMathMl(String inner) {
-        return "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow>" + inner.substring(0, inner.length()/2) + "</mrow></math>";
+        return "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow>" + inner + "</mrow></math>";
     }
 }

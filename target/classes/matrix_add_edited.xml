@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Expression>
+        <StringSymbol name="Fun"></StringSymbol>
+        <Expression>
+            <StringSymbol name="List"></StringSymbol>
+            <StringSymbol name="list'"></StringSymbol>
+            <StringSymbol name="list2'"></StringSymbol>
+        </Expression>
+        <Expression>
+            <StringSymbol name="FMap"></StringSymbol>
+            <Expression>
+                <StringSymbol name="GenerateList"></StringSymbol>
+                <Expression>
+                    <StringSymbol name="Length"></StringSymbol>
+                    <StringSymbol name="list'"></StringSymbol>
+                </Expression>
+            </Expression>
+            <Expression>
+                <StringSymbol name="Fun"></StringSymbol>
+                <Expression>
+                    <StringSymbol name="List"></StringSymbol>
+                    <StringSymbol name="x'"></StringSymbol>
+                </Expression>
+                <Expression>
+                    <StringSymbol name="ListPlusList"></StringSymbol>
+                    <Expression>
+                        <StringSymbol name="Part"></StringSymbol>
+                        <StringSymbol name="list'"></StringSymbol>
+                        <StringSymbol name="x'"></StringSymbol>
+                    </Expression>
+                    <Expression>
+                        <StringSymbol name="Part"></StringSymbol>
+                        <StringSymbol name="list2'"></StringSymbol>
+                        <StringSymbol name="x'"></StringSymbol>
+                    </Expression>
+                </Expression>
+            </Expression>
+        </Expression>
+    </Expression>
+</Root>
+
+<!-- public static Expression MatrixPlusImplementation() {
+        return new Expression(Functions.Fun, Arrays.asList(
+                new Expression(ListFunctions.List, Arrays.asList(Alphabet.list, Alphabet.list2)),
+                new Expression(ListFunctions.FMap, Arrays.asList(
+                        new Expression(ListFunctions.GenerateList, Collections.singletonList(
+                                new Expression(ListFunctions.Length, Collections.singletonList(Alphabet.list))
+                        )),
+                        new Expression(Functions.Fun, Arrays.asList(
+                                new Expression(ListFunctions.List, Alphabet.x),
+                                new Expression(ArithmeticFunctions.ListPlusList, Arrays.asList(
+                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list, Alphabet.x)),
+                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.list2, Alphabet.x))))
+                        ))))));
+    } -->
