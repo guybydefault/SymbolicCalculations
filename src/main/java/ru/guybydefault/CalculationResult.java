@@ -1,5 +1,6 @@
 package ru.guybydefault;
 
+import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.Symbol;
 
 import java.util.List;
@@ -36,5 +37,8 @@ public class CalculationResult {
         return Objects.equals(symbol, that.symbol);
     }
 
-
+    public Symbol getLastExpression() {
+        Expression expression = (Expression) symbol;
+        return expression.getArguments().get(expression.getArguments().size() - 1);
+    }
 }

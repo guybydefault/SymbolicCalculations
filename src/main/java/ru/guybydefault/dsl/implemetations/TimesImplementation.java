@@ -22,14 +22,24 @@ public class TimesImplementation extends AbstractFunctionImplementation{
     @Override
     protected Symbol evaluate(Expression expression) {
         List<Constant> constants = expression.getArguments().stream()
-                .map(x -> (Constant) x.visit(new AsConstantVisitor()))
+                .map(x -> x.visit(new AsConstantVisitor()))
                 .collect(Collectors.toList());
 
+        Constant constant = new Constant(constants.stream().filter(Objects::nonNull)
+                .map(Constant::getValue).reduce(1.0, (a, b) -> a * b));
+
         if (constants.contains(null)) {
-            return expression;
+            if (constants.stream().allMatch(Objects::isNull)) {
+                return expression;
+            } else {
+                List<Symbol> s = expression.getArguments().stream()
+                        .filter(x -> x.visit(new AsConstantVisitor()) == null)
+                        .collect(Collectors.toList());
+                s.add(constant);
+                return new Expression(ArithmeticFunctions.Times, s);
+            }
         }
 
-        return new Constant(constants.stream().filter(Objects::nonNull)
-                .map(Constant::getValue).reduce(1.0, (a, b) -> a * b));
+        return constant;
     }
 }

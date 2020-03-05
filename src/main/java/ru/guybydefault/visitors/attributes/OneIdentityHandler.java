@@ -13,7 +13,7 @@ public class OneIdentityHandler implements ISymbolVisitor {
 
     @Override
     public Object visitExpression(Expression expression) {
-        return (boolean)expression.getHead().visit(IsOneIdentityVisitor)
+        return expression.getHead().visit(IsOneIdentityVisitor)
                 && expression.getArguments().size() == 1
                 ? expression.getArguments().get(0)
                 : expression;
