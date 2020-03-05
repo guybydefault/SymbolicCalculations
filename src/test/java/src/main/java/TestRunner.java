@@ -15,6 +15,6 @@ public class TestRunner {
         Context context = new Context();
         CalculationResult result = context.run(expression);
 
-        Assert.assertEquals(result.getLastExpression(), expectedResult);
+        Assert.assertEquals(result.getSymbol(), expectedResult);
     }
 }

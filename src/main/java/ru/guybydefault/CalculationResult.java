@@ -36,9 +36,4 @@ public class CalculationResult {
         CalculationResult that = (CalculationResult) o;
         return Objects.equals(symbol, that.symbol);
     }
-
-    public Symbol getLastExpression() {
-        Expression expression = (Expression) symbol;
-        return expression.getArguments().get(expression.getArguments().size() - 1);
-    }
 }
