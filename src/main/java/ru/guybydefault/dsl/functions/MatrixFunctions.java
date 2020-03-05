@@ -1,18 +1,15 @@
 package ru.guybydefault.dsl.functions;
 
-import ru.guybydefault.domain.Constant;
-import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
-import ru.guybydefault.dsl.library.Alphabet;
-import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class MatrixFunctions {
     public static final StringSymbol MatrixPlus = new StringSymbol("MatrixPlus");
     public static final StringSymbol MatrixMult = new StringSymbol("MatrixMult");
+    public static final StringSymbol Transpose = new StringSymbol("Transpose"); //symbolic
+    public static final StringSymbol Determiner = new StringSymbol("Determiner"); //java or kinda symbolic
 
     private static final List<StringSymbol> symbols = Arrays.asList(MatrixPlus, MatrixMult);
 

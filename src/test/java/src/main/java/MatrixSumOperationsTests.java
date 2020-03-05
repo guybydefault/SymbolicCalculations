@@ -127,10 +127,10 @@ public class MatrixSumOperationsTests {
                                 ))
                         )),
                 new Expression(ListFunctions.List, Arrays.asList(
-                        new Expression(ListFunctions.List, new Expression(ArithmeticFunctions.Plus, new StringSymbol("x"), new Constant(3), new Constant(6)),
-                                new Expression(ListFunctions.List, new Constant(8), new Constant(10))
+                        new Expression(ListFunctions.List, new Expression(ArithmeticFunctions.Plus, new StringSymbol("x"), new Constant(3)), new Constant(6)),
+                        new Expression(ListFunctions.List, new Constant(8), new Constant(10))
                         ))
-                ));
+                );
     }
 
     @org.junit.Test
@@ -159,10 +159,10 @@ public class MatrixSumOperationsTests {
                                 ))
                         )),
                 new Expression(ListFunctions.List, Arrays.asList(
-                        new Expression(ListFunctions.List, new Expression(ArithmeticFunctions.Plus, new StringSymbol("x"), new Constant(3), new Constant(6)),
-                                new Expression(ListFunctions.List, new Constant(8), new Constant(10))
+                        new Expression(ListFunctions.List, new Expression(ArithmeticFunctions.Plus, new StringSymbol("x"), new StringSymbol("x"), new Constant(2)), new Constant(6)),
+                        new Expression(ListFunctions.List, new Constant(8), new Constant(10))
                         ))
-                ));
+                );
     }
 
     @org.junit.Test

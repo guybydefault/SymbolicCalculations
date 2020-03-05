@@ -22,9 +22,6 @@ public class PlusImplementation extends AbstractFunctionImplementation {
 
     @Override
     protected Symbol evaluate(Expression expression) {
-        if (expression.getArguments().contains(new StringSymbol("x"))) {
-            System.out.println("hey");
-        }
 
         List<Constant> constants = expression.getArguments().stream()
                 .map(x -> x.visit(new AsConstantVisitor()))
