@@ -7,6 +7,7 @@ import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class CastingFunctions {
     public static final StringSymbol AsConstant = new StringSymbol("AsConstant");
@@ -19,6 +20,13 @@ public class CastingFunctions {
     public static final StringSymbol IsStringSymbol = new StringSymbol("IsStringSymbol");
     public static final StringSymbol IsExpressionWithName = new StringSymbol("IsExpressionWithName");
     public static final StringSymbol DefaultValue = new StringSymbol("DefaultValue");
+
+    private static final List<StringSymbol> symbols = Arrays.asList(AsConstant, AsStringSymbol, AsExpressionArgs,
+            Null, IsConstant, IsStringSymbol, IsExpressionWithName, DefaultValue);
+
+    public static boolean isFromCastingFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
 
     public static Expression IsConstantImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,

@@ -31,6 +31,13 @@ public class ListFunctions {
 
     public static final StringSymbol Range = new StringSymbol("Range");
 
+    private static final java.util.List<StringSymbol> symbols = Arrays.asList(List, GenerateList, Part, Fold, Append,
+            Map, FMap, Filter, Length, Concat, CountItem, Contains, Distinct, Group);
+
+    public static boolean isFromListFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
+
     public static Expression MapImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.list,
                 new Expression(Functions.Fun, Arrays.asList(Alphabet.f,
@@ -38,11 +45,11 @@ public class ListFunctions {
                             new Expression(
                                     new Expression(Fold, Collections.singletonList(Alphabet.list)),
                                     Collections.singletonList(EmptyList)),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(Alphabet.acc,
-                                                new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                                                        new Expression(Append, Arrays.asList(Alphabet.acc,
-                                                                new Expression(Alphabet.f, Collections.singletonList(Alphabet.x))))))))))))));
+                            Collections.singletonList(
+                                    new Expression(Functions.Fun, Arrays.asList(Alphabet.acc,
+                                            new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
+                                                    new Expression(Append, Arrays.asList(Alphabet.acc,
+                                                            new Expression(Alphabet.f, Collections.singletonList(Alphabet.x))))))))))))));
     }
 
     public static Expression FilterImplementation(){

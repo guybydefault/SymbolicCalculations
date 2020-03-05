@@ -9,6 +9,7 @@ import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class ArithmeticFunctions {
     public static final StringSymbol Plus = new StringSymbol("Plus",
@@ -28,6 +29,13 @@ public class ArithmeticFunctions {
     public static final StringSymbol ListPlus = new StringSymbol("ListPlus");
     public static final StringSymbol ListTimes = new StringSymbol("ListTimes");
     public static final StringSymbol ListPlusList = new StringSymbol("ListPlusList");
+
+    private static final List<StringSymbol> symbols = Arrays.asList(Plus, BinaryPlus, BinaryTimes, Times, Minus,
+            ListPlus, ListTimes, ListPlusList);
+
+    public static boolean isFromArithmeticFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
 
     public static Expression MinusImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,

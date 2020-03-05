@@ -6,6 +6,7 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.dsl.functions.ArithmeticFunctions;
+import ru.guybydefault.dsl.library.Alphabet;
 
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 
@@ -56,14 +57,14 @@ public class SumTest {
                 new Expression(ArithmeticFunctions.Plus,
                         new Expression(ArithmeticFunctions.Plus,
                                 new Constant(5),
-                                new StringSymbol("x")),
+                                Alphabet.x),
                         new Expression(ArithmeticFunctions.Plus,
                                 new Expression(ArithmeticFunctions.Plus,
                                         new Constant(3),
                                         new Constant(2)),
                                 new Constant(2))),
                 new Expression(ArithmeticFunctions.Plus,
-                        new StringSymbol("x"),
+                        Alphabet.x,
                         new Constant(12))
         );
     }
@@ -74,15 +75,15 @@ public class SumTest {
                 new Expression(ArithmeticFunctions.Plus,
                         new Expression(ArithmeticFunctions.Plus,
                                 new Constant(5),
-                                new StringSymbol("x")),
+                                Alphabet.x),
                         new Expression(ArithmeticFunctions.Plus,
                                 new Expression(ArithmeticFunctions.Plus,
                                         new Constant(3),
-                                        new StringSymbol("x")),
+                                        Alphabet.x),
                                 new Constant(2))),
                 new Expression(ArithmeticFunctions.Plus,
                         new Expression(ArithmeticFunctions.Times,
-                                new StringSymbol("x"),
+                                Alphabet.x,
                                 new Constant(2)),
                         new Constant(10))
         );

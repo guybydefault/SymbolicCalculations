@@ -19,7 +19,7 @@ public class ApplyListImplementation extends AbstractFunctionImplementation {
     @Override
     protected Symbol evaluate(Expression expression) {
         Symbol func = expression.getArguments().get(0);
-        Expression list = (Expression) expression.getArguments().get(1).visit(new AsExpressionVisitor());
+        Expression list = expression.getArguments().get(1).visit(new AsExpressionVisitor());
 
         if (list != null && (list.getHead() != ListFunctions.List)){
             return expression;

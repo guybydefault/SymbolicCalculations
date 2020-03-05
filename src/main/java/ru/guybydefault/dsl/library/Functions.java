@@ -2,6 +2,9 @@ package ru.guybydefault.dsl.library;
 
 import ru.guybydefault.domain.StringSymbol;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Functions {
     public static final StringSymbol Evaluate = new StringSymbol("Evaluate");
 
@@ -24,4 +27,10 @@ public class Functions {
             new StringSymbol[] {Attributes.HoldFirst});
 
     public static final StringSymbol ApplyList = new StringSymbol("ApplyList");
+
+    private static final List<StringSymbol> symbols = Arrays.asList(Evaluate, Hold, HoldComplete, Fun, Seq, SetDelayed, Set, ApplyList);
+
+    public static boolean isFromFunctions(StringSymbol symbol) {
+        return symbols.contains(symbol);
+    }
 }
