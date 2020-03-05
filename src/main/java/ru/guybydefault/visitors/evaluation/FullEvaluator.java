@@ -1,13 +1,11 @@
 package ru.guybydefault.visitors.evaluation;
 
-import com.sun.org.apache.xpath.internal.operations.Plus;
 import ru.guybydefault.CalculationResult;
 import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
 import ru.guybydefault.dsl.functions.ArithmeticFunctions;
-import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.dsl.implemetations.*;
 import ru.guybydefault.dsl.implemetations.booleanFunctions.CompareImplementation;
 import ru.guybydefault.dsl.implemetations.booleanFunctions.EqImplementation;
@@ -16,7 +14,6 @@ import ru.guybydefault.dsl.implemetations.casting.AsConstantImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsExpressionArgsImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsStringSymbolImplementation;
 import ru.guybydefault.dsl.implemetations.listfunctions.*;
-import ru.guybydefault.dsl.library.Functions;
 import ru.guybydefault.visitors.ISymbolVisitor;
 import ru.guybydefault.visitors.attributes.FlatHandler;
 import ru.guybydefault.visitors.attributes.OneIdentityHandler;

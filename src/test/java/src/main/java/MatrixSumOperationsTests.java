@@ -8,7 +8,6 @@ import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.dsl.functions.ArithmeticFunctions;
 import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.dsl.functions.MatrixFunctions;
-import ru.guybydefault.dsl.library.Alphabet;
 
 import java.util.Arrays;
 

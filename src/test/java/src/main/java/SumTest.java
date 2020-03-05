@@ -4,7 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
-import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.dsl.functions.ArithmeticFunctions;
 import ru.guybydefault.dsl.library.Alphabet;
 
