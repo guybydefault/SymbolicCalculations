@@ -5,7 +5,6 @@ import ru.guybydefault.domain.Constant;
 import ru.guybydefault.domain.Expression;
 import ru.guybydefault.domain.StringSymbol;
 import ru.guybydefault.domain.Symbol;
-import ru.guybydefault.dsl.functions.ArithmeticFunctions;
 import ru.guybydefault.dsl.implemetations.*;
 import ru.guybydefault.dsl.implemetations.booleanFunctions.CompareImplementation;
 import ru.guybydefault.dsl.implemetations.booleanFunctions.EqImplementation;
@@ -83,9 +82,6 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
 
         Symbol currSymbol = funcCalculationResult.getSymbol();
         for (ISymbolVisitor<Symbol> visitor : visitors) {
-            if (visitor.getClass().equals(ru.guybydefault.dsl.implemetations.PlusImplementation.class) && expression.getHead().equals(ArithmeticFunctions.Plus)) {
-                System.out.println("hey");
-            }
             currSymbol = currSymbol.visit(visitor);
             steps.add(currSymbol);
         }

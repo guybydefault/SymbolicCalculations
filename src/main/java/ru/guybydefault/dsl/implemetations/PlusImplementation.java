@@ -34,51 +34,76 @@ public class PlusImplementation extends AbstractFunctionImplementation {
 
         if (constants.contains(null)) {
 
-            List<Symbol> args = expression.getArguments().stream()
-                    .filter(x -> x.visit(new AsConstantVisitor()) == null)
+            //without simplification
+//            List<Symbol> args = expression.getArguments().stream()
+//                    .filter(x -> x.visit(new AsConstantVisitor()) == null)
+//                    .collect(Collectors.toList());
+
+            HashMap<Symbol, Constant> singleArgsNumbers = getHashMapSingleEntriesNumbers(expression);
+
+            //lonely StringSymbol or Expression we'll put it in args
+            List<Symbol> args = getTimesSingleEntries(expression).stream()
+                    .filter(x -> singleArgsNumbers.get(x).getValue() == 1)
                     .collect(Collectors.toList());
 
-//            HashMap<Symbol, Constant> singleArgsNumbers = getHashMapSingleEntriesNumbers(expression);
-//
-//            //but if it is a lonely StringSymbol we'll put it back
-//            List<Symbol> args = getTimesSingleEntries(expression).stream()
-//                    .filter(x -> singleArgsNumbers.get(x).getValue() == 1)
-//                    .collect(Collectors.toList());
-//
-//            //adding other times with constant more than 1 and single arg
-//            args.addAll(getTimesSingleEntries(expression).stream()
-//                    .filter(x -> singleArgsNumbers.get(x).getValue() > 1) //0 and 1 won't be in Times format
-//                    .map(x -> new Expression(ArithmeticFunctions.Times, x, singleArgsNumbers.get(x)))
-//                    .collect(Collectors.toList()));
-//
-//            HashMap<List<Symbol>, Constant> multipleArgsNumbers = getHashMapMultipleEntriesNumbers(expression);
-//
-//            //
+            //adding other Times with constant more than 1 and single arg
+            args.addAll(getTimesSingleEntries(expression).stream()
+                    .filter(x -> singleArgsNumbers.get(x).getValue() > 1) //0 and 1 won't be in Times format
+                    .map(x -> new Expression(ArithmeticFunctions.Times, x, singleArgsNumbers.get(x)))
+                    .collect(Collectors.toList()));
 
+            HashMap<List<Symbol>, Constant> multipleArgsNumbers = getHashMapMultipleEntriesNumbers(expression);
+
+            //adding Times Expressions without Constant but with several other args
+            args.addAll(getTimesMultipleEntries(expression).stream()
+                    .filter(x -> multipleArgsNumbers.get(x).getValue() == 1)
+                    .map(x -> new Expression(ArithmeticFunctions.Times, x))
+                    .collect(Collectors.toList()));
+
+            //adding Times Expressions with 1 constant and several other args
+            args.addAll(getTimesMultipleEntries(expression).stream()
+                    .filter(x -> multipleArgsNumbers.get(x).getValue() > 1) //0 and 1 won't be in Times format
+                    .map(x -> addInList(x, multipleArgsNumbers.get(x)))
+                    .map(x -> new Expression(ArithmeticFunctions.Times, x))
+                    .collect(Collectors.toList()));
 
             if (!constants.stream().allMatch(Objects::isNull) && constant.getValue() != 0) {
                 args.add(constant);
             }
+
+            if (args.size() == 1) {
+                return args.get(0);
+            }
+
             return new Expression(ArithmeticFunctions.Plus, args);
         }
+
         return constant;
+    }
+
+    private List<Symbol> addInList(List<Symbol> list, Symbol symbol) {
+        list.add(symbol);
+        return list;
     }
 
     private List<Symbol> getTimesSingleEntries(Expression expression) {
         List<Symbol> res;
-        List<Symbol> stringSymbols = expression.getArguments().stream()
+        List<Symbol> singleNotConstants = expression.getArguments().stream()
                 .filter(x -> x.visit(new AsStringSymbolVisitor()) != null)
                 .collect(Collectors.toList());
+        singleNotConstants.addAll(expression.getArguments().stream()
+                .map(x -> x.visit(new AsExpressionVisitor()))
+                .filter(Objects::nonNull)
+                .filter(x -> !isTimes(x))
+                .collect(Collectors.toList()));
+
         List<Symbol> timesSingleArgs = expression.getArguments().stream()
-                .filter(x -> x.visit(new AsExpressionVisitor()) != null)
-                .filter(x -> //1 arg without constants
-                        (((Expression) x).getHead() == ArithmeticFunctions.Times
-                        || ((Expression) x).getHead() == ArithmeticFunctions.BinaryTimes))
-                .filter(x -> //1 arg without constants
-                        (((Expression) x).getArguments().stream()
-                                .filter(o -> o.visit(new AsConstantVisitor()) == null).count() == 1))
+                .map(x -> x.visit(new AsExpressionVisitor()))
+                .filter(Objects::nonNull)
+                .filter(this::isTimesWithOneConstantAndOneArg)
+                .filter(x -> !(singleNotConstants.contains(x.getArguments().get(0))))
                 .collect(Collectors.toList());
-        res = stringSymbols;
+        res = singleNotConstants;
         res.addAll(timesSingleArgs);
         res = res.stream()
                 .distinct()
@@ -88,14 +113,10 @@ public class PlusImplementation extends AbstractFunctionImplementation {
 
     private List<List<Symbol>> getTimesMultipleEntries(Expression expression) {
         return expression.getArguments().stream()
-                .filter(x -> x.visit(new AsExpressionVisitor()) != null)
-                .filter(x -> //1 arg without constants
-                        (((Expression) x).getHead() == ArithmeticFunctions.Times
-                                || ((Expression) x).getHead() == ArithmeticFunctions.BinaryTimes))
-                .filter(x -> //1 arg without constants
-                        (((Expression) x).getArguments().stream()
-                                .filter(o -> o.visit(new AsConstantVisitor()) == null).count() > 1))
-                .map(x -> (((Expression) x).getArguments().stream()
+                .map(x -> x.visit(new AsExpressionVisitor()))
+                .filter(Objects::nonNull)
+                .filter(this::isTimesWithOneConstantAndSeveralArgs)
+                .map(x -> (x.getArguments().stream()
                         .filter(o -> o.visit(new AsConstantVisitor()) == null)
                         .collect(Collectors.toList())))
                 .distinct()
@@ -121,17 +142,42 @@ public class PlusImplementation extends AbstractFunctionImplementation {
         return result;
     }
 
-//    private HashMap<List<Symbol>, Constant> getHashMapMultipleEntriesNumbers(Expression expression) {
-//        HashMap<List<Symbol>, Constant> result = new HashMap<>();
-//        List<List<Symbol>> alphabet = getTimesMultipleEntries(expression);
-//        for (List<Symbol> s : alphabet) {
-//            double n = expression.getArguments().stream()
-//                    .map(x -> x.visit(new AsExpressionVisitor()))
-//                    .filter(Objects::nonNull)
-//                    .filter(x -> x.getArguments().stream())
-//        }
-//        return result;
-//    }
+    private HashMap<List<Symbol>, Constant> getHashMapMultipleEntriesNumbers(Expression expression) {
+        HashMap<List<Symbol>, Constant> result = new HashMap<>();
+        List<List<Symbol>> alphabet = getTimesMultipleEntries(expression);
+        for (List<Symbol> l : alphabet) {
+            double n = expression.getArguments().stream()
+                    .map(x -> x.visit(new AsExpressionVisitor()))
+                    .filter(Objects::nonNull)
+                    .filter(this::isTimesWithoutConstantsAndWithSeveralArgs)
+                    .filter(x -> x.getArguments().equals(l))
+                    .count();
+            n += expression.getArguments().stream()
+                    .map(x -> x.visit(new AsExpressionVisitor()))
+                    .filter(Objects::nonNull)
+                    .filter(this::isTimesWithOneConstantAndSeveralArgs)
+                    .filter(x -> hasAllArgsExceptConstantEquals(x, l))
+                    .map(this::getOneConstant)
+                    .reduce(0.0, Double::sum);
+            result.put(l, new Constant(n));
+        }
+        return result;
+    }
+
+    private boolean isTimes(Expression expression) {
+        return Stream.of(expression)
+                .filter(x -> x.getHead() == ArithmeticFunctions.Times
+                        || x.getHead() == ArithmeticFunctions.BinaryTimes)
+                .count() == 1;
+    }
+
+    private boolean hasAllArgsExceptConstantEquals(Expression expression, List<Symbol> list) {
+        List<Symbol> args = expression.getArguments().stream()
+                .filter(x -> x.visit(new AsConstantVisitor()) == null)
+                .collect(Collectors.toList());
+        args.removeAll(list);
+        return args.isEmpty();
+    }
 
     //one of args is constant
     private boolean hasOneConstant(Expression expression) {
@@ -139,6 +185,12 @@ public class PlusImplementation extends AbstractFunctionImplementation {
                 .map(x -> x.visit(new AsConstantVisitor()))
                 .filter(Objects::nonNull)
                 .count() == 1;
+    }
+
+    //one of args is constant
+    private boolean hasNoConstants(Expression expression) {
+        return expression.getArguments().stream()
+                .map(x -> x.visit(new AsConstantVisitor())).noneMatch(Objects::nonNull);
     }
 
     //get first (and only) constant argument
@@ -151,13 +203,32 @@ public class PlusImplementation extends AbstractFunctionImplementation {
     }
 
     //not an Expression of type Times or Binary times with 2 args
-    // and one of them is from Alphabet and another is Constant
+    // and only one of them is Constant
     private boolean isTimesWithOneConstantAndOneArg(Expression expression) {
         return Stream.of(expression)
-                .filter(x -> x.getHead() == ArithmeticFunctions.Times
-                        || x.getHead() == ArithmeticFunctions.BinaryTimes)
+                .filter(this::isTimes)
                 .filter(x -> x.getArguments().size() == 2)
                 .filter(this::hasOneConstant)
+                .count() == 1;
+    }
+
+    //not an Expression of type Times or Binary times with more than 2 args
+    // and only one of them is Constant
+    private boolean isTimesWithOneConstantAndSeveralArgs(Expression expression) {
+        return Stream.of(expression)
+                .filter(this::isTimes)
+                .filter(x -> x.getArguments().size() > 2)
+                .filter(this::hasOneConstant)
+                .count() == 1;
+    }
+
+    //not an Expression of type Times or Binary times with more than 2 args
+    // and only one of them is Constant
+    private boolean isTimesWithoutConstantsAndWithSeveralArgs(Expression expression) {
+        return Stream.of(expression)
+                .filter(this::isTimes)
+                .filter(x -> x.getArguments().size() > 2)
+                .filter(this::hasNoConstants)
                 .count() == 1;
     }
 }

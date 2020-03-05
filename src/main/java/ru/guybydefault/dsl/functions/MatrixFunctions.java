@@ -8,10 +8,10 @@ import java.util.List;
 public class MatrixFunctions {
     public static final StringSymbol MatrixPlus = new StringSymbol("MatrixPlus");
     public static final StringSymbol MatrixMult = new StringSymbol("MatrixMult");
-    public static final StringSymbol Transpose = new StringSymbol("Transpose"); //symbolic
+    public static final StringSymbol Transpose = new StringSymbol("Transpose");
     public static final StringSymbol Determiner = new StringSymbol("Determiner"); //java or kinda symbolic
 
-    private static final List<StringSymbol> symbols = Arrays.asList(MatrixPlus, MatrixMult);
+    private static final List<StringSymbol> symbols = Arrays.asList(MatrixPlus, MatrixMult, Transpose, Determiner);
 
     public static boolean isFromMatrixFunctions(StringSymbol symbol) {
         return symbols.contains(symbol);
