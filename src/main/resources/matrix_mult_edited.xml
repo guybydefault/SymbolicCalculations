@@ -2,7 +2,7 @@
 <Root>
     <Expression>
         <Expression>
-            <StringSymbol name="Fun"></StringSymbol>
+            <StringSymbol name="Fun"/>
             <Expression>
                 <StringSymbol name="List"></StringSymbol>
                 <StringSymbol name="x'"></StringSymbol>

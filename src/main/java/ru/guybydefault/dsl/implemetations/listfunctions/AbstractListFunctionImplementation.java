@@ -22,7 +22,8 @@ public abstract class AbstractListFunctionImplementation extends AbstractFunctio
         Expression list = expression.getArguments().get(0).visit(AsExpressionVisitor.getInstance());
 
         if (list == null || !Objects.equals(list.getHead(), List)) {
-            throw new IllegalArgumentException("Argument is not a list");
+//            throw new IllegalArgumentException("Argument is not a list");
+            return expression;
         }
 
         return evaluateList(expression, list.getArguments());

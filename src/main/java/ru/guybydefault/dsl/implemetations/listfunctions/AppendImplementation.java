@@ -18,6 +18,7 @@ public class AppendImplementation extends AbstractListFunctionImplementation {
 
     @Override
     protected Symbol evaluateList(Expression expression, List<Symbol> items) {
+        //TODO
         List<Symbol> newItems = new LinkedList<>(items);
         items.addAll(expression.getArguments().stream().skip(1).collect(Collectors.toList()));
         return new Expression(ListFunctions.List, items);

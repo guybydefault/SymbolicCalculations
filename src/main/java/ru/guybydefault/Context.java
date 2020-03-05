@@ -24,6 +24,7 @@ import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 import static ru.guybydefault.dsl.functions.BooleanFunctions.*;
 import static ru.guybydefault.dsl.functions.CastingFunctions.*;
 import static ru.guybydefault.dsl.functions.ListFunctions.*;
+import static ru.guybydefault.dsl.functions.MatrixFunctions.MatrixMult;
 import static ru.guybydefault.dsl.functions.MatrixFunctions.MatrixPlus;
 import static ru.guybydefault.dsl.library.Functions.Seq;
 import static ru.guybydefault.dsl.library.Functions.SetDelayed;
@@ -69,10 +70,8 @@ public class Context {
                     new Expression(SetDelayed, Not, NotImplementation()),
                     new Expression(SetDelayed, While, WhileImplementation()),
 
-                    //adding matrix functions in context
-                    new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml"))
-//                    ,
-//                        new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_muls.xml"))
+                    new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml")),
+                    new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_mult.xml"))
             );
         } catch (IOException | SAXException e) {
             e.printStackTrace();
