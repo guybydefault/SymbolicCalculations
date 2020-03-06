@@ -71,7 +71,8 @@ public class Context {
 
                     new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml")),
                     new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_mult.xml")),
-                    new Expression(SetDelayed, Transpose, xmlParser.parse("src/main/resources/matrix_transpose.xml"))
+                    new Expression(SetDelayed, Transpose, xmlParser.parse("src/main/resources/matrix_transpose.xml")),
+                    new Expression(SetDelayed, MatrixTimes, xmlParser.parse("src/main/resources/matrix_times.xml"))
             );
         } catch (IOException | SAXException e) {
             e.printStackTrace();

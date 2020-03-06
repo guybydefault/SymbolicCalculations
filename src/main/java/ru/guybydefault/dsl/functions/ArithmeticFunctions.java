@@ -49,8 +49,7 @@ public class ArithmeticFunctions {
                                 new Expression(BooleanFunctions.Less, Collections.singletonList(Alphabet.x)),
                                 Collections.singletonList(new Constant(0))
                         ),
-                        new Expression(Minus, Collections.singletonList(Alphabet.x)), Alphabet.x
-                ))));
+                        new Expression(Minus, Collections.singletonList(Alphabet.x)), Alphabet.x))));
     }
 
     public static Expression ListPlusImplementation() {
