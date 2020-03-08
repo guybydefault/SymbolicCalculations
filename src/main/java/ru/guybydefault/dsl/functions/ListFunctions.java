@@ -116,25 +116,27 @@ public class ListFunctions {
         return new Expression(Functions.Fun, list,
                 new Expression(Functions.Fun, new StringSymbol("initialState'"),
                         new Expression(Functions.Fun, f,
-                                new Expression(Functions.Fun, n,
-                                        new Expression(Part,
-                                                new Expression(BooleanFunctions.While,
-                                                        new Expression(List, new Constant(0), new StringSymbol("initialState'"))),
-                                                new Expression(Functions.Fun, x,
-                                                        new Expression(BooleanFunctions.Less,
-                                                                new Expression(Part, x, new Constant(0))), n),
-                                                new Expression(Functions.Fun, x,
-                                                        new Expression(List,
-                                                                new Expression(ArithmeticFunctions.Plus,
-                                                                        new Expression(Part, x, new Constant(0)),
-                                                                        new Constant(1)),
-                                                                f,
-                                                                new Expression(Part, x, new Constant(1))
-                                                                ,
-
-                                                                new Expression(Part, list,
-                                                                        new Expression(Part, x, new Constant(0))))),
-                                                new Constant(1))),
-                                new Expression(Length, list))));
+                                new Expression(
+                                        new Expression(Functions.Fun, n,
+                                                new Expression(Part,
+                                                        new Expression(
+                                                                new Expression(
+                                                                        new Expression(BooleanFunctions.While,
+                                                                                new Expression(List, new Constant(0), new StringSymbol("initialState'"))),
+                                                                        new Expression(Functions.Fun, x,
+                                                                                new Expression(BooleanFunctions.Less,
+                                                                                        new Expression(Part, x, new Constant(0)))), n),
+                                                                new Expression(Functions.Fun, x,
+                                                                        new Expression(List,
+                                                                                new Expression(ArithmeticFunctions.Plus,
+                                                                                        new Expression(Part, x, new Constant(0)),
+                                                                                        new Constant(1)),
+                                                                                f,
+                                                                                new Expression(
+                                                                                        new Expression(Part, x, new Constant(1)),
+                                                                                        new Expression(Part, list, new Expression(Part, x, new Constant(0))))))
+                                                        ),
+                                                        new Constant(1))),
+                                        new Expression(Length, list)))));
     }
 }

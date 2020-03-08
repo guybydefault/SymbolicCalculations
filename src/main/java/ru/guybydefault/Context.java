@@ -64,7 +64,7 @@ public class Context {
                     new Expression(SetDelayed, Minus, MinusImplementation()),
                     new Expression(SetDelayed, Or, OrImplementation()),
                     new Expression(SetDelayed, And, AndImplementation()),
-                    new Expression(SetDelayed, More, MoreImplementation()),
+//                    new Expression(SetDelayed, More, MoreImplementation()),
                     new Expression(SetDelayed, Less, LessImplementation()),
                     new Expression(SetDelayed, Not, NotImplementation()),
                     new Expression(SetDelayed, While, WhileImplementation()),

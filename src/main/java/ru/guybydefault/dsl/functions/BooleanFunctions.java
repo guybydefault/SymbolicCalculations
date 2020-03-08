@@ -8,14 +8,13 @@ import ru.guybydefault.dsl.library.Attributes;
 import ru.guybydefault.dsl.library.Functions;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class BooleanFunctions {
     public static final StringSymbol True = new StringSymbol("True");
     public static final StringSymbol False = new StringSymbol("False");
 
-    public static final StringSymbol If = new StringSymbol("If", new StringSymbol[] {Attributes.HoldRest});
+    public static final StringSymbol If = new StringSymbol("If", new StringSymbol[]{Attributes.HoldRest});
 
     public static final StringSymbol Eq = new StringSymbol("Eq");
     public static final StringSymbol Compare = new StringSymbol("Compare");
@@ -33,53 +32,48 @@ public class BooleanFunctions {
         return symbols.contains(symbol);
     }
 
-    public static Expression NotImplementation() {
-        return new Expression(Alphabet.x, Collections.singletonList(
-                new Expression(If, Arrays.asList(True, False))));
-    }
-
     public static Expression LessImplementation() {
-        return new Expression(Functions.Fun, Collections.singletonList(
-                new Expression(Alphabet.y, Collections.singletonList(
-                        new Expression(Eq, Arrays.asList(
-                                new Expression(Compare, Arrays.asList(Alphabet.x, Alphabet.y)),
-                                new Constant(-1)))))));
+        return new Expression(
+                Functions.Fun,
+                new Expression(ListFunctions.List, Alphabet.x, Alphabet.y),
+                new Expression(
+                        Eq,
+                        new Expression(Compare, Alphabet.x, Alphabet.y),
+                        new Constant(-1)));
     }
 
-    public static Expression MoreImplementation(){
-        return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
-                        new Expression(Eq, Arrays.asList(Alphabet.x, Alphabet.y)),
-                        new Constant(1)))));
+//    public static Expression MoreImplementation() {
+//        return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
+//                new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
+//                        new Expression(Eq, Arrays.asList(Alphabet.x, Alphabet.y)),
+//                        new Constant(1)))));
+//    }
+
+    public static Expression NotImplementation() {
+        return new Expression(Functions.Fun, Alphabet.x, new Expression(If, Alphabet.x, False, True));
     }
 
-    public static Expression AndImplementation(){
-        return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
-                        new Expression(If, Arrays.asList(Alphabet.x, Alphabet.y, False))))));
+    public static Expression AndImplementation() {
+        return new Expression(
+                Functions.Fun,
+                new Expression(ListFunctions.List, Alphabet.x, Alphabet.y),
+                new Expression(If, Alphabet.x, Alphabet.y, Alphabet.x));
     }
 
-    public static Expression OrImplementation(){
-        return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
-                        new Expression(If, Arrays.asList(Alphabet.x, True, Alphabet.y,
-                                new StringSymbol("Error")))))));
+    public static Expression OrImplementation() {
+        return new Expression(
+                Functions.Fun,
+                new Expression(ListFunctions.List, Alphabet.x, Alphabet.y),
+                new Expression(If, Alphabet.x, True, Alphabet.y));
     }
 
-    public static Expression WhileImplementation(){
-        return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                new Expression(Functions.Fun, Arrays.asList(Alphabet.pred,
-                        new Expression(Functions.Fun, Arrays.asList(Alphabet.body,
-                                new Expression(If, Arrays.asList(
-                                        new Expression(Alphabet.pred, Collections.singletonList(Alphabet.x)),
-                                        new Expression(
-                                            new Expression(
-                                                new Expression(While, Collections.singletonList(
-                                                        new Expression(Alphabet.body, Collections.singletonList(Alphabet.x))
-                                                )), Collections.singletonList(Alphabet.pred)
-                                            ), Collections.singletonList(Alphabet.body)
-                                        ),
-                                        Alphabet.x
-                                ))))))));
+    public static Expression WhileImplementation() {
+        return new Expression(Functions.Fun, new Expression(ListFunctions.List, Alphabet.x, Alphabet.pred, Alphabet.body),
+                new Expression(
+                        If,
+                        new Expression(Alphabet.pred, Alphabet.x),
+                        new Expression(While, new Expression(Alphabet.body, Alphabet.x), Alphabet.pred, Alphabet.body),
+                        Alphabet.x)
+        );
     }
 }

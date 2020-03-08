@@ -18,12 +18,11 @@ public class FoldTest {
                 new Expression(
                         new Expression(
                                 new Expression(
-                                        new Expression(
-                                                ListFunctions.Fold,
-                                                new Expression(ListFunctions.List, new Constant(1), new Constant(2), new Constant(3))
-                                        ),
-                                        new Constant(0))
-                        ),
+                                        ListFunctions.Fold,
+                                        new Expression(ListFunctions.List, new Constant(1), new Constant(2), new Constant(3))
+                                ),
+                                new Constant(0))
+                        ,
                         new Expression(
                                 Functions.Fun,
                                 Alphabet.acc,
