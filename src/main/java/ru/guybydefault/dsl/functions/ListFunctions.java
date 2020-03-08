@@ -39,104 +39,102 @@ public class ListFunctions {
         return symbols.contains(symbol);
     }
 
-    public static Expression MapImplementation() {
-        return new Expression(Functions.Fun, Arrays.asList(list,
-                new Expression(Functions.Fun, Arrays.asList(f,
-                        new Expression(
-                                new Expression(
-                                        new Expression(Fold, list),
-                                        Collections.singletonList(EmptyList)),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(acc,
-                                                new Expression(Functions.Fun, Arrays.asList(x,
-                                                        new Expression(Append, Arrays.asList(acc,
-                                                                new Expression(f, Collections.singletonList(x))))))))))))));
-    }
+//    public static Expression MapImplementation() {
+//        return new Expression(Functions.Fun, Arrays.asList(list,
+//                new Expression(Functions.Fun, Arrays.asList(f,
+//                        new Expression(
+//                                new Expression(
+//                                        new Expression(Fold, list),
+//                                        Collections.singletonList(EmptyList)),
+//                                Collections.singletonList(
+//                                        new Expression(Functions.Fun, Arrays.asList(acc,
+//                                                new Expression(Functions.Fun, Arrays.asList(x,
+//                                                        new Expression(Append, Arrays.asList(acc,
+//                                                                new Expression(f, Collections.singletonList(x))))))))))))));
+//    }
+//
+//    public static Expression FilterImplementation() {
+//        return new Expression(Functions.Fun, Arrays.asList(list,
+//                new Expression(Functions.Fun, Arrays.asList(f,
+//                        new Expression(
+//                                new Expression(
+//                                        new Expression(Fold, Collections.singletonList(list)),
+//                                        Collections.singletonList(EmptyList)),
+//                                Collections.singletonList(
+//                                        new Expression(Functions.Fun, Arrays.asList(acc,
+//                                                new Expression(Functions.Fun, Arrays.asList(x,
+//                                                        new Expression(BooleanFunctions.If, Arrays.asList(
+//                                                                new Expression(f, Collections.singletonList(x)),
+//                                                                new Expression(Append, Arrays.asList(acc, x)),
+//                                                                acc
+//                                                        ))))))))))));
+//    }
 
-    public static Expression FilterImplementation() {
-        return new Expression(Functions.Fun, Arrays.asList(list,
-                new Expression(Functions.Fun, Arrays.asList(f,
-                        new Expression(
-                                new Expression(
-                                        new Expression(Fold, Collections.singletonList(list)),
-                                        Collections.singletonList(EmptyList)),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(acc,
-                                                new Expression(Functions.Fun, Arrays.asList(x,
-                                                        new Expression(BooleanFunctions.If, Arrays.asList(
-                                                                new Expression(f, Collections.singletonList(x)),
-                                                                new Expression(Append, Arrays.asList(acc, x)),
-                                                                acc
-                                                        ))))))))))));
-    }
+//    public static Expression ConcatImplementation() {
+//        return new Expression(list, Collections.singletonList(
+//                new Expression(Functions.Fun, Arrays.asList(list2,
+//                        new Expression(
+//                                new Expression(
+//                                        new Expression(Fold, Collections.singletonList(list2)),
+//                                        Collections.singletonList(list)),
+//                                Collections.singletonList(
+//                                        new Expression(Functions.Fun, Arrays.asList(acc,
+//                                                new Expression(Functions.Fun, Arrays.asList(x,
+//                                                        new Expression(Append, Arrays.asList(acc, x))))))))))));
+//    }
 
-    public static Expression ConcatImplementation() {
-        return new Expression(list, Collections.singletonList(
-                new Expression(Functions.Fun, Arrays.asList(list2,
-                        new Expression(
-                                new Expression(
-                                        new Expression(Fold, Collections.singletonList(list2)),
-                                        Collections.singletonList(list)),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(acc,
-                                                new Expression(Functions.Fun, Arrays.asList(x,
-                                                        new Expression(Append, Arrays.asList(acc, x))))))))))));
-    }
+//    public static Expression CountItemImplementation() {
+//        return new Expression(Functions.Fun, Arrays.asList(list,
+//                new Expression(Functions.Fun, Arrays.asList(x,
+//                        new Expression(
+//                                new Expression(
+//                                        new Expression(Fold, Collections.singletonList(list)),
+//                                        Collections.singletonList(new Constant(0))),
+//                                Collections.singletonList(
+//                                        new Expression(Functions.Fun, Arrays.asList(y,
+//                                                new Expression(BooleanFunctions.If, Arrays.asList(
+//                                                        new Expression(BooleanFunctions.Eq, Arrays.asList(x, y)),
+//                                                        new Expression(ArithmeticFunctions.Plus, Arrays.asList(acc, new Constant(1))),
+//                                                        acc))))))))));
+//    }
 
-    public static Expression CountItemImplementation() {
-        return new Expression(Functions.Fun, Arrays.asList(list,
-                new Expression(Functions.Fun, Arrays.asList(x,
-                        new Expression(
-                                new Expression(
-                                        new Expression(Fold, Collections.singletonList(list)),
-                                        Collections.singletonList(new Constant(0))),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(y,
-                                                new Expression(BooleanFunctions.If, Arrays.asList(
-                                                        new Expression(BooleanFunctions.Eq, Arrays.asList(x, y)),
-                                                        new Expression(ArithmeticFunctions.Plus, Arrays.asList(acc, new Constant(1))),
-                                                        acc))))))))));
-    }
-
-    public static Expression ContainsImplementation() {
-        return new Expression(Functions.Fun, Collections.singletonList(
-                new Expression(Functions.Fun, Arrays.asList(x,
-                        new Expression(
-                                new Expression(
-                                        new Expression(Fold, Collections.singletonList(list)),
-                                        Collections.singletonList(BooleanFunctions.False)),
-                                Collections.singletonList(
-                                        new Expression(Functions.Fun, Arrays.asList(acc,
-                                                new Expression(Functions.Fun, Arrays.asList(y,
-                                                        new Expression(BooleanFunctions.If, Arrays.asList(acc, acc,
-                                                                new Expression(BooleanFunctions.Eq, Arrays.asList(x, y))))))))))))));
-    }
+//    public static Expression ContainsImplementation() {
+//        return new Expression(Functions.Fun, Collections.singletonList(
+//                new Expression(Functions.Fun, Arrays.asList(x,
+//                        new Expression(
+//                                new Expression(
+//                                        new Expression(Fold, Collections.singletonList(list)),
+//                                        Collections.singletonList(BooleanFunctions.False)),
+//                                Collections.singletonList(
+//                                        new Expression(Functions.Fun, Arrays.asList(acc,
+//                                                new Expression(Functions.Fun, Arrays.asList(y,
+//                                                        new Expression(BooleanFunctions.If, Arrays.asList(acc, acc,
+//                                                                new Expression(BooleanFunctions.Eq, Arrays.asList(x, y))))))))))))));
+//    }
 
     public static Expression FoldImplementation() {
-        return new Expression(Functions.Fun, list,
-                new Expression(Functions.Fun, new StringSymbol("initialState'"),
-                        new Expression(Functions.Fun, f,
-                                new Expression(
-                                        new Expression(Functions.Fun, n,
-                                                new Expression(Part,
-                                                        new Expression(
+        return new Expression(Functions.Fun, new Expression(ListFunctions.List, list, new StringSymbol("initialState'"), f),
+                new Expression(
+                        new Expression(Functions.Fun, n,
+                                new Expression(Part,
+                                        new Expression(
+                                                new Expression(
+                                                        new Expression(BooleanFunctions.While,
+                                                                new Expression(List, new Constant(0), new StringSymbol("initialState'"))),
+                                                        new Expression(Functions.Fun, x,
+                                                                new Expression(BooleanFunctions.Less,
+                                                                        new Expression(Part, x, new Constant(0)))), n),
+                                                new Expression(Functions.Fun, x,
+                                                        new Expression(List,
+                                                                new Expression(ArithmeticFunctions.Plus,
+                                                                        new Expression(Part, x, new Constant(0)),
+                                                                        new Constant(1)),
+                                                                f,
                                                                 new Expression(
-                                                                        new Expression(BooleanFunctions.While,
-                                                                                new Expression(List, new Constant(0), new StringSymbol("initialState'"))),
-                                                                        new Expression(Functions.Fun, x,
-                                                                                new Expression(BooleanFunctions.Less,
-                                                                                        new Expression(Part, x, new Constant(0)))), n),
-                                                                new Expression(Functions.Fun, x,
-                                                                        new Expression(List,
-                                                                                new Expression(ArithmeticFunctions.Plus,
-                                                                                        new Expression(Part, x, new Constant(0)),
-                                                                                        new Constant(1)),
-                                                                                f,
-                                                                                new Expression(
-                                                                                        new Expression(Part, x, new Constant(1)),
-                                                                                        new Expression(Part, list, new Expression(Part, x, new Constant(0))))))
-                                                        ),
-                                                        new Constant(1))),
-                                        new Expression(Length, list)))));
+                                                                        new Expression(Part, x, new Constant(1)),
+                                                                        new Expression(Part, list, new Expression(Part, x, new Constant(0))))))
+                                        ),
+                                        new Constant(1))),
+                        new Expression(Length, list)));
     }
 }
