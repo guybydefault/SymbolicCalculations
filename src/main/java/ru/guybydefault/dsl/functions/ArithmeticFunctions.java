@@ -39,7 +39,7 @@ public class ArithmeticFunctions {
 
     public static Expression MinusImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                new Expression(Times, Collections.singletonList(new Constant(-1)))));
+                new Expression(Times, new Constant(-1), Alphabet.x)));
     }
 
     public static Expression Abs() {
