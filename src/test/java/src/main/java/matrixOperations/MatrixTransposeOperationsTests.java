@@ -1,4 +1,4 @@
-package src.main.java;
+package src.main.java.matrixOperations;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
