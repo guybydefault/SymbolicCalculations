@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
     <Expression>
-        <StringSymbol name="Fun"/>
+        <StringSymbol name="Fun"></StringSymbol>
         <Expression>
             <StringSymbol name="List"></StringSymbol>
             <StringSymbol name="x'"></StringSymbol>
@@ -25,14 +25,17 @@
                         <StringSymbol name="GenerateList"></StringSymbol>
                         <Expression>
                             <StringSymbol name="Length"></StringSymbol>
-                            <StringSymbol name="x'"></StringSymbol>
+                            <Expression>
+                                <StringSymbol name="Transpose"></StringSymbol>
+                                <StringSymbol name="y'"></StringSymbol>
+                            </Expression>
                         </Expression>
                     </Expression>
                     <Expression>
                         <StringSymbol name="Fun"></StringSymbol>
                         <StringSymbol name="f'"></StringSymbol>
                         <Expression>
-                            <StringSymbol name="ListPlusList"></StringSymbol>
+                            <StringSymbol name="ListSum"></StringSymbol>
                             <Expression>
                                 <StringSymbol name="FMap"></StringSymbol>
                                 <Expression>
@@ -64,10 +67,13 @@
                                             <StringSymbol name="Part"></StringSymbol>
                                             <Expression>
                                                 <StringSymbol name="Part"></StringSymbol>
-                                                <StringSymbol name="y'"></StringSymbol>
-                                                <StringSymbol name="acc'"></StringSymbol>
+                                                <Expression>
+                                                    <StringSymbol name="Transpose"></StringSymbol>
+                                                    <StringSymbol name="y'"></StringSymbol>
+                                                </Expression>
+                                                <StringSymbol name="f'"></StringSymbol>
                                             </Expression>
-                                            <StringSymbol name="f'"></StringSymbol>
+                                            <StringSymbol name="acc'"></StringSymbol>
                                         </Expression>
                                     </Expression>
                                 </Expression>
@@ -79,32 +85,3 @@
         </Expression>
     </Expression>
 </Root>
-
-
-        <!--    public static Expression MatrixMultImplementation() {
-                return new Expression(Functions.Fun, Arrays.asList(
-                        new Expression(ListFunctions.List, Arrays.asList(Alphabet.x, Alphabet.y)),
-                        new Expression(ListFunctions.FMap, Arrays.asList(
-                                new Expression(ListFunctions.GenerateList, Collections.singletonList(
-                                        new Expression(ListFunctions.Length, Alphabet.x))),
-                                new Expression(Functions.Fun, Arrays.asList(Alphabet.n,
-                                        new Expression(ListFunctions.FMap, Arrays.asList(
-                                                new Expression(ListFunctions.GenerateList, Collections.singletonList(
-                                                        new Expression(ListFunctions.Length, Collections.singletonList(Alphabet.x))
-                                                )),
-                                                new Expression(Functions.Fun, Arrays.asList(Alphabet.f,
-                                                        new Expression(ArithmeticFunctions.ListPlusList, Collections.singletonList(
-                                                                new Expression(ListFunctions.FMap, Arrays.asList(
-                                                                        new Expression(ListFunctions.GenerateList, Collections.singletonList(
-                                                                                new Expression(ListFunctions.Length, Collections.singletonList(
-                                                                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.x, new Constant(0)))
-                                                                                ))
-                                                                        )),
-                                                                        new Expression(Functions.Fun, Arrays.asList(Alphabet.acc,
-                                                                                new Expression(ArithmeticFunctions.Times, Arrays.asList(
-                                                                                        new Expression(ListFunctions.Part, Arrays.asList(
-                                                                                                new Expression(ListFunctions.Part, Arrays.asList(Alphabet.x, Alphabet.n)), Alphabet.acc
-                                                                                        )),
-                                                                                        new Expression(ListFunctions.Part, Arrays.asList(
-                                                                                                new Expression(ListFunctions.Part, Arrays.asList(Alphabet.y, Alphabet.acc)), Alphabet.f))))))))))))))))))));
-            } -->

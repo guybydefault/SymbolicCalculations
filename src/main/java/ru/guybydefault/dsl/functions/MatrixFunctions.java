@@ -9,7 +9,7 @@ public class MatrixFunctions {
     public static final StringSymbol MatrixPlus = new StringSymbol("MatrixPlus");
     public static final StringSymbol MatrixMult = new StringSymbol("MatrixMult");
     public static final StringSymbol Transpose = new StringSymbol("Transpose");
-    public static final StringSymbol Determiner = new StringSymbol("Determiner"); //java or kinda symbolic
+    public static final StringSymbol Determiner = new StringSymbol("Determiner");
     public static final StringSymbol MatrixTimes = new StringSymbol("MatrixTimes");
 
     private static final List<StringSymbol> symbols = Arrays.asList(MatrixPlus, MatrixMult, Transpose, Determiner, MatrixTimes);

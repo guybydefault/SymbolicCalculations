@@ -32,8 +32,10 @@ public class ListFunctions {
 
     public static final StringSymbol Range = new StringSymbol("Range");
 
+    public static final StringSymbol ListSum = new StringSymbol("ListSum");
+
     private static final java.util.List<StringSymbol> symbols = Arrays.asList(List, GenerateList, Part, Fold, Append,
-            Map, FMap, Filter, Length, Concat, CountItem, Contains, Distinct, Group);
+            Map, FMap, Filter, Length, Concat, CountItem, Contains, Distinct, Group, ListSum);
 
     public static boolean isFromListFunctions(StringSymbol symbol) {
         return symbols.contains(symbol);

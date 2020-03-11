@@ -62,10 +62,14 @@ public class StringSymbolHashMapService {
         hashMap.put("Distinct", ListFunctions.Distinct);
         hashMap.put("Group", ListFunctions.Group);
         hashMap.put("Range", ListFunctions.Range);
+        hashMap.put("ListSum", ListFunctions.ListSum);
 
         //matrix functions
         hashMap.put("MatrixPlus", MatrixFunctions.MatrixPlus);
         hashMap.put("MatrixMult", MatrixFunctions.MatrixMult);
+        hashMap.put("Transpose", MatrixFunctions.Transpose);
+        hashMap.put("Determiner", MatrixFunctions.Determiner);
+        hashMap.put("MatrixTimes", MatrixFunctions.MatrixTimes);
 
         //alphabet
         hashMap.put("x'", Alphabet.x);

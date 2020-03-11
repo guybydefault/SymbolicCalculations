@@ -47,6 +47,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final DistinctImplementation DistinctImplementation = new DistinctImplementation();
     private static final RangeImplementation RangeImplementation = new RangeImplementation();
     private static final FMapImplementation FastMapImplementation = new FMapImplementation();
+    private static final ListSumImplementation ListSumImplementation = new ListSumImplementation();
 
     private static final DeterminerImplementation DeterminerImplementation = new DeterminerImplementation();
 
@@ -129,6 +130,8 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
 //                GroupImplementation,
         flow.add(FastMapImplementation);
         flow.add(GenerateList);
+        flow.add(ListSumImplementation);
+
         //matrix impl
         flow.add(DeterminerImplementation);
 
