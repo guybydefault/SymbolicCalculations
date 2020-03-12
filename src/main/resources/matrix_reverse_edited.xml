@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Expression>
+        <StringSymbol name="Fun"/>
+        <StringSymbol name="x'"/>
+        <Expression>
+            <Expression>
+                <StringSymbol name="Times"/>
+                <Expression>
+                    <StringSymbol name="Divide"/>
+                    <Constant>1</Constant>
+                    <Expression>
+                        <StringSymbol name="Determinant"/>
+                        <StringSymbol name="x'"/>
+                    </Expression>
+                </Expression>
+                <Expression>
+                    <StringSymbol name="Transpose"/>
+                    <StringSymbol name="x'"/>
+                </Expression>
+            </Expression>
+        </Expression>
+    </Expression>
+</Root>

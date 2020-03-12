@@ -8,6 +8,23 @@
             <StringSymbol name="y'"></StringSymbol>
         </Expression>
         <Expression>
+            <StringSymbol name="FMap"/>
+            <StringSymbol name="x'"/>
+            <Expression>
+                <StringSymbol name="Fun"/>
+                <StringSymbol name="x'"
+            </Expression>
+        </Expression>
+    </Expression>
+
+    <Expression>
+        <StringSymbol name="Fun"/>
+        <Expression>
+            <StringSymbol name="List"></StringSymbol>
+            <StringSymbol name="x'"></StringSymbol>
+            <StringSymbol name="y'"></StringSymbol>
+        </Expression>
+        <Expression>
             <StringSymbol name="FMap"></StringSymbol>
             <Expression>
                 <StringSymbol name="GenerateList"></StringSymbol>
@@ -79,32 +96,3 @@
         </Expression>
     </Expression>
 </Root>
-
-
-        <!--    public static Expression MatrixMultImplementation() {
-                return new Expression(Functions.Fun, Arrays.asList(
-                        new Expression(ListFunctions.List, Arrays.asList(Alphabet.x, Alphabet.y)),
-                        new Expression(ListFunctions.FMap, Arrays.asList(
-                                new Expression(ListFunctions.GenerateList, Collections.singletonList(
-                                        new Expression(ListFunctions.Length, Alphabet.x))),
-                                new Expression(Functions.Fun, Arrays.asList(Alphabet.n,
-                                        new Expression(ListFunctions.FMap, Arrays.asList(
-                                                new Expression(ListFunctions.GenerateList, Collections.singletonList(
-                                                        new Expression(ListFunctions.Length, Collections.singletonList(Alphabet.x))
-                                                )),
-                                                new Expression(Functions.Fun, Arrays.asList(Alphabet.f,
-                                                        new Expression(ArithmeticFunctions.ListPlusList, Collections.singletonList(
-                                                                new Expression(ListFunctions.FMap, Arrays.asList(
-                                                                        new Expression(ListFunctions.GenerateList, Collections.singletonList(
-                                                                                new Expression(ListFunctions.Length, Collections.singletonList(
-                                                                                        new Expression(ListFunctions.Part, Arrays.asList(Alphabet.x, new Constant(0)))
-                                                                                ))
-                                                                        )),
-                                                                        new Expression(Functions.Fun, Arrays.asList(Alphabet.acc,
-                                                                                new Expression(ArithmeticFunctions.Times, Arrays.asList(
-                                                                                        new Expression(ListFunctions.Part, Arrays.asList(
-                                                                                                new Expression(ListFunctions.Part, Arrays.asList(Alphabet.x, Alphabet.n)), Alphabet.acc
-                                                                                        )),
-                                                                                        new Expression(ListFunctions.Part, Arrays.asList(
-                                                                                                new Expression(ListFunctions.Part, Arrays.asList(Alphabet.y, Alphabet.acc)), Alphabet.f))))))))))))))))))));
-            } -->
