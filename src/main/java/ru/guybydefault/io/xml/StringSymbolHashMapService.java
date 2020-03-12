@@ -17,6 +17,7 @@ public class StringSymbolHashMapService {
         hashMap.put("BinaryPlus", ArithmeticFunctions.BinaryPlus);
         hashMap.put("BinaryTimes", ArithmeticFunctions.BinaryTimes);
         hashMap.put("Times", ArithmeticFunctions.Times);
+        hashMap.put("Divide", ArithmeticFunctions.Divide);
         hashMap.put("Minus", ArithmeticFunctions.Minus);
         hashMap.put("ListPlus", ArithmeticFunctions.ListPlus);
         hashMap.put("ListTimes", ArithmeticFunctions.ListTimes);
@@ -70,6 +71,10 @@ public class StringSymbolHashMapService {
         hashMap.put("Transpose", MatrixFunctions.Transpose);
         hashMap.put("Determiner", MatrixFunctions.Determiner);
         hashMap.put("MatrixTimes", MatrixFunctions.MatrixTimes);
+        hashMap.put("MatrixReversed", MatrixFunctions.MatrixReversed);
+        hashMap.put("MatrixSolve", MatrixFunctions.MatrixSolve);
+        hashMap.put("AlgrebraicMatrix", MatrixFunctions.AlgrebraicMatrix);
+
 
         //alphabet
         hashMap.put("x'", Alphabet.x);

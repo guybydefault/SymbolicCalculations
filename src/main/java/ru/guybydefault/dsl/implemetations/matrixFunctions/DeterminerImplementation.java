@@ -23,20 +23,20 @@ public class DeterminerImplementation extends AbstractListFunctionImplementation
     @Override
     protected Symbol evaluateList(Expression expression, List<Symbol> items) {
         //inp = expr + items is matrix (list of expressions with Head List)
-        boolean isSquareMatrix = items.stream()
+        return getDeterminer(items);
+    }
+
+    static Symbol getDeterminer(List<Symbol> matrix) {
+        boolean isSquareMatrix = matrix.stream()
                 .map(x -> x.visit(new AsExpressionVisitor()))
                 .filter(Objects::nonNull)
                 .filter(x -> x.getHead() == ListFunctions.List)
-                .filter(x -> x.getArguments().size() == items.size())
-                .count() == items.size();
+                .filter(x -> x.getArguments().size() == matrix.size())
+                .count() == matrix.size();
         if (!isSquareMatrix) {
             throw new IllegalArgumentException("Determiner can be computed only to a matrix");
         }
 
-        return getDeterminer(items);
-    }
-
-    private static Symbol getDeterminer(List<Symbol> matrix) {
         if (matrix.size() == 1) return ((Expression) matrix.get(0)).getArguments().get(0);
 
         if (matrix.size() == 2) {

@@ -4,18 +4,19 @@
         <StringSymbol name="Fun"/>
         <StringSymbol name="x'"/>
         <Expression>
+            <StringSymbol name="MatrixTimes"/>
             <Expression>
-                <StringSymbol name="Times"/>
+                <StringSymbol name="Transpose"/>
                 <Expression>
-                    <StringSymbol name="Divide"/>
-                    <Constant>1</Constant>
-                    <Expression>
-                        <StringSymbol name="Determinant"/>
-                        <StringSymbol name="x'"/>
-                    </Expression>
+                    <StringSymbol name="AlgrebraicMatrix"/>
+                    <StringSymbol name="x'"/>
                 </Expression>
+            </Expression>
+            <Expression>
+                <StringSymbol name="Divide"/>
+                <Constant>1</Constant>
                 <Expression>
-                    <StringSymbol name="Transpose"/>
+                    <StringSymbol name="Determiner"/>
                     <StringSymbol name="x'"/>
                 </Expression>
             </Expression>

@@ -23,7 +23,6 @@ import java.util.List;
 import static ru.guybydefault.dsl.functions.ArithmeticFunctions.*;
 import static ru.guybydefault.dsl.functions.BooleanFunctions.*;
 import static ru.guybydefault.dsl.functions.CastingFunctions.*;
-import static ru.guybydefault.dsl.functions.ListFunctions.*;
 import static ru.guybydefault.dsl.functions.MatrixFunctions.*;
 import static ru.guybydefault.dsl.library.Functions.Seq;
 import static ru.guybydefault.dsl.library.Functions.SetDelayed;
@@ -55,7 +54,7 @@ public class Context {
 //                    new Expression(SetDelayed, CountItem, CountItemImplementation()),
 //                    new Expression(SetDelayed, Filter, FilterImplementation()),
 //                    new Expression(SetDelayed, Map, MapImplementation()),
-                    new Expression(SetDelayed, Fold, FoldImplementation()),
+//                    new Expression(SetDelayed, Fold, FoldImplementation()),
 
                     new Expression(SetDelayed, ListTimes, ListTimesImplementation()),
                     new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
@@ -72,7 +71,9 @@ public class Context {
                     new Expression(SetDelayed, Transpose, xmlParser.parse("src/main/resources/matrix_transpose.xml")),
                     new Expression(SetDelayed, MatrixPlus, xmlParser.parse("src/main/resources/matrix_add.xml")),
                     new Expression(SetDelayed, MatrixMult, xmlParser.parse("src/main/resources/matrix_mult.xml")),
-                    new Expression(SetDelayed, MatrixTimes, xmlParser.parse("src/main/resources/matrix_times.xml"))
+                    new Expression(SetDelayed, MatrixTimes, xmlParser.parse("src/main/resources/matrix_times.xml")),
+                    new Expression(SetDelayed, MatrixReversed, xmlParser.parse("src/main/resources/matrix_reverse.xml")),
+                    new Expression(SetDelayed, MatrixSolve, xmlParser.parse("src/main/resources/matrix_solve.xml"))
             );
         } catch (IOException | SAXException e) {
             e.printStackTrace();

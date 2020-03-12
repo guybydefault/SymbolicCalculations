@@ -9,9 +9,9 @@
         </Expression>
         <Expression>
             <Expression>
-                <StringSymbol name="Times"/>
+                <StringSymbol name="MatrixMult"/>
                 <Expression>
-                    <StringSymbol name="ReverseMatrix"/>
+                    <StringSymbol name="MatrixReversed"/>
                     <StringSymbol name="x'"/>
                 </Expression>
                 <StringSymbol name="y'"/>

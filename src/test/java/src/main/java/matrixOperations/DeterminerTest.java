@@ -62,13 +62,13 @@ public class DeterminerTest {
     public void testDeterminer_5() {
         evaluateAndAssert(
                 new Expression(ArithmeticFunctions.Plus,
-                    new Expression(ArithmeticFunctions.Minus,
-                            new Expression(ArithmeticFunctions.Times,
-                                    new Constant(2),
-                                    new Constant(3))),
-                    new Expression(ArithmeticFunctions.Times,
-                            new Constant(1),
-                            new Constant(4))),
+                        new Expression(ArithmeticFunctions.Minus,
+                                new Expression(ArithmeticFunctions.Times,
+                                        new Constant(2),
+                                        new Constant(3))),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(1),
+                                new Constant(4))),
                 new Constant(-2)
         );
     }
@@ -81,6 +81,17 @@ public class DeterminerTest {
                                 new Constant(2),
                                 new Constant(3))),
                 new Constant(-6)
+        );
+    }
+
+    @org.junit.Test
+    public void testDeterminer_7() {
+        evaluateAndAssert(
+                new Expression(MatrixFunctions.Determiner,
+                        new Expression(ListFunctions.List,
+                                new Expression(ListFunctions.List, new Constant(7), new Constant(4)),
+                                new Expression(ListFunctions.List, new Constant(5), new Constant(3)))),
+                new Constant(1)
         );
     }
 }

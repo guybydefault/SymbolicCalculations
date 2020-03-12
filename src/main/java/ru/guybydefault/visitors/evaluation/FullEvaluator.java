@@ -14,6 +14,7 @@ import ru.guybydefault.dsl.implemetations.casting.AsExpressionArgsImplementation
 import ru.guybydefault.dsl.implemetations.casting.AsStringSymbolImplementation;
 import ru.guybydefault.dsl.implemetations.listfunctions.*;
 import ru.guybydefault.dsl.implemetations.matrixFunctions.DeterminerImplementation;
+import ru.guybydefault.dsl.implemetations.matrixFunctions.AlgebraicMatrixImplementation;
 import ru.guybydefault.visitors.ISymbolVisitor;
 import ru.guybydefault.visitors.attributes.FlatHandler;
 import ru.guybydefault.visitors.attributes.OneIdentityHandler;
@@ -51,6 +52,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final ListSumImplementation ListSumImplementation = new ListSumImplementation();
 
     private static final DeterminerImplementation DeterminerImplementation = new DeterminerImplementation();
+    private static final AlgebraicMatrixImplementation AlgebraicMatrixImplementation = new AlgebraicMatrixImplementation();
 
     private final ArgumentsEvaluator argumentsEvaluator;
     private final FunctionEvaluator functionEvaluator;
@@ -115,6 +117,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
         // Implementations
         flow.add(PlusImplementation);
         flow.add(TimesImplementation);
+        flow.add(DivideImplementation);
         flow.add(IfImplementation);
         flow.add(EqImplementation);
         flow.add(CompareImplementation);
@@ -134,6 +137,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
 
         //matrix impl
         flow.add(DeterminerImplementation);
+        flow.add(AlgebraicMatrixImplementation);
 
         return flow;
     }
