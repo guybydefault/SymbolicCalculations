@@ -31,7 +31,6 @@ public class MatrixReversedTest {
     }
 
 
-
     @org.junit.Test
     public void testReverseMatrix_2() {
         evaluateAndAssert(
@@ -43,11 +42,10 @@ public class MatrixReversedTest {
                                 new Expression(ListFunctions.List, new Constant(3), new Constant(-1), new Constant(5))
                         )),
                 new Expression(ListFunctions.List,
-                        new Expression(ListFunctions.List,
-                                new Expression(ListFunctions.List, new Constant(-6), new Constant(7), new Constant(5)),
-                                new Expression(ListFunctions.List, new Constant(17), new Constant(1), new Constant(-10)),
-                                new Expression(ListFunctions.List, new Constant(-10), new Constant(-5), new Constant(0))
-                        ))
+                        new Expression(ListFunctions.List, new Constant(0.24), new Constant(-0.68), new Constant(0.4)),
+                        new Expression(ListFunctions.List, new Constant(-0.28), new Constant(-0.04), new Constant(0.2)),
+                        new Expression(ListFunctions.List, new Constant(-0.2), new Constant(0.4), new Constant(-0.0))
+                )
         );
     }
 }

@@ -70,7 +70,7 @@ public class DeterminerImplementation extends AbstractListFunctionImplementation
         List<Symbol> terms = new ArrayList<>();
 
         for (int i = 0; i < matrix.size(); i++) {
-            if (i % 2 == 0) {
+            if (i % 2 == 1) {
                 terms.add(new Expression(ArithmeticFunctions.Minus,
                         new Expression(ArithmeticFunctions.Times,
                                 ((Expression) matrix.get(0)).getArguments().get(i),
