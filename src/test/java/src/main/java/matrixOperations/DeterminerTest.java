@@ -94,4 +94,17 @@ public class DeterminerTest {
                 new Constant(1)
         );
     }
+
+    @org.junit.Test
+    public void testDeterminer_8() {
+        evaluateAndAssert(
+                new Expression(MatrixFunctions.Determiner,
+                        Collections.singletonList((
+                                new Expression(ListFunctions.List,
+                                        new Expression(ListFunctions.List, new Constant(2), new Constant(-4), new Constant(3)),
+                                        new Expression(ListFunctions.List, new Constant(1), new Constant(-2), new Constant(4)),
+                                        new Expression(ListFunctions.List, new Constant(3), new Constant(-1), new Constant(5)))))),
+                new Constant(-25)
+        );
+    }
 }
