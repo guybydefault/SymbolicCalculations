@@ -10,6 +10,7 @@ import ru.guybydefault.dsl.functions.ListFunctions;
 import ru.guybydefault.dsl.functions.MatrixFunctions;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 
@@ -19,7 +20,7 @@ public class MatrixTransposeOperationsTests {
     public void testMatrixTranspose_1() {
         evaluateAndAssert(
                 new Expression(
-                        MatrixFunctions.Transpose, Arrays.asList(
+                        MatrixFunctions.Transpose, Collections.singletonList(
                         new Expression(ListFunctions.List,
                                 new Expression(ListFunctions.List, new Constant(1), new Constant(2)),
                                 new Expression(ListFunctions.List, new Constant(3), new Constant(4))
@@ -36,7 +37,7 @@ public class MatrixTransposeOperationsTests {
     public void testMatrixTranspose_2() {
         evaluateAndAssert(
                 new Expression(
-                        MatrixFunctions.Transpose, Arrays.asList(
+                        MatrixFunctions.Transpose, Collections.singletonList(
                         new Expression(ListFunctions.List,
                                 new Expression(ListFunctions.List, new Constant(1), new Constant(2)),
                                 new Expression(ListFunctions.List, new Constant(3), new Constant(4)),
@@ -54,7 +55,7 @@ public class MatrixTransposeOperationsTests {
     public void testMatrixTranspose_3() {
         evaluateAndAssert(
                 new Expression(
-                        MatrixFunctions.Transpose, Arrays.asList(
+                        MatrixFunctions.Transpose, Collections.singletonList(
                         new Expression(ListFunctions.List,
                                 new Expression(ListFunctions.List, new Constant(1), new Constant(2)),
                                 new Expression(ListFunctions.List, new StringSymbol("x"), new Constant(4)),
@@ -72,9 +73,9 @@ public class MatrixTransposeOperationsTests {
     public void testMatrixTranspose_4() {
         evaluateAndAssert(
                 new Expression(
-                        MatrixFunctions.Transpose, Arrays.asList(
+                        MatrixFunctions.Transpose, Collections.singletonList(
                         new Expression(ListFunctions.List,
-                                new Expression(ListFunctions.List, new Constant(1), new Expression(ArithmeticFunctions.Plus, new Constant(6), new Constant(9),  new StringSymbol("x"))),
+                                new Expression(ListFunctions.List, new Constant(1), new Expression(ArithmeticFunctions.Plus, new Constant(6), new Constant(9), new StringSymbol("x"))),
                                 new Expression(ListFunctions.List, new StringSymbol("x"), new Constant(4)),
                                 new Expression(ListFunctions.List, new Constant(5), new Expression(ArithmeticFunctions.Plus, new Constant(6), new Constant(9)))
                         ))
@@ -90,7 +91,7 @@ public class MatrixTransposeOperationsTests {
     public void testMatrixTranspose_5() {
         evaluateAndAssert(
                 new Expression(
-                        MatrixFunctions.Transpose, Arrays.asList(
+                        MatrixFunctions.Transpose, Collections.singletonList(
                         new Expression(ListFunctions.List,
                                 new Expression(ListFunctions.List, new Constant(1), new Expression(ArithmeticFunctions.Plus, new StringSymbol("x"), new Expression(ArithmeticFunctions.Times, new StringSymbol("x"), new Constant(2)))),
                                 new Expression(ListFunctions.List, new StringSymbol("x"), new Constant(4)),

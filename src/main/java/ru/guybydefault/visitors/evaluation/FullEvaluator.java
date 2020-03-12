@@ -13,6 +13,7 @@ import ru.guybydefault.dsl.implemetations.casting.AsConstantImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsExpressionArgsImplementation;
 import ru.guybydefault.dsl.implemetations.casting.AsStringSymbolImplementation;
 import ru.guybydefault.dsl.implemetations.listfunctions.*;
+import ru.guybydefault.dsl.implemetations.matrixFunctions.DeterminerImplementation;
 import ru.guybydefault.visitors.ISymbolVisitor;
 import ru.guybydefault.visitors.attributes.FlatHandler;
 import ru.guybydefault.visitors.attributes.OneIdentityHandler;
@@ -30,6 +31,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final OrderlessHandler ArgumentsSorter = new OrderlessHandler();
     private static final PlusImplementation PlusImplementation = new PlusImplementation();
     private static final TimesImplementation TimesImplementation = new TimesImplementation();
+    private static final DivideImplementation DivideImplementation = new DivideImplementation();
 
     private static final IfImplementation IfImplementation = new IfImplementation();
     private static final PartImplementation PartImplementation = new PartImplementation();
@@ -46,12 +48,14 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final DistinctImplementation DistinctImplementation = new DistinctImplementation();
     private static final RangeImplementation RangeImplementation = new RangeImplementation();
     private static final FMapImplementation FastMapImplementation = new FMapImplementation();
+    private static final ListSumImplementation ListSumImplementation = new ListSumImplementation();
+
+    private static final DeterminerImplementation DeterminerImplementation = new DeterminerImplementation();
 
     private final ArgumentsEvaluator argumentsEvaluator;
     private final FunctionEvaluator functionEvaluator;
     private final List<ISymbolVisitor<Symbol>> visitors;
     private List<ISymbolVisitor<Symbol>> flow;
-    private final RangeImplementation rangeImplementation = new RangeImplementation();
 
     public FullEvaluator() {
         this(null);
@@ -126,6 +130,10 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
 //                GroupImplementation,
         flow.add(FastMapImplementation);
         flow.add(GenerateList);
+        flow.add(ListSumImplementation);
+
+        //matrix impl
+        flow.add(DeterminerImplementation);
 
         return flow;
     }

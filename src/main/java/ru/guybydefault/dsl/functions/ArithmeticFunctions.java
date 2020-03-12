@@ -25,13 +25,15 @@ public class ArithmeticFunctions {
                     Attributes.OneIdentity,
                     Attributes.Orderless});
 
+    public static final StringSymbol Divide = new StringSymbol("Divide");
+
     public static final StringSymbol Minus = new StringSymbol("Minus");
     public static final StringSymbol ListPlus = new StringSymbol("ListPlus");
     public static final StringSymbol ListTimes = new StringSymbol("ListTimes");
     public static final StringSymbol ListPlusList = new StringSymbol("ListPlusList");
 
     private static final List<StringSymbol> symbols = Arrays.asList(Plus, BinaryPlus, BinaryTimes, Times, Minus,
-            ListPlus, ListTimes, ListPlusList);
+            ListPlus, ListTimes, ListPlusList, Divide);
 
     public static boolean isFromArithmeticFunctions(StringSymbol symbol) {
         return symbols.contains(symbol);
@@ -39,7 +41,7 @@ public class ArithmeticFunctions {
 
     public static Expression MinusImplementation() {
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-                new Expression(Times, Collections.singletonList(new Constant(-1)))));
+                new Expression(Times, new Constant(-1), Alphabet.x)));
     }
 
     public static Expression Abs() {
