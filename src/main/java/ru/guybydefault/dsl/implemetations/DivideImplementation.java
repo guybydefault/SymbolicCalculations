@@ -11,7 +11,7 @@ public class DivideImplementation extends AbstractFunctionImplementation {
 
     private static final StringSymbol[] names = new StringSymbol[]{ArithmeticFunctions.Divide};
 
-    protected DivideImplementation(StringSymbol[] names) {
+    public DivideImplementation(StringSymbol[] names) {
         super(names);
     }
 
