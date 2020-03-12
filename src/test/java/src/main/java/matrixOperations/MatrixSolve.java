@@ -19,7 +19,9 @@ public class MatrixSolve {
                                 new Expression(ListFunctions.List, new Constant(3), new Constant(-1), new Constant(5))
                         ),
                         new Expression(ListFunctions.List,
-                                new Expression(ListFunctions.List, new Constant(1), new Constant(3), new Constant(2))
+                                new Expression(ListFunctions.List, new Constant(1)),
+                                new Expression(ListFunctions.List, new Constant(3)),
+                                new Expression(ListFunctions.List, new Constant(2))
                         )
                 ),
                 new Expression(ListFunctions.List,
