@@ -49,12 +49,12 @@ public class Context {
                     new Expression(SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
                     new Expression(SetDelayed, DefaultValue, DefaultValueImplementation()),
 
-                    new Expression(SetDelayed, Contains, ContainsImplementation()),
-                    new Expression(SetDelayed, Concat, ConcatImplementation()),
-                    new Expression(SetDelayed, CountItem, CountItemImplementation()),
-                    new Expression(SetDelayed, Filter, FilterImplementation()),
-                    new Expression(SetDelayed, Map, MapImplementation()),
-                    new Expression(SetDelayed, Fold, FoldImplementation()),
+//                    new Expression(SetDelayed, Contains, ContainsImplementation()),
+//                    new Expression(SetDelayed, Concat, ConcatImplementation()),
+//                    new Expression(SetDelayed, CountItem, CountItemImplementation()),
+//                    new Expression(SetDelayed, Filter, FilterImplementation()),
+//                    new Expression(SetDelayed, Map, MapImplementation()),
+//                    new Expression(SetDelayed, Fold, FoldImplementation()),
 
                     new Expression(SetDelayed, ListTimes, ListTimesImplementation()),
                     new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
