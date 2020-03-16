@@ -40,6 +40,7 @@ public class TimesImplementation extends AbstractFunctionImplementation{
             }
         }
 
+
         return constant;
     }
 }

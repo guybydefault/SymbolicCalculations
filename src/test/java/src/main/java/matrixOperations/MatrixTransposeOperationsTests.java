@@ -104,4 +104,21 @@ public class MatrixTransposeOperationsTests {
                 ))
         );
     }
+
+    @org.junit.Test
+    public void testMatrixTranspose_6() {
+        evaluateAndAssert(
+                new Expression(
+                        MatrixFunctions.Transpose,
+                        new Expression(ListFunctions.List,
+                                new Expression(ListFunctions.List, new Constant(1)),
+                                new Expression(ListFunctions.List, new Constant(3)),
+                                new Expression(ListFunctions.List, new Constant(4))
+                        ))
+                ,
+                new Expression(ListFunctions.List,
+                        new Expression(ListFunctions.List, new Constant(1), new Constant(3), new Constant(4))
+                )
+        );
+    }
 }

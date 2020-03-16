@@ -1,5 +1,6 @@
 package src.main.java.listFunctions;
 
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import ru.guybydefault.domain.Constant;
@@ -15,6 +16,7 @@ import static src.main.java.tools.TestRunner.evaluateAndAssert;
 public class SymbolicMapTest {
 
     @org.junit.Test
+    @Ignore
     public void testMapTimes_1() {
         evaluateAndAssert(
                 new Expression(ListFunctions.Map,

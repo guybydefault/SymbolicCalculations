@@ -4,16 +4,16 @@
         <StringSymbol name="Fun"/>
         <Expression>
             <StringSymbol name="List"/>
-            <StringSymbol name="x'"/>
-            <StringSymbol name="y'"/>
+            <StringSymbol name="x"/>
+            <StringSymbol name="y"/>
         </Expression>
         <Expression>
             <StringSymbol name="MatrixMult"/>
             <Expression>
                 <StringSymbol name="MatrixReversed"/>
-                <StringSymbol name="x'"/>
+                <StringSymbol name="x"/>
             </Expression>
-            <StringSymbol name="y'"/>
+            <StringSymbol name="y"/>
         </Expression>
     </Expression>
 </Root>

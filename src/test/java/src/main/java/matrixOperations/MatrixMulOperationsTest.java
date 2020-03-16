@@ -39,7 +39,7 @@ public class MatrixMulOperationsTest {
     public void testMatrixMulMatrix_2() {
         evaluateAndAssert(
                 new Expression(
-                        MatrixFunctions.MatrixMult, Arrays.asList(
+                        MatrixFunctions.MatrixMult,
                         new Expression(ListFunctions.List,
                                 new Expression(ListFunctions.List, new Constant(0.24), new Constant(-0.68), new Constant(0.4)),
                                 new Expression(ListFunctions.List, new Constant(-0.28), new Constant(-0.04), new Constant(0.2)),
@@ -49,7 +49,7 @@ public class MatrixMulOperationsTest {
                                 new Expression(ListFunctions.List, new Constant(1)),
                                 new Expression(ListFunctions.List, new Constant(3)),
                                 new Expression(ListFunctions.List, new Constant(2))
-                        ))
+                        )
                 ),
                 new Expression(ListFunctions.List,
                         new Expression(ListFunctions.List, new Constant(-1)),

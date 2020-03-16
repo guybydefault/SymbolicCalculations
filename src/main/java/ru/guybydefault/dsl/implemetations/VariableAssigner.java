@@ -29,7 +29,6 @@ public class VariableAssigner extends AbstractFunctionImplementation {
             }
         }
 
-
         return expression;
     }
 }

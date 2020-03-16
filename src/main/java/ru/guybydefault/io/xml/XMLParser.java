@@ -100,7 +100,9 @@ public class XMLParser {
         for (int i = 0; i < node.getChildNodes().getLength(); i++) {
             arguments[i] = parseStringSymbol(node.getChildNodes().item(i));
         }
-        return stringSymbolHashMapService.get(node.getAttributes().getNamedItem(STRING_SYMBOL_ATTRIBUTE_NAME).getNodeValue());
+        String stringSymbolName = node.getAttributes().getNamedItem(STRING_SYMBOL_ATTRIBUTE_NAME).getNodeValue();
+        StringSymbol symbol = stringSymbolHashMapService.get(stringSymbolName);
+        return symbol != null ? symbol : new StringSymbol(stringSymbolName);
     }
 
     private Constant parseConstant(Node node) {
