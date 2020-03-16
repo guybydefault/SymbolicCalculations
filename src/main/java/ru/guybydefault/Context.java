@@ -102,6 +102,7 @@ public class Context {
         Symbol currResult = symbol;
         List<Symbol> resultHistory = new LinkedList<>();
         resultHistory.add(currResult);
+        debugIteration("before.xml", currResult);
         while (iterations <= 100000) {
             /**
              * Here we make evaluations, transformations,
@@ -125,7 +126,6 @@ public class Context {
              * 5 Apply any built‐in definitions.
              * 6 Evaluate the result.
              */
-
 
             if (currResult.equals(newResult)) {
                 // skipping DefaultContext SetDelayed stuff when returning result
