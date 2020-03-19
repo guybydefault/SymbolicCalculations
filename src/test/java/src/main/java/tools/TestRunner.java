@@ -1,10 +1,10 @@
 package src.main.java.tools;
 
 import org.junit.Assert;
-import ru.guybydefault.CalculationResult;
-import ru.guybydefault.Context;
-import ru.guybydefault.domain.Expression;
-import ru.guybydefault.domain.Symbol;
+import ru.symbolic.CalculationResult;
+import ru.symbolic.Context;
+import ru.symbolic.domain.Expression;
+import ru.symbolic.domain.Symbol;
 
 
 public class TestRunner {

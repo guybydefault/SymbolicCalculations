@@ -3,12 +3,12 @@ package src.main.java.listFunctions;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import ru.guybydefault.domain.Constant;
-import ru.guybydefault.domain.Expression;
-import ru.guybydefault.domain.StringSymbol;
-import ru.guybydefault.dsl.functions.ArithmeticFunctions;
-import ru.guybydefault.dsl.functions.ListFunctions;
-import ru.guybydefault.dsl.library.Functions;
+import ru.symbolic.domain.Constant;
+import ru.symbolic.domain.Expression;
+import ru.symbolic.domain.StringSymbol;
+import ru.symbolic.dsl.functions.ArithmeticFunctions;
+import ru.symbolic.dsl.functions.ListFunctions;
+import ru.symbolic.dsl.library.Functions;
 
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 

@@ -2,12 +2,12 @@ package src.main.java.listFunctions;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import ru.guybydefault.domain.Constant;
-import ru.guybydefault.domain.Expression;
-import ru.guybydefault.dsl.functions.ArithmeticFunctions;
-import ru.guybydefault.dsl.functions.ListFunctions;
-import ru.guybydefault.dsl.library.Alphabet;
-import ru.guybydefault.dsl.library.Functions;
+import ru.symbolic.domain.Constant;
+import ru.symbolic.domain.Expression;
+import ru.symbolic.dsl.functions.ArithmeticFunctions;
+import ru.symbolic.dsl.functions.ListFunctions;
+import ru.symbolic.dsl.library.Alphabet;
+import ru.symbolic.dsl.library.Functions;
 
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 
