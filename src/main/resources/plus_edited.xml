@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
     <Expression>
-        <StringSymbol name="Fun"></StringSymbol>
+        <StringSymbol name="Fun"/>
+        <StringSymbol name="expr'"/>
         <Expression>
-            <StringSymbol name="List"></StringSymbol>
-            <StringSymbol name="list'"></StringSymbol>
-        </Expression>
-        <Expression>
-            <StringSymbol name="FMap"></StringSymbol>
+            <!--            // body-->
             <Expression>
-                <StringSymbol name="GenerateList"></StringSymbol>
+                <StringSymbol name="Plus"/>
                 <Expression>
-                    <StringSymbol name="Length"></StringSymbol>
-                    <StringSymbol name="list'"></StringSymbol>
-                </Expression>
-            </Expression>
-            <Expression>
-                <StringSymbol name="Fun"></StringSymbol>
-                <Expression>
-                    <StringSymbol name="List"></StringSymbol>
-                    <StringSymbol name="x'"></StringSymbol>
-                </Expression>
-                <Expression>
-                    <StringSymbol name="ListPlusList"></StringSymbol>
+                    <StringSymbol name="FMap"/>
+                    <!--                    Mapping all paterns -->
                     <Expression>
-                        <StringSymbol name="Part"></StringSymbol>
-                        <StringSymbol name="list'"></StringSymbol>
-                        <StringSymbol name="x'"></StringSymbol>
+                        <!--                Getting all the patterns matching Constant * Monomial -->
+                        <StringSymbol name="GetPatterns"/>
+                        <Expression>
+                            <StringSymbol name="List"/>
+                            <!--                        this argument is supposed to be an expression and among its arguments we will look for matching patterns -->
+                            <StringSymbol name="expr'"/>
+                            <!--                        here comes pattern itself-->
+                            <Expression>
+                                <StringSymbol name="Times"/>
+                                <StringSymbol name="Constant_"/>
+                                <StringSymbol name="Rest"/>
+                            </Expression>
+                        </Expression>
                     </Expression>
                     <Expression>
-                        <StringSymbol name="Part"></StringSymbol>
-                        <StringSymbol name="list2'"></StringSymbol>
-                        <StringSymbol name="x'"></StringSymbol>
+                        <StringSymbol name="Fun"/>
+                        <StringSymbol name="pattern"/>
+                        <Expression></Expression>
                     </Expression>
                 </Expression>
             </Expression>

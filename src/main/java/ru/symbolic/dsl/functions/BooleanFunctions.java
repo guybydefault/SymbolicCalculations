@@ -26,11 +26,6 @@ public class BooleanFunctions {
     public static final StringSymbol Or = new StringSymbol("Or");
     public static final StringSymbol While = new StringSymbol("While");
 
-    private static final List<StringSymbol> symbols = Arrays.asList(True, False, If, Eq, Compare, Not, Less, More, And, Or, While);
-
-    public static boolean isFromBooleanFunctions(StringSymbol symbol) {
-        return symbols.contains(symbol);
-    }
 
     public static Expression LessImplementation() {
         return new Expression(
@@ -42,12 +37,15 @@ public class BooleanFunctions {
                         new Constant(-1)));
     }
 
-//    public static Expression MoreImplementation() {
-//        return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,
-//                new Expression(Functions.Fun, Arrays.asList(Alphabet.y,
-//                        new Expression(Eq, Arrays.asList(Alphabet.x, Alphabet.y)),
-//                        new Constant(1)))));
-//    }
+    public static Expression MoreImplementation() {
+        return new Expression(
+                Functions.Fun,
+                new Expression(ListFunctions.List, Alphabet.x, Alphabet.y),
+                new Expression(
+                        Eq,
+                        new Expression(Compare, Alphabet.x, Alphabet.y),
+                        new Constant(1)));
+    }
 
     public static Expression NotImplementation() {
         return new Expression(Functions.Fun, Alphabet.x, new Expression(If, Alphabet.x, False, True));

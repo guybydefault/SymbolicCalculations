@@ -16,7 +16,6 @@ import static src.main.java.tools.TestRunner.evaluateAndAssert;
 public class SymbolicMapTest {
 
     @org.junit.Test
-    @Ignore
     public void testMapTimes_1() {
         evaluateAndAssert(
                 new Expression(ListFunctions.Map,

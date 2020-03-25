@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Expression>
+        <StringSymbol name="SetDelayed"/>
+        <Expression>
+            <StringSymbol name="Rest"/>
+            <Expression>
+                <StringSymbol name="List"/>
+                <StringSymbol name="first_"/>
+                <StringSymbol name="rest___"/>
+            </Expression>
+        </Expression>
+        <Expression>
+            <StringSymbol name="List"/>
+            <StringSymbol name="rest"/>
+        </Expression>
+    </Expression>
+</Root>

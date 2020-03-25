@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-
 public class PlusImplementation extends AbstractFunctionImplementation {
     private static final StringSymbol[] names = new StringSymbol[]{ArithmeticFunctions.BinaryPlus, ArithmeticFunctions.Plus};
 

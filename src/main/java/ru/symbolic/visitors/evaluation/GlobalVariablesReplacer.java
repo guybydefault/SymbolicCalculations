@@ -27,6 +27,9 @@ public class GlobalVariablesReplacer implements ISymbolVisitor<Symbol> {
             for (Map.Entry<Symbol, Symbol> entry : variableAssigner.variables.entrySet()) {
                 newExpr = newExpr.visit(new VariableReplacer(entry.getKey(), entry.getValue()));
             }
+            for (Map.Entry<Expression, Symbol> entry : variableAssigner.patterns.entrySet()) {
+                newExpr = newExpr.visit(new SymbolMatcher(entry.getKey(), entry.getValue()));
+            }
         } while (!Objects.equals(newExpr, prev));
         return newExpr;
     }

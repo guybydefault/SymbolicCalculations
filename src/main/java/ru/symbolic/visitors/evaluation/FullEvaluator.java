@@ -46,8 +46,9 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final LengthImplementation LengthImplementation = new LengthImplementation();
     private static final DistinctImplementation DistinctImplementation = new DistinctImplementation();
     private static final RangeImplementation RangeImplementation = new RangeImplementation();
-    private static final FMapImplementation FastMapImplementation = new FMapImplementation();
+    private static final MapImplementation FastMapImplementation = new MapImplementation();
     private static final ListSumImplementation ListSumImplementation = new ListSumImplementation();
+    private static final ListSeqImplementation ListSeqImplementation = new ListSeqImplementation();
 
     private final ArgumentsEvaluator argumentsEvaluator;
     private final FunctionEvaluator functionEvaluator;
@@ -125,10 +126,10 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
         flow.add(LengthImplementation);
         flow.add(DistinctImplementation);
         flow.add(RangeImplementation);
-//                GroupImplementation,
         flow.add(FastMapImplementation);
         flow.add(GenerateList);
         flow.add(ListSumImplementation);
+        flow.add(ListSeqImplementation);
         return flow;
     }
 }

@@ -197,4 +197,34 @@ public class LogicOperatorsTest {
                 BooleanFunctions.False
         );
     }
+
+    @Test
+    public void moreTest_1() {
+        evaluateAndAssert(
+                new Expression(BooleanFunctions.More,
+                        new Constant(1),
+                        new Constant(10)),
+                BooleanFunctions.False
+        );
+    }
+
+    @Test
+    public void moreTest_2() {
+        evaluateAndAssert(
+                new Expression(BooleanFunctions.More,
+                        new Constant(1),
+                        new Constant(1)),
+                BooleanFunctions.False
+        );
+    }
+
+    @Test
+    public void moreTest_3() {
+        evaluateAndAssert(
+                new Expression(BooleanFunctions.More,
+                        new Constant(10),
+                        new Constant(1)),
+                BooleanFunctions.True
+        );
+    }
 }

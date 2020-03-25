@@ -8,6 +8,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 public class Alphabet {
+
     public static StringSymbol x = new StringSymbol("x'");
     public static StringSymbol y = new StringSymbol("y'");
     public static StringSymbol n = new StringSymbol("n'");
@@ -20,13 +21,4 @@ public class Alphabet {
     public static StringSymbol pred = new StringSymbol("pred'");
     public static StringSymbol body = new StringSymbol("body'");
 
-    private static final List<StringSymbol> symbols = asList(x, y, n, expr, list, list2, tuple, f, acc, pred, body);
-
-    public static boolean isFromAlphabet(StringSymbol symbol) {
-        return symbols.contains(symbol);
-    }
-
-    public static List<StringSymbol> getAlphabet() {
-        return Arrays.asList(x, y, n, expr, list, list2, tuple, f, acc, pred, body);
-    }
 }

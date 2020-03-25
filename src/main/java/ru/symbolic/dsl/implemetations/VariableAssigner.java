@@ -14,6 +14,8 @@ public class VariableAssigner extends AbstractFunctionImplementation {
 
     public Map<Symbol, Symbol> variables = new HashMap<>();
 
+    public Map<Expression, Symbol> patterns = new HashMap<>();
+
     public VariableAssigner() {
         super(names);
     }
@@ -26,6 +28,10 @@ public class VariableAssigner extends AbstractFunctionImplementation {
         if (variable instanceof StringSymbol) {
             if (!variables.containsKey(variable)) {
                 variables.put(variable, body);
+            }
+        } else if (variable instanceof Expression) {
+            if (!patterns.containsKey(variable)) {
+                patterns.put((Expression) variable, body);
             }
         }
 

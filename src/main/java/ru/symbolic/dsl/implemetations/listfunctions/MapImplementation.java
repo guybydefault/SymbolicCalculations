@@ -10,10 +10,10 @@ import ru.symbolic.visitors.cast.AsExpressionVisitor;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FMapImplementation extends AbstractListFunctionImplementation {
-    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.FMap};
+public class MapImplementation extends AbstractListFunctionImplementation {
+    private static final StringSymbol[] names = new StringSymbol[] {ListFunctions.Map};
 
-    public FMapImplementation() {
+    public MapImplementation() {
         super(names);
     }
 

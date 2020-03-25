@@ -21,12 +21,6 @@ public class CastingFunctions {
     public static final StringSymbol IsExpressionWithName = new StringSymbol("IsExpressionWithName");
     public static final StringSymbol DefaultValue = new StringSymbol("DefaultValue");
 
-    private static final List<StringSymbol> symbols = Arrays.asList(AsConstant, AsStringSymbol, AsExpressionArgs,
-            Null, IsConstant, IsStringSymbol, IsExpressionWithName, DefaultValue);
-
-    public static boolean isFromCastingFunctions(StringSymbol symbol) {
-        return symbols.contains(symbol);
-    }
 
     public static Expression IsConstantImplementation(){
         return new Expression(Functions.Fun, Arrays.asList(Alphabet.x,

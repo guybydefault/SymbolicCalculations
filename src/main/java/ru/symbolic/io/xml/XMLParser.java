@@ -30,7 +30,7 @@ public class XMLParser {
 
     private static DocumentBuilder documentBuilder;
 
-    public XMLParser() throws ParserConfigurationException {
+    public XMLParser() throws ParserConfigurationException, IllegalAccessException {
         stringSymbolHashMapService = new StringSymbolHashMapService();
         documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
     }

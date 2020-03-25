@@ -36,7 +36,7 @@ public class Context {
     static {
         try {
             xmlParser = new XMLParser();
-        } catch (ParserConfigurationException e) {
+        } catch (ParserConfigurationException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }
@@ -49,25 +49,19 @@ public class Context {
                     new Expression(SetDelayed, IsExpressionWithName, IsExpressionWithNameImplementation()),
                     new Expression(SetDelayed, DefaultValue, DefaultValueImplementation()),
 
-//                    new Expression(SetDelayed, Contains, ContainsImplementation()),
-//                    new Expression(SetDelayed, Concat, ConcatImplementation()),
-//                    new Expression(SetDelayed, CountItem, CountItemImplementation()),
-//                    new Expression(SetDelayed, Filter, FilterImplementation()),
-//                    new Expression(SetDelayed, Map, MapImplementation()),
-//                    new Expression(SetDelayed, Fold, FoldImplementation()),
-
-                    new Expression(SetDelayed, ListPlus, ListPlusImplementation()),
-
                     new Expression(SetDelayed, Minus, MinusImplementation()),
                     new Expression(SetDelayed, Or, OrImplementation()),
                     new Expression(SetDelayed, And, AndImplementation()),
-//                    new Expression(SetDelayed, More, MoreImplementation()),
                     new Expression(SetDelayed, Less, LessImplementation()),
+                    new Expression(SetDelayed, More, MoreImplementation()),
                     new Expression(SetDelayed, Not, NotImplementation()),
                     new Expression(SetDelayed, While, WhileImplementation()),
-                    new Expression(SetDelayed, new StringSymbol("MySum"), xmlParser.parse("src/main/resources/plus.xml"))
+                    xmlParser.parse("src/main/resources/first.xml"),
+                    xmlParser.parse("src/main/resources/rest.xml"),
+                    xmlParser.parse("src/main/resources/simplify.xml")
+
             );
-        } catch (IOException | SAXException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

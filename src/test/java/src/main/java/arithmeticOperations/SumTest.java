@@ -68,4 +68,121 @@ public class SumTest {
         );
     }
 
+    @org.junit.Test
+    public void testSumArgumentsSimplify_5() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Constant(1),
+                        new StringSymbol("z"),
+                        new Constant(2),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(1),
+                                new StringSymbol("z"),
+                                new StringSymbol("y")
+                        ),
+                        new StringSymbol("y"),
+                        new StringSymbol("x"),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(2),
+                                new StringSymbol("z"),
+                                new StringSymbol("y"),
+                                new StringSymbol("x")
+                        ),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(2),
+                                new StringSymbol("z"),
+                                new StringSymbol("y")
+                        ),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(1),
+                                new StringSymbol("z"),
+                                new StringSymbol("y"),
+                                new StringSymbol("x")
+                        )
+                ),
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(
+                                ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("y"),
+                                new StringSymbol("z"),
+                                new Constant(3)
+                        ),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("z"),
+                                new StringSymbol("y"),
+                                new Constant(3)
+                        ),
+                        new StringSymbol("x"),
+                        new StringSymbol("y"),
+                        new StringSymbol("z"),
+                        new Constant(3))
+        );
+    }
+
+    @org.junit.Test
+    public void testSumArgumentsSimplify_6() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Constant(1),
+                        new Expression(
+                                new StringSymbol("Times"),
+                                new StringSymbol("z"),
+                                new Constant(2)
+                        ),
+                        new Constant(2),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(1),
+                                new StringSymbol("z"),
+                                new StringSymbol("y")
+                        ),
+                        new StringSymbol("y"),
+                        new StringSymbol("x"),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(2),
+                                new StringSymbol("z"),
+                                new StringSymbol("y"),
+                                new StringSymbol("x")
+                        ),
+                        new Expression(
+                                new StringSymbol("Times"),
+                                new StringSymbol("z"),
+                                new Constant(2)
+                        ),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(2),
+                                new StringSymbol("z"),
+                                new StringSymbol("y")
+                        ),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(1),
+                                new StringSymbol("z"),
+                                new StringSymbol("y"),
+                                new StringSymbol("x")
+                        )
+                ),
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(
+                                ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("y"),
+                                new StringSymbol("z"),
+                                new Constant(3)
+                        ),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("y"),
+                                new StringSymbol("z"),
+                                new Constant(3)
+                        ),
+                        new Expression(
+                                new StringSymbol("Times"),
+                                new StringSymbol("z"),
+                                new Constant(4)
+                        ),
+                        new StringSymbol("x"),
+                        new StringSymbol("y"),
+                        new Constant(3))
+        );
+    }
+
 }
