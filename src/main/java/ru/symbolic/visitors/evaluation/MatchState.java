@@ -206,12 +206,7 @@ public class MatchState {
                 return listResult(true);
             } else {
                 // there are some args which are needed to match but we dont have more patterns
-//                if (checkIfTheRestOfPatternsAreNullableSequences()) {
-                // TODO match them! variables
-//                    return listResult(true);
-//                } else {
                 return listResult(false);
-//                }
             }
         }
 
