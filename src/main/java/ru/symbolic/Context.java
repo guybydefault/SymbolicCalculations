@@ -58,8 +58,9 @@ public class Context {
                     new Expression(SetDelayed, While, WhileImplementation()),
                     xmlParser.parse("src/main/resources/first.xml"),
                     xmlParser.parse("src/main/resources/rest.xml"),
-                    xmlParser.parse("src/main/resources/simplify.xml")
-
+                    xmlParser.parse("src/main/resources/simplify.xml"),
+                    xmlParser.parse("src/main/resources/const_compact.xml"),
+                    xmlParser.parse("src/main/resources/flatten_brackets.xml")
             );
         } catch (Exception e) {
             e.printStackTrace();

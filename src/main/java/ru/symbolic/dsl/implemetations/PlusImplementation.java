@@ -6,6 +6,8 @@ import ru.symbolic.domain.StringSymbol;
 import ru.symbolic.domain.Symbol;
 import ru.symbolic.dsl.functions.ArithmeticFunctions;
 import ru.symbolic.visitors.cast.AsConstantVisitor;
+import ru.symbolic.visitors.cast.AsExpressionVisitor;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;

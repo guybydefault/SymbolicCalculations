@@ -107,10 +107,20 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
 
         flow = new LinkedList<ISymbolVisitor<Symbol>>(visitors);
 
+
+
+
         flow.add(FlatFlattener);
+        /**
+         * it is important that ListSeqImplementation comes before OneIdentityShrinker, cuz it opens Seq
+         * and oneidentity can delete plus because of the one seq arg inside
+         */
+        flow.add(ListSeqImplementation);
+
         flow.add(ArgumentsSorter);
         flow.add(OneIdentityShrinker);
         // Implementations
+
         flow.add(PlusImplementation);
         flow.add(TimesImplementation);
         flow.add(DivideImplementation);
@@ -129,7 +139,6 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
         flow.add(FastMapImplementation);
         flow.add(GenerateList);
         flow.add(ListSumImplementation);
-        flow.add(ListSeqImplementation);
         return flow;
     }
 }

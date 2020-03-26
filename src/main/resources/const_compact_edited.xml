@@ -8,12 +8,10 @@
             <Expression>
                 <StringSymbol name="Times"/>
                 <StringSymbol name="x__"/>
-                <StringSymbol name="c1_Constant"/>
             </Expression>
             <Expression>
                 <StringSymbol name="Times"/>
                 <StringSymbol name="x__"/>
-                <StringSymbol name="c2_Constant"/>
             </Expression>
             <StringSymbol name="rest___"/>
         </Expression>
@@ -23,11 +21,7 @@
             <Expression>
                 <StringSymbol name="Times"/>
                 <StringSymbol name="x"/>
-                <Expression>
-                    <StringSymbol name="Plus"/>
-                    <StringSymbol name="c1"/>
-                    <StringSymbol name="c2"/>
-                </Expression>
+                <Constant>2</Constant>
             </Expression>
             <StringSymbol name="rest"/>
         </Expression>

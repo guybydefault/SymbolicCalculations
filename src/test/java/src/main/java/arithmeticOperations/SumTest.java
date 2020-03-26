@@ -7,6 +7,8 @@ import ru.symbolic.domain.Expression;
 import ru.symbolic.domain.StringSymbol;
 import ru.symbolic.dsl.functions.ArithmeticFunctions;
 
+import static ru.symbolic.dsl.functions.ArithmeticFunctions.Plus;
+import static ru.symbolic.dsl.functions.ArithmeticFunctions.Times;
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 
 @RunWith(JUnit4.class)
@@ -182,6 +184,103 @@ public class SumTest {
                         new StringSymbol("x"),
                         new StringSymbol("y"),
                         new Constant(3))
+        );
+    }
+
+    @org.junit.Test
+    public void testSumArgumentsFlatten_7() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(Times,
+                                new StringSymbol("x"),
+                                new Expression(Plus,
+                                        new StringSymbol("y"),
+                                        new StringSymbol("z"),
+                                        new StringSymbol("w")
+                                )),
+                        new StringSymbol("z")),
+                new Expression(
+                        Plus,
+                        new Expression(
+                                Times,
+                                new StringSymbol("w"),
+                                new StringSymbol("x")
+                        ),
+                        new Expression(
+                                Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("y")
+                        ),
+                        new Expression(
+                                Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("z")
+                        ),
+                        new StringSymbol("z")
+                )
+        );
+    }
+
+    @org.junit.Test
+    public void testSumArgumentsFlattenAndSimplify_8() {
+        evaluateAndAssert(
+                new Expression(
+                        ArithmeticFunctions.Plus,
+                        new Expression(Times,
+                                new StringSymbol("z"),
+                                new Expression(Plus,
+                                        new StringSymbol("x"),
+                                        new StringSymbol("y")
+                                )),
+                        new Expression(
+                                Times,
+                                new Expression(
+                                        Plus,
+                                        new StringSymbol("y"),
+                                        new StringSymbol("x"),
+                                        new StringSymbol("z")
+                                ),
+                                new StringSymbol("w")
+                        ),
+                        new Expression(
+                                Times,
+                                new StringSymbol("w"),
+                                new StringSymbol("y")
+                        ),
+                        new Expression(
+                                Times,
+                                new StringSymbol("w"),
+                                new StringSymbol("z")
+                        ),
+                        new Constant(10)
+                ),
+                new Expression(
+                        Plus,
+                        new Expression(
+                                Times,
+                                new StringSymbol("w"),
+                                new StringSymbol("x")
+                        ),
+                        new Expression(Times,
+                                new StringSymbol("w"),
+                                new StringSymbol("y"),
+                                new Constant(2)),
+                        new Expression(Times,
+                                new StringSymbol("w"),
+                                new StringSymbol("z"),
+                                new Constant(2)),
+                        new Expression(
+                                Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("z")
+                        ),
+                        new Expression(
+                                Times,
+                                new StringSymbol("y"),
+                                new StringSymbol("z")
+                        ),
+                        new Constant(10)
+                )
         );
     }
 
