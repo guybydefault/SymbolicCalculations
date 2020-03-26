@@ -31,6 +31,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
     private static final PlusImplementation PlusImplementation = new PlusImplementation();
     private static final TimesImplementation TimesImplementation = new TimesImplementation();
     private static final DivideImplementation DivideImplementation = new DivideImplementation();
+    private static final PowerImplementation PowerImplementation = new PowerImplementation();
 
     private static final IfImplementation IfImplementation = new IfImplementation();
     private static final PartImplementation PartImplementation = new PartImplementation();
@@ -123,6 +124,7 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
 
         flow.add(PlusImplementation);
         flow.add(TimesImplementation);
+        flow.add(PowerImplementation);
         flow.add(DivideImplementation);
         flow.add(IfImplementation);
         flow.add(EqImplementation);

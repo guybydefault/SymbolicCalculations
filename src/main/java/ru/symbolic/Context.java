@@ -1,9 +1,7 @@
 package ru.symbolic;
 
 import org.apache.commons.io.FileUtils;
-import org.xml.sax.SAXException;
 import ru.symbolic.domain.Expression;
-import ru.symbolic.domain.StringSymbol;
 import ru.symbolic.domain.Symbol;
 import ru.symbolic.dsl.implemetations.VariableAssigner;
 import ru.symbolic.dsl.library.Functions;
@@ -21,7 +19,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static ru.symbolic.dsl.functions.ArithmeticFunctions.*;
+import static ru.symbolic.dsl.functions.ArithmeticFunctions.Minus;
+import static ru.symbolic.dsl.functions.ArithmeticFunctions.MinusImplementation;
 import static ru.symbolic.dsl.functions.BooleanFunctions.*;
 import static ru.symbolic.dsl.functions.CastingFunctions.*;
 import static ru.symbolic.dsl.library.Functions.Seq;
@@ -59,6 +58,8 @@ public class Context {
                     xmlParser.parse("src/main/resources/first.xml"),
                     xmlParser.parse("src/main/resources/rest.xml"),
                     xmlParser.parse("src/main/resources/simplify.xml"),
+                    xmlParser.parse("src/main/resources/simplify1.xml"),
+                    xmlParser.parse("src/main/resources/simplify2.xml"),
                     xmlParser.parse("src/main/resources/const_compact.xml"),
                     xmlParser.parse("src/main/resources/const_compact1.xml"),
                     xmlParser.parse("src/main/resources/const_compact2.xml"),

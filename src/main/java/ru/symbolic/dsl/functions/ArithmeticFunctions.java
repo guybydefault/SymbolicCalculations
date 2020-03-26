@@ -23,8 +23,8 @@ public class ArithmeticFunctions {
             new StringSymbol[]{Attributes.Flat,
                     Attributes.OneIdentity,
                     Attributes.Orderless});
-
     public static final StringSymbol Divide = new StringSymbol("Divide");
+    public static final StringSymbol Power = new StringSymbol("Power");
 
     public static final StringSymbol Minus = new StringSymbol("Minus");
     public static final StringSymbol ListPlus = new StringSymbol("ListPlus");
