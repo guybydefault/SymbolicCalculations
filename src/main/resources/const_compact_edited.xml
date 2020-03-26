@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
     <Expression>
-        <StringSymbol name="SetDelayed"/>
+        <StringSymbol name="Seq"/>
         <Expression>
-            <StringSymbol name="Plus"/>
-            <StringSymbol name="first___"/>
+            <StringSymbol name="SetDelayed"/>
             <Expression>
-                <StringSymbol name="Times"/>
-                <StringSymbol name="x__"/>
+                <StringSymbol name="Plus"/>
+                <StringSymbol name="first___"/>
+                <Expression>
+                    <StringSymbol name="Times"/>
+                    <StringSymbol name="x__"/>
+                </Expression>
+                <Expression>
+                    <StringSymbol name="Times"/>
+                    <StringSymbol name="x__"/>
+                </Expression>
+                <StringSymbol name="rest___"/>
             </Expression>
             <Expression>
-                <StringSymbol name="Times"/>
-                <StringSymbol name="x__"/>
+                <StringSymbol name="Plus"/>
+                <StringSymbol name="first"/>
+                <Expression>
+                    <StringSymbol name="Times"/>
+                    <StringSymbol name="x"/>
+                    <Constant>2</Constant>
+                </Expression>
+                <StringSymbol name="rest"/>
             </Expression>
-            <StringSymbol name="rest___"/>
-        </Expression>
-        <Expression>
-            <StringSymbol name="Plus"/>
-            <StringSymbol name="first"/>
-            <Expression>
-                <StringSymbol name="Times"/>
-                <StringSymbol name="x"/>
-                <Constant>2</Constant>
-            </Expression>
-            <StringSymbol name="rest"/>
         </Expression>
     </Expression>
 </Root>

@@ -60,6 +60,8 @@ public class Context {
                     xmlParser.parse("src/main/resources/rest.xml"),
                     xmlParser.parse("src/main/resources/simplify.xml"),
                     xmlParser.parse("src/main/resources/const_compact.xml"),
+                    xmlParser.parse("src/main/resources/const_compact1.xml"),
+                    xmlParser.parse("src/main/resources/const_compact2.xml"),
                     xmlParser.parse("src/main/resources/flatten_brackets.xml")
             );
         } catch (Exception e) {

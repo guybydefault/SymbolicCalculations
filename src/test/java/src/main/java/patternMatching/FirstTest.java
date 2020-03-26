@@ -15,9 +15,7 @@ public class FirstTest {
                         new StringSymbol("First"),
                         new Expression(
                                 new StringSymbol("List"),
-                                new Constant(1),
-                                new Constant(2),
-                                new Constant(3)
+                                new Constant(1)
                         )
                 ),
                 new Constant(1)
