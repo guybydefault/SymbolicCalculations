@@ -5,8 +5,6 @@
         <Expression>
             <StringSymbol name="Times"/>
             <StringSymbol name="first___"/>
-            <StringSymbol name="x__"/>
-            <StringSymbol name="between___"/>
             <Expression>
                 <StringSymbol name="Power"/>
                 <Expression>
@@ -15,6 +13,8 @@
                 </Expression>
                 <StringSymbol name="k_Constant"/>
             </Expression>
+            <StringSymbol name="between___"/>
+            <StringSymbol name="x__"/>
             <StringSymbol name="rest___"/>
         </Expression>
         <Expression>

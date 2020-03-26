@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Expression>
+        <StringSymbol name="SetDelayed"/>
+        <Expression>
+            <StringSymbol name="Power"/>
+            <Expression>
+                <StringSymbol name="Power"/>
+                <StringSymbol name="x_"/>
+                <StringSymbol name="k1_"/>
+            </Expression>
+            <StringSymbol name="k2_"/>
+        </Expression>
+        <Expression>
+            <StringSymbol name="Power"/>
+            <StringSymbol name="x"/>
+            <Expression>
+                <StringSymbol name="Times"/>
+                <StringSymbol name="k1"/>
+                <StringSymbol name="k2"/>
+            </Expression>
+        </Expression>
+    </Expression>
+</Root>

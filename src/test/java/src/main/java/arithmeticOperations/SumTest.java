@@ -7,8 +7,7 @@ import ru.symbolic.domain.Expression;
 import ru.symbolic.domain.StringSymbol;
 import ru.symbolic.dsl.functions.ArithmeticFunctions;
 
-import static ru.symbolic.dsl.functions.ArithmeticFunctions.Plus;
-import static ru.symbolic.dsl.functions.ArithmeticFunctions.Times;
+import static ru.symbolic.dsl.functions.ArithmeticFunctions.*;
 import static src.main.java.tools.TestRunner.evaluateAndAssert;
 
 @RunWith(JUnit4.class)
@@ -405,6 +404,84 @@ public class SumTest {
                                 new Constant(2)),
                         new StringSymbol("back"),
                         new StringSymbol("front"))
+        );
+    }
+
+    //    Mul[a, b, a]
+    @org.junit.Test
+    public void t_7() {
+        evaluateAndAssert(
+                new Expression(Times,
+                        new StringSymbol("a"),
+                        new StringSymbol("b"),
+                        new StringSymbol("a")),
+                new Expression(Times,
+                        new Expression(ArithmeticFunctions.Power,
+                                new StringSymbol("a"),
+                                new Constant(2)),
+                        new StringSymbol("b"))
+        );
+    }
+
+    //    Mul[a, b, b, a, c, a]
+    @org.junit.Test
+    public void t_8() {
+        evaluateAndAssert(
+                new Expression(Times,
+                        new StringSymbol("a"),
+                        new StringSymbol("b"),
+                        new StringSymbol("b"),
+                        new StringSymbol("a"),
+                        new StringSymbol("c"),
+                        new StringSymbol("a"))
+                ,
+                new Expression(Times,
+                        new Expression(ArithmeticFunctions.Power,
+                                new StringSymbol("a"),
+                                new Constant(3)),
+                        new Expression(Power,
+                                new StringSymbol("b"),
+                                new Constant(2)),
+                        new StringSymbol("c"))
+        );
+    }
+
+    //    Power[Power[x, 2], 2]
+    @org.junit.Test
+    public void t_9() {
+        evaluateAndAssert(
+                new Expression(Power,
+                        new Expression(Power,
+                                new StringSymbol("x"),
+                                new Constant(2)),
+                        new Constant(2)
+                ),
+                new Expression(ArithmeticFunctions.Power,
+                        new StringSymbol("x"),
+                        new Constant(4)
+                ));
+    }
+
+    //    Mul[Power[Power[x, 3], 2], x, Power[x, 3]]
+    @org.junit.Test
+    public void t_10() {
+        evaluateAndAssert(
+                new Expression(
+                        Times,
+                        new Expression(Power,
+                                new Expression(Power,
+                                        new StringSymbol("x"),
+                                        new Constant(3)),
+                                new Constant(2)
+                        ),
+                        new StringSymbol("x"),
+                        new Expression(Power,
+                                new StringSymbol("x"),
+                                new Constant(3))),
+
+                new Expression(ArithmeticFunctions.Power,
+                        new StringSymbol("x"),
+                        new Constant(10))
         );
     }
 }

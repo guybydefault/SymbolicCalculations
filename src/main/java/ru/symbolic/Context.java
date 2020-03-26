@@ -71,7 +71,8 @@ public class Context {
                     xmlParser.parse("src/main/resources/mul2.xml"),
                     xmlParser.parse("src/main/resources/mul3.xml"),
                     xmlParser.parse("src/main/resources/mul4.xml"),
-                    xmlParser.parse("src/main/resources/mul5.xml")
+                    xmlParser.parse("src/main/resources/mul5.xml"),
+                    xmlParser.parse("src/main/resources/pow.xml")
 
 
             );
