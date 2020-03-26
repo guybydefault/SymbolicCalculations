@@ -345,7 +345,6 @@ public class SumTest {
                         new StringSymbol("b"),
                         new StringSymbol("c"),
                         new StringSymbol("d")
-
                 )
         );
     }
@@ -363,6 +362,49 @@ public class SumTest {
                                 new StringSymbol("a"),
                                 new StringSymbol("b"))),
                 new Constant(0)
+        );
+    }
+
+    //Add[Mul[2, x], Mul[2, a], Mul[-2, a]]
+    @org.junit.Test
+    public void t_5() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(2),
+                                new StringSymbol("x")),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(2),
+                                new StringSymbol("a")),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(-2),
+                                new StringSymbol("a"))),
+                new Expression(ArithmeticFunctions.Times,
+                        new StringSymbol("x"),
+                        new Constant(2))
+        );
+    }
+
+    //Add[front, Mul[x, y], Mul[x, y], back]
+    @org.junit.Test
+    public void t_6() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new StringSymbol("front"),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("y")),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("y")),
+                        new StringSymbol("back")),
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new StringSymbol("y"),
+                                new Constant(2)),
+                        new StringSymbol("back"),
+                        new StringSymbol("front"))
         );
     }
 }

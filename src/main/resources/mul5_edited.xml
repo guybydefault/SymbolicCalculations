@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Expression>
+        <StringSymbol name="SetDelayed"/>
+        <Expression>
+            <StringSymbol name="Times"/>
+            <StringSymbol name="first___"/>
+            <Expression>
+                <StringSymbol name="Power"/>
+                <StringSymbol name="x_"/>
+                <StringSymbol name="k1_Constant"/>
+            </Expression>
+            <StringSymbol name="between___"/>
+            <Expression>
+                <StringSymbol name="Power"/>
+                <StringSymbol name="x_"/>
+                <StringSymbol name="k2_Constant"/>
+            </Expression>
+            <StringSymbol name="rest___"/>
+        </Expression>
+        <Expression>
+            <StringSymbol name="Times"/>
+            <StringSymbol name="first"/>
+            <Expression>
+                <StringSymbol name="Power"/>
+                <StringSymbol name="x"/>
+                <Expression>
+                    <StringSymbol name="Plus"/>
+                    <StringSymbol name="k1"/>
+                    <StringSymbol name="k2"/>
+                </Expression>
+            </Expression>
+            <StringSymbol name="between"/>
+            <StringSymbol name="rest"/>
+        </Expression>
+    </Expression>
+</Root>

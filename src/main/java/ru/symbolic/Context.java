@@ -65,9 +65,14 @@ public class Context {
                     xmlParser.parse("src/main/resources/const_compact1.xml"),
                     xmlParser.parse("src/main/resources/const_compact2.xml"),
                     xmlParser.parse("src/main/resources/flatten_brackets.xml")
-                   // ,
+                    ,
 
-                    //xmlParser.parse("src/main/resources/mul1.xml")
+//                    xmlParser.parse("src/main/resources/mul1.xml"),
+                    xmlParser.parse("src/main/resources/mul2.xml"),
+                    xmlParser.parse("src/main/resources/mul3.xml"),
+                    xmlParser.parse("src/main/resources/mul4.xml"),
+                    xmlParser.parse("src/main/resources/mul5.xml")
+
 
             );
         } catch (Exception e) {

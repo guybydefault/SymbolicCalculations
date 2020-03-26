@@ -15,30 +15,28 @@
             <StringSymbol name="rest___"/>
         </Expression>
         <Expression>
+            <StringSymbol name="Plus"/>
             <Expression>
-                <StringSymbol name="Plus"/>
+                <StringSymbol name="Times"/>
+                <StringSymbol name="first"/>
+                <StringSymbol name="k"/>
                 <Expression>
-                    <StringSymbol name="Times"/>
-                    <StringSymbol name="first"/>
-                    <StringSymbol name="k"/>
-                    <Expression>
-                        <StringSymbol name="Plus"/>
-                        <StringSymbol name="x"/>
-                    </Expression>
-                    <StringSymbol name="between"/>
-                    <StringSymbol name="rest"/>
+                    <StringSymbol name="Plus"/>
+                    <StringSymbol name="x"/>
                 </Expression>
+                <StringSymbol name="between"/>
+                <StringSymbol name="rest"/>
+            </Expression>
+            <Expression>
+                <StringSymbol name="Times"/>
+                <StringSymbol name="first"/>
+                <StringSymbol name="k"/>
                 <Expression>
-                    <StringSymbol name="Times"/>
-                    <StringSymbol name="first"/>
-                    <StringSymbol name="k"/>
-                    <Expression>
-                        <StringSymbol name="Plus"/>
-                        <StringSymbol name="y"/>
-                    </Expression>
-                    <StringSymbol name="between"/>
-                    <StringSymbol name="rest"/>
+                    <StringSymbol name="Plus"/>
+                    <StringSymbol name="y"/>
                 </Expression>
+                <StringSymbol name="between"/>
+                <StringSymbol name="rest"/>
             </Expression>
         </Expression>
     </Expression>
