@@ -101,6 +101,10 @@ public class FullEvaluator implements ISymbolVisitor<CalculationResult> {
         return new CalculationResult(new LinkedList<>(), constant);
     }
 
+    public static ListSeqImplementation getListSeqImplementation() {
+        return ListSeqImplementation;
+    }
+
     private List<ISymbolVisitor<Symbol>> getFlow() {
         if (flow != null) {
             return flow;

@@ -29,7 +29,12 @@ public class ListSeqImplementation extends AbstractFunctionImplementation {
             if (expr != null) {
                 StringSymbol head = expr.getHead().visit(AsStringSymbolVisitor.getInstance());
                 if (head != null && head.equals(Functions.Seq)) {
-                    expr.getArguments().forEach(arg -> newList.add(arg));
+                    if (expr.getArguments().size() > 0) {
+                        // empty seq -> nothing
+                        expr.getArguments().forEach(arg -> newList.add(arg));
+                    } else {
+                        System.out.println("de");
+                    }
                     continue;
                 }
             }

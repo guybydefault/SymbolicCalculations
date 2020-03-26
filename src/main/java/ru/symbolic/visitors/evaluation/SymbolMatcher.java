@@ -4,8 +4,11 @@ import ru.symbolic.domain.Constant;
 import ru.symbolic.domain.Expression;
 import ru.symbolic.domain.StringSymbol;
 import ru.symbolic.domain.Symbol;
+import ru.symbolic.dsl.functions.ListFunctions;
+import ru.symbolic.dsl.library.Functions;
 import ru.symbolic.visitors.ISymbolVisitor;
 import ru.symbolic.visitors.attributes.HasAttributeChecker;
+import ru.symbolic.visitors.cast.AsExpressionVisitor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -108,6 +111,7 @@ public class SymbolMatcher implements ISymbolVisitor<Symbol> {
         for (Map.Entry<String, Symbol> entry : matchState.getLocalPatternVariables().entrySet()) {
             expr = expr.visit(new VariableReplacer(new StringSymbol(entry.getKey()), entry.getValue(), true));
         }
+        expr = expr.visit(FullEvaluator.getListSeqImplementation());
         return expr;
     }
 }

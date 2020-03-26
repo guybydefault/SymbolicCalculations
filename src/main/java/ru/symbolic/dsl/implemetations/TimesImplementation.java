@@ -36,6 +36,9 @@ public class TimesImplementation extends AbstractFunctionImplementation{
                         .filter(x -> x.visit(new AsConstantVisitor()) == null)
                         .collect(Collectors.toList());
                 s.add(constant);
+                if (constant.getValue() == 0d) {
+                    return constant;
+                }
                 return new Expression(ArithmeticFunctions.Times, s);
             }
         }

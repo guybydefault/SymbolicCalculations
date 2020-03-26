@@ -284,4 +284,85 @@ public class SumTest {
         );
     }
 
+    @org.junit.Test
+    public void t_1() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(3),
+                                new StringSymbol("x")),
+                        new StringSymbol("x")),
+                new Expression(ArithmeticFunctions.Times,
+                        new StringSymbol("x"),
+                        new Constant(4))
+        );
+    }
+
+    //Add[Mul[-1, b], Mul[3, b]]
+    @org.junit.Test
+    public void t_2() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(-1),
+                                new StringSymbol("b")),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(3),
+                                new StringSymbol("b"))),
+                new Expression(ArithmeticFunctions.Times,
+                        new StringSymbol("b"),
+                        new Constant(2))
+        );
+    }
+
+    //Add[a, Mul[y, 2], b, c, Mul[3, x], d, x, Mul[-1, y]]
+    @org.junit.Test
+    public void t_3() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new StringSymbol("a"),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("y"),
+                                new Constant(2)),
+                        new StringSymbol("b"),
+                        new StringSymbol("c"),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new Constant(3)),
+                        new StringSymbol("d"),
+                        new StringSymbol("x"),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("y"),
+                                new Constant(-1))),
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("x"),
+                                new Constant(4)),
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("y"),
+                                new Constant(1)),
+                        new StringSymbol("a"),
+                        new StringSymbol("b"),
+                        new StringSymbol("c"),
+                        new StringSymbol("d")
+
+                )
+        );
+    }
+
+    //Add[Mul[a, b], Mul[-1, a, b]]
+    @org.junit.Test
+    public void t_4() {
+        evaluateAndAssert(
+                new Expression(ArithmeticFunctions.Plus,
+                        new Expression(ArithmeticFunctions.Times,
+                                new StringSymbol("a"),
+                                new StringSymbol("b")),
+                        new Expression(ArithmeticFunctions.Times,
+                                new Constant(-1),
+                                new StringSymbol("a"),
+                                new StringSymbol("b"))),
+                new Constant(0)
+        );
+    }
 }
